@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Property Guy — Social Media Content System</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#C9A84C;--gold-light:#F0D9A0;--gold-bg:#FDF8EC;--dark:#0F0F0F;--dark2:#1A1A1A;--mid:#3A3A3A;--muted:#888;--light:#E8E8E8;--white:#FFFFFF;--radius:10px;--radius-lg:14px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#F5F3EF;color:var(--dark);min-height:100vh}
+.header{background:var(--dark);padding:28px 32px 24px;border-bottom:2px solid var(--gold)}
+.header-inner{max-width:1100px;margin:0 auto}
+.header h1{font-family:'Sora',sans-serif;font-size:22px;font-weight:700;color:#fff;letter-spacing:-.3px}
+.header h1 span{color:var(--gold)}
+.header p{font-size:13px;color:var(--muted);margin-top:4px}
+.header-meta{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap}
+.meta-chip{font-size:11px;padding:4px 10px;border-radius:20px;border:.5px solid #333;color:var(--muted)}
+.meta-chip span{color:var(--gold);font-weight:500}
+.layout{max-width:1100px;margin:0 auto;padding:28px 32px;display:flex;gap:24px;align-items:flex-start}
+.sidebar{width:224px;flex-shrink:0;background:#fff;border-radius:var(--radius-lg);border:1px solid #E2E2E2;overflow:hidden;position:sticky;top:20px}
+.sidebar-section{padding:10px 0;border-bottom:1px solid #F0F0F0}
+.sidebar-section:last-child{border-bottom:none}
+.sidebar-label{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);padding:6px 14px 4px}
+.sidebar-btn{display:flex;align-items:center;gap:8px;width:100%;padding:8px 14px;background:none;border:none;text-align:left;font-size:12.5px;color:#444;cursor:pointer;font-family:'Inter',sans-serif;transition:background .12s;border-left:3px solid transparent}
+.sidebar-btn:hover{background:#F8F8F8}
+.sidebar-btn.active{background:var(--gold-bg);color:var(--dark);font-weight:500;border-left-color:var(--gold)}
+.sidebar-count{margin-left:auto;font-size:10px;background:#F0F0F0;color:var(--muted);padding:1px 6px;border-radius:10px}
+.sidebar-btn.active .sidebar-count{background:var(--gold-light);color:#5A3800}
+.main{flex:1;min-width:0}
+.cat-header{margin-bottom:16px}
+.cat-title{font-family:'Sora',sans-serif;font-size:18px;font-weight:600;color:var(--dark)}
+.cat-desc{font-size:13px;color:var(--muted);margin-top:4px}
+.script-card{background:#fff;border:1px solid #E2E2E2;border-radius:var(--radius-lg);margin-bottom:12px;overflow:hidden;transition:border-color .15s}
+.script-card:hover{border-color:#C8C8C8}
+.card-trigger{display:flex;align-items:center;gap:10px;padding:14px 16px;cursor:pointer;user-select:none}
+.card-trigger:hover{background:#FAFAFA}
+.type-pill{font-size:10px;font-weight:600;padding:3px 9px;border-radius:20px;white-space:nowrap;flex-shrink:0}
+.pill-carousel{background:#E3F5EE;color:#0F4F3A}
+.pill-reel{background:#FDF0D8;color:#5A3800}
+.pill-avatar{background:#EEECFD;color:#2D1F6E}
+.card-title-text{font-size:13.5px;font-weight:500;color:var(--dark);flex:1}
+.chevron{font-size:10px;color:var(--muted);transition:transform .2s;margin-left:auto;flex-shrink:0}
+.chevron.open{transform:rotate(180deg)}
+.card-body{display:none;border-top:1px solid #F0F0F0;padding:16px}
+.card-body.open{display:block}
+.block{margin-bottom:14px}
+.block:last-child{margin-bottom:0}
+.block-label{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#AAA;margin-bottom:6px}
+.hook-box{background:var(--gold-bg);border:1px solid var(--gold-light);border-radius:var(--radius);padding:10px 14px;font-size:13.5px;font-weight:500;color:#5A3A00;line-height:1.6;margin-bottom:10px}
+.script-box{background:#F8F8F8;border:1px solid #EBEBEB;border-radius:var(--radius);padding:12px 14px;font-size:12.5px;line-height:1.8;color:#333;white-space:pre-wrap;font-family:'Inter',sans-serif}
+.caption-box{background:#F4F8FF;border:1px solid #D8E8FF;border-radius:var(--radius);padding:10px 14px;font-size:12.5px;line-height:1.7;color:#334;white-space:pre-wrap;font-style:italic}
+.copy-row{display:flex;gap:8px;margin-top:8px}
+.copy-btn{padding:6px 14px;font-size:11px;font-family:'Inter',sans-serif;background:#fff;border:1px solid #DDD;border-radius:6px;cursor:pointer;color:#555;transition:all .12s}
+.copy-btn:hover{background:#F5F5F5;border-color:#C0C0C0}
+.copy-btn.copied{color:#0F6E56;border-color:#0F6E56;background:#F0FBF7}
+@media(max-width:700px){.layout{flex-direction:column;padding:16px}.sidebar{width:100%;position:static}.header{padding:20px 16px}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <h1>The <span>Property Guy</span> — Social Media Content System</h1>
+    <p>Columbus, OH &nbsp;·&nbsp; 12 Years Experience &nbsp;·&nbsp; All Scripts, Captions &amp; Hashtags</p>
+    <div class="header-meta">
+      <div class="meta-chip"><span>22</span> Scripts</div>
+      <div class="meta-chip"><span>10</span> Categories</div>
+      <div class="meta-chip">Buyers &nbsp;·&nbsp; Sellers &nbsp;·&nbsp; Renters &nbsp;·&nbsp; Investors</div>
+      <div class="meta-chip">Columbus, OH Market</div>
+    </div>
+  </div>
+</div>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar"></nav>
+  <main class="main" id="main"></main>
+</div>
+
+<script>
+const categories=[
+  {id:"carousel",label:"Carousels",group:"Content Formats"},
+  {id:"avatar",label:"Avatar Reels",group:"Content Formats"},
+  {id:"onscreen",label:"On-Camera Reels",group:"Content Formats"},
+  {id:"buyer_negotiate",label:"Buyers: Negotiate",group:"Audience Scripts"},
+  {id:"ftb",label:"First-Time Buyers",group:"Audience Scripts"},
+  {id:"renter",label:"Renters: Buy vs Rent",group:"Audience Scripts"},
+  {id:"rent_vs_buy",label:"Rent vs. Buy Videos",group:"Audience Scripts"},
+  {id:"seller_warm",label:"Sellers: Warm Leads",group:"Audience Scripts"},
+  {id:"seller_attract",label:"Sellers: Attract",group:"Audience Scripts"},
+  {id:"investor",label:"Investors",group:"Audience Scripts"},
+];
+
+const descs={
+  carousel:"Swipe-format posts for Instagram & Facebook. Each slide builds toward a CTA.",
+  avatar:"AI avatar or voiceover reels. No face on camera required.",
+  onscreen:"You on camera. Authentic, high-trust content that builds your brand.",
+  buyer_negotiate:"Targeted at buyers navigating Columbus's competitive, low-inventory market.",
+  ftb:"First-time buyer education — OFHA, credit, pre-approval, and what to expect.",
+  renter:"Pro-buying messaging for Columbus renters. Make the case to stop renting and start owning.",
+  rent_vs_buy:"Side-by-side comparison content. The math that converts fence-sitters into buyers.",
+  seller_warm:"For sellers already in your pipeline. Content that pushes them to list.",
+  seller_attract:"Cold seller outreach. Content that surfaces homeowners who haven't listed yet.",
+  investor:"Fix & flip, wholesale, and Airbnb strategies for the Columbus investor market.",
+};
+
+const scripts=[
+  {id:"c1",cat:"carousel",pill:"pill-carousel",type:"Carousel",title:"5 Mistakes Columbus Buyers Make in a Hot Market",
+  hook:`SLIDE 1 HOOK: "You're losing homes before you even make an offer. Here's why 👇"`,
+  body:`SLIDE 1 (Cover): "5 Mistakes Columbus Buyers Are Making Right Now — And How to Stop Losing Homes"
+
+SLIDE 2: Mistake #1 — Getting Pre-Qualified Instead of Pre-Approved
+Pre-qual is a guess. Pre-approval is a commitment. In a low-inventory Columbus market, sellers don't wait. Show up with a full pre-approval letter or don't show up at all.
+
+SLIDE 3: Mistake #2 — Asking for Too Many Concessions
+This isn't 2018. Asking the seller to pay your closing costs, fix everything on the inspection report, AND throw in the refrigerator? You'll lose the deal every time.
+
+SLIDE 4: Mistake #3 — Waiting to "See What Else Comes Up"
+Good homes in Columbus under $350K go in 48–72 hours. If you need to "think about it," someone else is already signing the contract.
+
+SLIDE 5: Mistake #4 — Low-Balling the Offer
+Offering $15K under list price to "leave room to negotiate" just insults the seller. Come in strong or come in second.
+
+SLIDE 6: Mistake #5 — Not Having an Experienced Agent
+You need someone who knows Columbus zip codes, has relationships with listing agents, and can get you in first. That's what 12 years in this market gets you.
+
+SLIDE 7 (CTA): Stop losing homes. I help Columbus buyers WIN in competitive markets. DM me "READY" and let's get you moving.`,
+  caption:`5 mistakes Columbus buyers are making RIGHT NOW — save this before your next showing 💛\n\n12 years in this market. I know what works.\n\nDM me "READY" if you're serious about buying in Columbus.\n\n#ColumbusRealEstate #ColumbusHomes #FirstTimeHomeBuyer #BuyersAgent #OhioRealEstate #ThePropertyGuy #ColumbusOhio`},
+
+  {id:"c2",cat:"carousel",pill:"pill-carousel",type:"Carousel",title:"What OFHA Can Do For You: Ohio First-Time Buyer Assistance",
+  hook:`SLIDE 1 HOOK: "Ohio will literally help you buy your first home. Most people have NO idea. 👇"`,
+  body:`SLIDE 1 (Cover): "Free Money for Your First Home? Ohio's OFHA Program — What You Need to Know"
+
+SLIDE 2: What is OFHA?
+The Ohio Housing Finance Agency (OFHA) helps first-time buyers get into homes with down payment assistance, reduced interest rates, and grants. Yes — actual grant money you don't pay back.
+
+SLIDE 3: Who Qualifies?
+✔ First-time buyer OR haven't owned a home in 3+ years
+✔ Income limits apply by county (Columbus area: check OFHA site)
+✔ Must use the home as primary residence
+✔ Minimum credit score: typically 640+
+
+SLIDE 4: What's Available?
+• Your Choice! Down Payment Assistance — 2.5% or 5% of purchase price
+• Ohio Heroes — extra benefits for teachers, nurses, first responders, vets
+• Grants for Grads — reduced rate for recent Ohio college grads
+
+SLIDE 5: Steps to Secure OFHA Assistance
+1. Connect with an OFHA-approved lender
+2. Complete a HUD-approved homebuyer education course
+3. Get pre-approved using the OFHA program
+4. Find your home (this is where I come in)
+5. Close and move in!
+
+SLIDE 6: The Truth Nobody Tells You
+OFHA assistance runs out. It's first-come, first-served each year. Waiting costs you real money.
+
+SLIDE 7 (CTA): Ready to see if you qualify? DM me "OFHA" and I'll connect you with the right lender TODAY.`,
+  caption:`Ohio is literally handing out money for your first home — most buyers don't even know this exists.\n\nSave this post. Share it with someone who's renting and ready to buy.\n\nDM me "OFHA" — I'll walk you through every step.\n\n#OFHA #OhioHousingFinance #FirstTimeHomeBuyer #ColumbusOhio #DownPaymentAssistance #OhioRealEstate #ThePropertyGuy`},
+
+  {id:"c3",cat:"carousel",pill:"pill-carousel",type:"Carousel",title:"Investor's Guide: Wholesale, Fix & Flip, Airbnb in Columbus",
+  hook:`SLIDE 1 HOOK: "Columbus is one of the TOP real estate investment markets in the country. Here's how to play it. 👇"`,
+  body:`SLIDE 1 (Cover): "3 Ways Smart Investors Are Making Money in Columbus Real Estate Right Now"
+
+SLIDE 2: Strategy 1 — Wholesale (Flip the Contract, Not the House)
+Find distressed properties, get them under contract below market value, and assign the contract to another investor for a fee. No renovations. No holding costs. Pure deal-making. Columbus has a steady stream of distressed inventory if you know where to look.
+
+SLIDE 3: Strategy 2 — Fix & Flip
+Columbus is a flipper's market. Target the 43204, 43223, 43211 zip codes for value-add opportunities. ARV (after repair value) matters more than purchase price. Run your numbers tight: purchase + rehab + holding costs + selling costs must leave 20%+ profit.
+
+SLIDE 4: Strategy 3 — Airbnb/Short-Term Rental
+Columbus hosts 50+ events per year — Ohio State games, conventions, concerts. Short-term rental demand is MASSIVE. The Short North, German Village, and near-campus properties cash flow heavily when done right.
+
+SLIDE 5: What Every Investor Needs Before They Start
+✔ Proof of funds or hard money lined up
+✔ A contractor you trust
+✔ A realistic ARV analysis
+✔ An agent who actually invests (or has deep investor relationships)
+
+SLIDE 6: Why Columbus?
+• Below national average home prices
+• Strong rental demand from Ohio State
+• Growing corporate relocation market (Intel, Amazon)
+• Consistent appreciation over the last decade
+
+SLIDE 7 (CTA): I work with investors at every level — from first deal to portfolio builders. DM me "INVEST" and let's talk numbers.`,
+  caption:`Columbus real estate investors are quietly building wealth while everyone else is waiting.\n\nWholesale. Fix & Flip. Airbnb. The playbook is right here.\n\nDM me "INVEST" — 12 years of Columbus market knowledge at your service.\n\n#ColumbusInvestor #RealEstateInvesting #FixAndFlip #AirbnbInvesting #ColumbusOhio #WholesaleRealEstate #ThePropertyGuy`},
+
+  {id:"av1",cat:"avatar",pill:"pill-avatar",type:"Avatar Reel",title:"Why Columbus Buyers Are Losing Homes",
+  hook:`HOOK TEXT (on screen, first 2 seconds): "Why Columbus buyers keep losing to other offers"`,
+  body:`[AVATAR speaks directly to camera — conversational, fast-paced]
+
+"If you're trying to buy a home in Columbus right now and you keep losing to other offers — I need you to hear this.
+
+The market is tight. Inventory is LOW. And sellers have options.
+
+Here's what's beating you: someone else came in cleaner, faster, and more committed than you.
+
+That means — pre-approved, not pre-qualified. Escalation clause ready. Minimal contingencies. And a strong offer price the day the home hits the market.
+
+I've been doing this for 12 years in Columbus. I know the listing agents. I know the neighborhoods. And I know how to get my buyers to the front of the line.
+
+Stop losing. Start winning.
+
+Comment 'READY' below and let's get you into a home."`,
+  caption:`If this is you — you NEED a strategy, not just a search app.\n\nDM me or comment READY below.\n\n#ColumbusRealEstate #BuyersAgent #ColumbusOhio #HomeBuying #ThePropertyGuy #OhioRealEstate`},
+
+  {id:"av2",cat:"avatar",pill:"pill-avatar",type:"Avatar Reel",title:"Renter → Homeowner With OFHA",
+  hook:`HOOK TEXT: "Ohio will pay part of your down payment. You just have to qualify."`,
+  body:`[AVATAR — upbeat, empowering tone]
+
+"Let me tell you something nobody's telling renters in Columbus.
+
+Ohio has a program — OFHA — where you can get up to 5% of your home's purchase price in DOWN PAYMENT ASSISTANCE.
+
+On a $250,000 home? That's $12,500 toward your down payment. That might cover ALL of it.
+
+There are also programs for teachers, nurses, veterans, first responders — and even one specifically for recent Ohio college grads.
+
+You don't need to have been saving for years. You just need to know this exists and take the first step.
+
+I work with first-time buyers in Columbus every single day. I know the lenders, I know the programs, and I know how to get you from renting to owning — faster than you think.
+
+Drop 'OFHA' in the comments and I'll send you everything you need to get started."`,
+  caption:`Ohio literally has money waiting for first-time buyers. Most people never claim it.\n\nDrop OFHA in the comments — I'll DM you the details.\n\n#FirstTimeHomeBuyer #OFHA #ColumbusOhio #OhioRealEstate #DownPaymentAssistance #ThePropertyGuy`},
+
+  {id:"av3",cat:"avatar",pill:"pill-avatar",type:"Avatar Reel",title:"Why Columbus Investors Love This Market",
+  hook:`HOOK TEXT: "Columbus is producing more millionaires through real estate than almost any Midwest city."`,
+  body:`[AVATAR — confident, data-driven energy]
+
+"I'm going to tell you why smart money keeps flowing into Columbus real estate.
+
+One: affordability. You can still find properties under $150K here that cash flow.
+
+Two: demand. Ohio State alone creates a rental market that doesn't stop. Add in the Intel campus expansion, Amazon distribution, and an influx of remote workers — and you have sustained rental demand for years.
+
+Three: appreciation. Columbus home values have appreciated consistently over the past decade — even through the national slowdowns.
+
+Whether you're looking to wholesale your first deal, flip a property in Linden or the South Side, or set up an Airbnb near the Short North for Ohio State game weekends — I can show you where the money is.
+
+I've been investing and selling in this market for 12 years. I know the pockets. I know the numbers.
+
+Comment 'NUMBERS' below and I'll run a free market analysis on any Columbus zip code you're eyeing."`,
+  caption:`Columbus investors already know. Now you do too.\n\nComment NUMBERS below — I'll pull the data on any Columbus zip code.\n\n#ColumbusInvestor #RealEstateInvesting #ColumbusOhio #CashFlow #Airbnb #FixAndFlip #ThePropertyGuy`},
+
+  {id:"oc1",cat:"onscreen",pill:"pill-reel",type:"On-Camera Reel",title:"\"I Have 12 Years of Stories\" — Social Proof Reel",
+  hook:`HOOK: "In 12 years, I've seen buyers lose their dream home because of ONE mistake."`,
+  body:`[YOU on camera — stand in front of a Columbus home, car, or office. Casual but confident.]
+
+"In 12 years I've seen buyers lose their dream home because of one mistake.
+
+They waited.
+
+They wanted to sleep on it. Talk to their parents. See one more house.
+
+And someone else — who was ready — signed the contract that night.
+
+Columbus is not a 'wait and see' market right now. Homes are moving in 24 to 72 hours. If you're not prepared to move fast, you're going to keep watching from the sidelines.
+
+Here's what being prepared looks like: pre-approval letter in hand, wish list narrowed down, and an agent who picks up the phone.
+
+[point at camera]
+
+I pick up the phone. I've been doing this for 12 years. And I get my buyers into homes.
+
+Drop 'CALL ME' in the comments and let's talk."`,
+  caption:`12 years. Hundreds of Columbus families. One rule: be ready to move.\n\nDrop CALL ME below or DM me directly.\n\n#ColumbusRealEstate #BuyersAgent #ThePropertyGuy #ColumbusOhio #HomeBuying #OhioRealEstate`},
+
+  {id:"oc2",cat:"onscreen",pill:"pill-reel",type:"On-Camera Reel",title:"Seller Testimonial-Style Reel — $28K Over Asking",
+  hook:`HOOK: "I just sold a home in Columbus for $28,000 over asking. Here's exactly what we did."`,
+  body:`[YOU on camera — walk and talk style, or standing in front of a SOLD sign]
+
+"I just sold a home in Columbus for $28,000 over asking price.
+
+And no — the market didn't just hand us that. We earned it.
+
+Here's what we did differently:
+
+We priced it right — not high, right. Pricing too high actually kills your final number.
+
+We staged it. First impressions on Zillow are everything. We made sure every photo earned a showing.
+
+We created competition. Multiple showings in the first 48 hours. Deadline for offers. Multiple buyers competing for one home.
+
+And we negotiated every single term — not just the price.
+
+That's what 12 years of selling in Columbus looks like.
+
+If you're thinking about selling your home this year, DM me the word 'SELL' and I'll show you exactly what your home could sell for — and what it takes to maximize it."`,
+  caption:`$28K over asking. This is what a real strategy looks like.\n\nThinking about selling? DM me SELL below.\n\n#ColumbusRealEstate #HomeSelling #ThePropertyGuy #JustSold #ColumbusOhio #ListingAgent #SoldOverAsking`},
+
+  {id:"oc3",cat:"onscreen",pill:"pill-reel",type:"On-Camera Reel",title:"\"Here's What Nobody Tells You\" — Investor Reel",
+  hook:`HOOK: "Here's what nobody tells you about buying investment property in Columbus."`,
+  body:`[YOU on camera — serious, direct, maybe walking through a neighborhood]
+
+"Here's what nobody tells you about buying investment property in Columbus.
+
+The best deals are never on Zillow.
+
+They're in the relationships. They're in the off-market conversations. They're in knowing which wholesalers have properties before they hit any platform.
+
+I've built those relationships over 12 years. And I share them with my investor clients.
+
+I've helped investors buy and reposition properties in Franklinton before it was trendy. In Weinland Park before the coffee shops moved in. On the South Side before people realized what was happening there.
+
+The window is still open — but it's closing.
+
+If you're an investor looking at Columbus — whether this is your first deal or you're building a portfolio — you need someone who knows the market from the inside.
+
+Comment 'DEAL' below. Let's find your next opportunity."`,
+  caption:`The best Columbus deals are NOT on Zillow. They're in the network.\n\nComment DEAL below — let's talk.\n\n#ColumbusInvestor #OffMarket #RealEstateInvesting #ThePropertyGuy #ColumbusOhio #InvestmentProperty`},
+
+  {id:"bn1",cat:"buyer_negotiate",pill:"pill-reel",type:"On-Camera Reel",title:"How to Negotiate in a Sellers Market",
+  hook:`HOOK: "Stop negotiating like it's 2015. Here's how to win in today's Columbus market."`,
+  body:`[YOU on camera or avatar, confident and clear]
+
+"If you're still trying to negotiate like there's a buyer's market — you are going to lose every single time.
+
+Here's the new negotiation playbook for Columbus:
+
+Number one: come in at or above asking. I know that stings. But in most Columbus price ranges right now, list price IS the floor.
+
+Number two: shorten your inspection period. 10 days is standard. If you can do 7 and stay informed — that makes your offer stand out.
+
+Number three: escalation clause. If you love the home, have your agent write an escalation clause — you automatically beat competing offers up to your max.
+
+Number four: flexible closing. Find out what the seller NEEDS. Sometimes they need 60 days. Sometimes they need 21. Match their timeline and you win.
+
+Number five: don't nickel-and-dime after inspection. Ask only for health and safety items. Asking for paint touch-ups in a multiple-offer situation is a deal-killer.
+
+The buyers winning in Columbus right now aren't luckier than you. They're smarter.
+
+DM me 'STRATEGY' and let's build YOUR offer strategy."`,
+  caption:`The Columbus market doesn't negotiate — it selects. Here's how to get selected.\n\nDM me STRATEGY below.\n\n#ColumbusRealEstate #BuyersAgent #HomeNegotiation #ColumbusOhio #ThePropertyGuy #CompetitiveMarket`},
+
+  {id:"bn2",cat:"buyer_negotiate",pill:"pill-carousel",type:"Carousel",title:"The Winning Offer Checklist",
+  hook:`SLIDE 1: "Want to write an offer that actually wins in Columbus? Use this checklist."`,
+  body:`SLIDE 1 (Cover): "The Columbus Winning Offer Checklist — Save This Before You Make Your Next Offer"
+
+SLIDE 2: ✅ Full Pre-Approval Letter Attached
+Not pre-qual. Full pre-approval from a local Columbus lender (local lenders = more trust from listing agents).
+
+SLIDE 3: ✅ Offer Price Is Competitive
+Research comps. In a hot Columbus market, at list or above is often necessary. Know your number.
+
+SLIDE 4: ✅ Escalation Clause Included
+Automatically beats competing offers up to your max. This alone has won homes for my buyers.
+
+SLIDE 5: ✅ Inspection Period Is Tight
+7–10 days max. Keep it short and don't ask for cosmetic repairs.
+
+SLIDE 6: ✅ Closing Timeline Matches Seller's Needs
+Ask the listing agent what the seller wants. Match it. Simple edge that most buyers ignore.
+
+SLIDE 7: ✅ Personal Letter (Sometimes)
+A heartfelt buyer letter isn't always appropriate — but in the right situation, it's the tiebreaker.
+
+SLIDE 8 (CTA): Want me to review your offer strategy before you submit? DM me 'OFFER' — let's make sure you win.`,
+  caption:`Save this checklist before your next offer — these details are why my buyers WIN.\n\nDM me OFFER below.\n\n#ColumbusRealEstate #WinningOffer #BuyersAgent #ThePropertyGuy #ColumbusOhio`},
+
+  {id:"ftb1",cat:"ftb",pill:"pill-reel",type:"On-Camera Reel",title:"What Do You Need Before You Start Looking?",
+  hook:`HOOK: "Most first-time buyers start in the wrong place. Here's where to actually start."`,
+  body:`[On-camera or avatar — warm, helpful tone]
+
+"If you're a first-time homebuyer and your first step was opening Zillow — you started in the wrong place.
+
+Here's where you actually start:
+
+Step one: know your credit score. Go to annualcreditreport.com — free, no gimmicks. You need at minimum a 580 for FHA loans, 640+ for most programs including OFHA.
+
+Step two: document your income. Two years of W-2s, recent pay stubs, bank statements going back 60 days. Lenders are going to ask for all of this.
+
+Step three: get pre-approved — not pre-qualified. Call a local Columbus lender and get the actual pre-approval letter. This tells you your real budget.
+
+Step four: figure out your non-negotiables. Neighborhood? School district? Commute time? Minimum bedrooms? Know what you NEED vs. what you WANT.
+
+Step five: call an agent. BEFORE you visit open houses. Before you tour anything. A good buyer's agent costs you nothing — the seller pays that commission.
+
+And if you're in Columbus? I'm right here.
+
+Comment 'FIRST' below and I'll send you my free first-time buyer guide."`,
+  caption:`Don't start on Zillow. Start HERE.\n\nComment FIRST below and I'll send you my free Columbus first-time buyer guide.\n\n#FirstTimeHomeBuyer #ColumbusOhio #HomeBuyingTips #OFHA #OhioRealEstate #ThePropertyGuy`},
+
+  {id:"ftb2",cat:"ftb",pill:"pill-carousel",type:"Carousel",title:"OFHA Step-by-Step: Securing Ohio Down Payment Assistance",
+  hook:`SLIDE 1: "Ohio first-time buyers: here are the exact steps to get down payment assistance."`,
+  body:`SLIDE 1 (Cover): "How to Secure OFHA Down Payment Assistance in Ohio — Step by Step"
+
+SLIDE 2: Step 1 — Check Your Eligibility
+• First-time buyer (or no homeownership in last 3 years)
+• Meet income limits for Franklin County
+• Plan to use home as primary residence
+• Minimum credit score: 640 (for most OFHA programs)
+
+SLIDE 3: Step 2 — Complete Homebuyer Education
+OFHA requires a HUD-approved homebuyer education course.
+• Available online at eHome America or Framework
+• Takes about 6–8 hours
+• Costs around $75 — often reimbursable
+
+SLIDE 4: Step 3 — Connect With an OFHA-Approved Lender
+Not all lenders offer OFHA programs. You MUST use an approved lender. Ask for the "Your Choice! Down Payment Assistance" product. Get your pre-approval letter.
+
+SLIDE 5: Step 4 — Choose Your DPA Option
+• 2.5% DPA: Forgivable after 7 years
+• 5% DPA: Same forgiveness rules — larger help, same commitment
+• On a $250K home: that's $6,250–$12,500 in assistance
+
+SLIDE 6: Step 5 — Find Your Home
+This is where your agent (me) comes in. We search homes that fit your pre-approved amount, schedule showings, and write the winning offer.
+
+SLIDE 7: Step 6 — Close & Move In
+OFHA funds are disbursed at closing. You show up on closing day, sign, and get your keys.
+
+SLIDE 8 (CTA): Ready to start? DM me 'OFHA' — I'll connect you with a trusted Columbus lender today.`,
+  caption:`Ohio first-time buyers: save this. This is the exact roadmap to using OFHA assistance.\n\nDM me OFHA below and let's get you started TODAY.\n\n#OFHA #OhioRealEstate #FirstTimeHomeBuyer #ColumbusOhio #DownPaymentAssistance #ThePropertyGuy`},
+
+  {id:"renter1",cat:"renter",pill:"pill-reel",type:"On-Camera Reel",title:"Why Buying in Columbus Beats Renting — Reel",
+  hook:`HOOK: "Columbus renters — every month you wait is another month of equity you're giving away. Here's the truth."`,
+  body:`[On-camera — direct, energized. This is a PRO-BUYING message for renters.]
+
+"Columbus renters — I need you to hear this.
+
+Every single month you pay rent, you are building someone else's wealth. Not yours. Theirs.
+
+And here's the part that should really get your attention:
+
+Columbus home values have gone up consistently for the last decade. That appreciation? The homeowner keeps it. You keep nothing.
+
+But here's what's changed: buying in Columbus is more accessible than ever for renters.
+
+Ohio's OFHA program gives you up to 5% of your purchase price in down payment assistance. On a $240,000 home — that's $12,000 you don't have to save on your own.
+
+Your mortgage payment on that home? It could be comparable to or LESS than what you're paying in rent right now.
+
+The difference is: one of those payments builds equity. One of them builds nothing.
+
+If you've been renting in Columbus for more than a year and you haven't at least had the conversation about buying — you owe it to yourself to find out what's possible.
+
+DM me 'BUY' and let's talk about what buying in Columbus actually looks like for your situation."`,
+  caption:`Columbus renters: this one's for you. Every month you rent is a month you're not building equity.\n\nDM me BUY — let's find out what's actually possible for your situation.\n\n#ColumbusRealEstate #BuyDontRent #ColumbusOhio #StopRenting #ThePropertyGuy #FirstTimeHomeBuyer #BuildWealth`},
+
+  {id:"renter2",cat:"renter",pill:"pill-carousel",type:"Carousel",title:"5 Reasons Buying Beats Renting in Columbus OH",
+  hook:`SLIDE 1 HOOK: "If you're renting in Columbus right now, your landlord is thanking you every month. Here's why you should stop."`,
+  body:`SLIDE 1 (Cover): "5 Reasons Buying a Home in Columbus Beats Renting — And Why NOW Is the Time to Make the Move"
+
+SLIDE 2: Reason #1 — Your Mortgage Builds Wealth. Your Rent Builds Theirs.
+Every rent check you write disappears. Every mortgage payment you make builds equity in an asset you own. Columbus homeowners who bought 5 years ago have gained an average of $60,000–$100,000 in equity. Renters gained zero.
+
+SLIDE 3: Reason #2 — Columbus Home Values Keep Going Up
+Columbus has seen consistent appreciation year after year — even through national slowdowns. A home you buy today at $250,000 could realistically be worth $310,000–$330,000 in 5 years. Your rent goes up too — but that money never comes back to you.
+
+SLIDE 4: Reason #3 — Your Payment Gets Fixed. Your Rent Never Does.
+With a 30-year fixed mortgage, your principal and interest payment stays the same for 30 years. Columbus average rents have increased 20–30% over the last 5 years. Locking in a payment now protects you from rising rental costs forever.
+
+SLIDE 5: Reason #4 — Ohio Has Programs That Make It Easier Than You Think
+Through OFHA, first-time buyers can get up to 5% of their purchase price in down payment assistance. On a $250K Columbus home — that's $12,500 you don't have to save. Most renters don't even know this exists.
+
+SLIDE 6: Reason #5 — A Columbus Mortgage Can Cost LESS Than Your Rent
+A 3 bed / 2 bath home in Columbus under $250,000 carries a monthly mortgage often comparable to — or even less than — what renters pay for the same size apartment. Except now you own it.
+
+SLIDE 7 (CTA): Stop paying your landlord's mortgage. Start building your own wealth.
+DM me "BUY" and I'll show you exactly what it takes to get into a Columbus home — on your current budget.`,
+  caption:`If you're renting in Columbus right now — save this. Share it with a friend still on the fence.\n\nEvery month you wait is another month of equity you're handing to someone else.\n\nDM me BUY — let's talk about what it actually takes to own in Columbus.\n\n#ColumbusRealEstate #BuyDontRent #ColumbusOhio #StopRenting #ThePropertyGuy #OFHA #OhioRealEstate #BuildWealth #ColumbusHomes`},
+
+  {id:"rvb1",cat:"rent_vs_buy",pill:"pill-reel",type:"On-Camera Reel",title:"Rent vs. Buy Reel: The Columbus Numbers",
+  hook:`HOOK: "You're paying $1,300/month in rent. Do you know what that's buying you? Nothing."`,
+  body:`[High energy, direct — this one is meant to sting a little and inspire action]
+
+"You're paying $1,300 a month in rent.
+
+In 5 years, that's $78,000.
+
+You know what you own after paying that? Zero. Nothing. You own zero equity.
+
+Now let's look at buying.
+
+A $230,000 home in Columbus — which absolutely exists right now — at today's rates, your mortgage payment is roughly in that same range.
+
+But here's the difference: every single month, you're building equity. Columbus homes have appreciated an average of 6–8% per year. Your $230K home could be worth $290K–$310K in 5 years.
+
+You go from renting — and building zero — to owning an asset that grows while you sleep.
+
+Now I'm not saying everyone should buy right this second. But if you're in Columbus and you've been renting for more than 2 years — we need to have a conversation.
+
+Because there may be programs — OFHA, FHA, down payment assistance — that can get you into a home for less than your first and last month's rent.
+
+Comment 'MATH' below. Let me run the real numbers for your situation."`,
+  caption:`$78,000 in rent over 5 years → $0 in equity. Let's change that math.\n\nComment MATH — I'll run YOUR numbers.\n\n#RentVsBuy #ColumbusOhio #StopRenting #ColumbusRealEstate #ThePropertyGuy #BuildWealth`},
+
+  {id:"rvb2",cat:"rent_vs_buy",pill:"pill-carousel",type:"Carousel",title:"Rent vs. Buy Carousel: The 5-Year Columbus Comparison",
+  hook:`SLIDE 1: "What happens to your money if you rent for 5 years vs. buy? This will change how you think."`,
+  body:`SLIDE 1 (Cover): "Renting vs. Buying in Columbus — What Happens to Your Money Over 5 Years?"
+
+SLIDE 2: If You Rent for 5 Years
+Monthly rent: $1,300 avg.
+Total paid: $78,000
+Equity built: $0
+At end of 5 years: You still need to find a place to live.
+
+SLIDE 3: If You Buy in Columbus Today
+Home price: $240,000 (realistic Columbus entry-level)
+Down payment with OFHA: As low as $6,000–$8,000
+Monthly mortgage (PITI): ~$1,500–$1,650
+
+SLIDE 4: After 5 Years of Ownership
+Equity paid down: ~$12,000–$15,000
+Columbus appreciation (est. 6%/yr): +$70,000+ in home value
+Total equity position: $80,000–$90,000
+
+SLIDE 5: The Real Comparison
+Renter: $78K paid out, $0 back
+Buyer: $90K+ in asset value, plus the home you live in
+The gap is real. And it grows every year you wait.
+
+SLIDE 6: What Stops Most Columbus Renters?
+"I don't have a big down payment." — OFHA gives you up to 5%
+"My credit isn't great." — 6–12 months can change your options
+"I don't know where to start." — That's literally what I do.
+
+SLIDE 7 (CTA): The best time to buy was 5 years ago. The second best time is now. DM me 'NUMBERS' — let's run YOUR situation.`,
+  caption:`5 years of renting vs. 5 years of owning in Columbus. The numbers don't lie.\n\nSave this. Share it with someone who's been on the fence.\n\nDM me NUMBERS below.\n\n#RentVsBuy #ColumbusOhio #BuildEquity #ThePropertyGuy #StopRenting #ColumbusRealEstate`},
+
+  {id:"sw1",cat:"seller_warm",pill:"pill-reel",type:"On-Camera Reel",title:"Warm Seller Lead Reel: The Market Is In Your Favor",
+  hook:`HOOK: "If you bought your Columbus home before 2022, you're sitting on more equity than you think."`,
+  body:`[Direct to camera — confident, no hype, just facts]
+
+"If you bought a home in Columbus before 2022, I need you to hear this.
+
+The average Columbus homeowner who purchased 5+ years ago has gained $60,000 to $100,000 in equity — or more depending on your neighborhood.
+
+That's real money. Sitting in your walls. Waiting to move.
+
+Maybe you've been thinking about upgrading. More space. Better school district. A different neighborhood.
+
+Or maybe you're thinking about downsizing — the kids are grown, the house is too big, and you want simplicity.
+
+Either way — the market is in YOUR favor right now. Low inventory means sellers are getting top dollar. Multiple offers. Fast closes. Sometimes waived contingencies.
+
+This is not a market to sit on the sidelines.
+
+I do free home valuations for Columbus homeowners. No pressure. Just the data.
+
+DM me 'MY HOME' and I'll send you a full valuation — what your home is worth today and what we could realistically net you at closing."`,
+  caption:`Columbus homeowners: do you actually know what your home is worth TODAY?\n\nDM me MY HOME — I'll send you a free valuation.\n\n#ColumbusRealEstate #HomeEquity #SellingYourHome #ColumbusOhio #ThePropertyGuy #HomeSeller`},
+
+  {id:"sw2",cat:"seller_warm",pill:"pill-carousel",type:"Carousel",title:"What to Expect When You Sell Your Columbus Home",
+  hook:`SLIDE 1: "Thinking about selling your Columbus home? Here's exactly what the process looks like."`,
+  body:`SLIDE 1 (Cover): "What to Expect When You Sell Your Columbus Home — No Surprises, Just a Plan"
+
+SLIDE 2: Step 1 — Get Your Free Home Valuation
+We analyze recent comparable sales in your specific Columbus neighborhood. I give you a real number — not inflated to get the listing, not low to sell fast. The right number.
+
+SLIDE 3: Step 2 — Prep & Stage (Without Spending a Fortune)
+The #1 ROI items: fresh paint, declutter, professional photos. I handle the photography. Small investment, massive impact on what buyers see online first.
+
+SLIDE 4: Step 3 — Strategic Pricing & Launch
+We don't just list — we launch. The first 7 days on the market drive everything. Pricing right creates urgency. We target multiple offers in the first weekend.
+
+SLIDE 5: Step 4 — Review Offers Together
+I walk you through every offer. Price, terms, contingencies, buyer strength. We negotiate the best deal — not just the highest number, but the best overall package.
+
+SLIDE 6: Step 5 — Under Contract to Closing
+Inspection negotiation, appraisal management, title, lender coordination. I handle the moving parts so you don't have to.
+
+SLIDE 7: What Can You Expect to Net?
+After agent commissions, closing costs, and any concessions — most Columbus sellers are walking away with strong equity checks. Exact numbers depend on your home and loan balance.
+
+SLIDE 8 (CTA): Want to see YOUR numbers? DM me 'SELL' — I'll have a full valuation in your hands within 24 hours.`,
+  caption:`Thinking about selling? Here's what the process actually looks like — no surprises.\n\nDM me SELL below and I'll run your free valuation within 24 hours.\n\n#ColumbusRealEstate #SellingYourHome #ListingAgent #ThePropertyGuy #ColumbusOhio #HomeSeller`},
+
+  {id:"sa1",cat:"seller_attract",pill:"pill-reel",type:"On-Camera Reel",title:"Attract Sellers: Your Neighbors Are Getting Rich",
+  hook:`HOOK: "Your neighbors just sold for $40K over what you think your home is worth. Want to know why?"`,
+  body:`[Walk-and-talk style — show a Columbus neighborhood, a SOLD sign visible if possible]
+
+"Let me show you something interesting.
+
+[pan to sold sign]
+
+This home right here — your neighbor's home — just sold for over asking price.
+
+You know what that means for YOU?
+
+It means comparable sales in this neighborhood just went up. It means if you're thinking about selling, your home — right now, today — is worth more than it was 12 months ago.
+
+And here's the thing about the Columbus market: we have very low inventory. That means every new listing that's priced and marketed correctly gets serious buyer attention immediately.
+
+I'm talking multiple showings in the first 48 hours. Multiple offers. Buyers waiving contingencies to compete.
+
+This is the seller's market you've been waiting for.
+
+I specialize in this Columbus market. 12 years. I know what your home is worth. I know how to market it. And I know how to get you the absolute maximum.
+
+If you're even 10% curious about what your home could sell for right now — DM me 'MY VALUE.' No commitment. Just information."`,
+  caption:`Your neighbors are cashing out. Are you paying attention?\n\nDM me MY VALUE — I'll tell you exactly what YOUR home is worth right now.\n\n#ColumbusRealEstate #SellerMarket #HomeValue #ThePropertyGuy #ColumbusOhio #SellYourHome`},
+
+  {id:"sa2",cat:"seller_attract",pill:"pill-carousel",type:"Carousel",title:"4 Signs Now Is the Time to List Your Columbus Home",
+  hook:`SLIDE 1: "4 signs it's time to sell your Columbus home — even if you weren't planning to."`,
+  body:`SLIDE 1 (Cover): "4 Signs Now Is The Right Time to Sell Your Columbus Home"
+
+SLIDE 2: Sign #1 — You Have Significant Equity
+If you've owned your Columbus home for 3+ years, you've likely gained $40,000–$100,000+ in equity due to appreciation. That's a down payment on your next chapter — or a check you can take anywhere.
+
+SLIDE 3: Sign #2 — Your Home No Longer Fits Your Life
+Growing family. Empty nest. New job location. Life changes, and your home should change with it. The money is here to make that move NOW.
+
+SLIDE 4: Sign #3 — Buyer Demand Exceeds Supply
+Columbus has historically low inventory in most price ranges. When demand exceeds supply, sellers win. Multiple offers. Over asking prices. Fast closes. That's today's reality.
+
+SLIDE 5: Sign #4 — You've Been "Thinking About It" For a While
+Thinking about selling for 6+ months? That's your gut telling you something. The market isn't going to wait forever. At some point, interest rates, buyer demand, or life circumstances change.
+
+SLIDE 6: What Holding Back Costs You
+Every month you delay, the market shifts. Interest rates affect what buyers can afford. Your opportunity window is open — but markets cycle.
+
+SLIDE 7 (CTA): Curious? Let's find out what you could walk away with. DM me 'MY VALUE' — free, fast, and no pressure.`,
+  caption:`If any of these signs hit close to home — your gut is right.\n\nDM me MY VALUE below. Let's see what you could walk away with.\n\n#SellingYourHome #ColumbusRealEstate #HomeEquity #ThePropertyGuy #ColumbusOhio #ListYourHome`},
+
+  {id:"inv1",cat:"investor",pill:"pill-reel",type:"On-Camera Reel",title:"Fix & Flip Columbus Playbook",
+  hook:`HOOK: "A Columbus flip done right can return $30,000–$60,000 in 4–6 months. Here's the formula."`,
+  body:`[On-camera — show a property or use B-roll of Columbus neighborhoods]
+
+"Let me break down a Columbus fix-and-flip deal so you can see exactly how the numbers work.
+
+Purchase price: $120,000 — distressed property in a strong Columbus resale neighborhood.
+
+Rehab budget: $45,000 — cosmetic to moderate work. Kitchens, baths, flooring, paint, curb appeal.
+
+Holding costs — 5 months of financing, utilities, taxes, insurance: roughly $8,000.
+
+Selling costs — agent fees, closing: approximately $14,000 on a $220K sale.
+
+After Repair Value: $225,000.
+
+Your gross profit: approximately $38,000–$42,000 on a 5-month project.
+
+Now — can you improve those numbers? Yes. Faster rehab. Lower purchase price. Stronger ARV neighborhood.
+
+Can you blow up those numbers? Also yes. Bad contractor. Surprise structural issues. Overpriced purchase.
+
+This is why you need systems, relationships, and someone who knows which Columbus zip codes have the rehab depth to support your ARV.
+
+I've worked with flippers at every level in this market. Comment 'FLIP' and let's talk about your first — or next — Columbus deal."`,
+  caption:`Columbus flip math, broken down simply — save this before your next deal.\n\nComment FLIP or DM me. Let's talk numbers.\n\n#FixAndFlip #ColumbusInvestor #RealEstateInvesting #ThePropertyGuy #ColumbusOhio #FlipThatHouse`},
+
+  {id:"inv2",cat:"investor",pill:"pill-reel",type:"On-Camera Reel",title:"Airbnb Columbus Game Plan",
+  hook:`HOOK: "Columbus Airbnb hosts near Ohio State are grossing $3,000–$5,000 per month. Here's the play."`,
+  body:`[On camera — energetic, data-driven]
+
+"Ohio State University has over 60,000 students and hosts over 100,000 fans for home football games.
+
+The Short North is one of the top entertainment districts in the Midwest.
+
+Columbus hosts major conventions at the Greater Columbus Convention Center year-round.
+
+Are you starting to see the short-term rental opportunity here?
+
+Let me paint a picture: a 3-bed, 2-bath property near campus. Modest STR setup. During Ohio State football season alone, you can gross $4,000–$6,000 in a single weekend.
+
+For the rest of the year, steady demand from Ohio State visitors, convention attendees, and business travelers keeps occupancy strong.
+
+Now — you need to understand Columbus STR regulations. Permits are required. There are zone restrictions. This is not a 'buy it and list it tomorrow' market. You need to do it right.
+
+That's where I come in. I know which Columbus properties are in STR-permissible zones. I know what works and what doesn't.
+
+Comment 'AIRBNB' and let's talk about building your Columbus short-term rental strategy."`,
+  caption:`Columbus Airbnb money is REAL — but you have to know where to play.\n\nComment AIRBNB — I'll tell you which Columbus zones work and which don't.\n\n#AirbnbInvesting #ColumbusAirbnb #ShortTermRental #ColumbusOhio #OhioState #ThePropertyGuy #STRInvesting`},
+
+  {id:"inv3",cat:"investor",pill:"pill-carousel",type:"Carousel",title:"Wholesale vs. Flip vs. Airbnb — Which Is Right For You?",
+  hook:`SLIDE 1: "3 ways to make money in Columbus real estate. Which one fits your situation?"`,
+  body:`SLIDE 1 (Cover): "Wholesale vs. Fix & Flip vs. Airbnb — Columbus Investor's Decision Guide"
+
+SLIDE 2: Wholesaling — Best For: Getting Started With No Cash
+What it is: Find distressed properties, get under contract below market value, assign the contract to a buyer for a fee.
+Capital needed: Minimal (EMD of $500–$2,000 + marketing)
+Timeline: 2–8 weeks per deal
+Profit per deal: $5,000–$25,000 assignment fees
+
+SLIDE 3: Fix & Flip — Best For: Builders & Project Managers
+What it is: Buy distressed, renovate, resell at market value.
+Capital needed: Significant (purchase + rehab, or hard money)
+Timeline: 3–9 months per project
+Profit potential: $25,000–$80,000+ per deal
+
+SLIDE 4: Airbnb/STR — Best For: Long-Term Cash Flow Builders
+What it is: Buy in high-demand area, furnish, list on Airbnb/VRBO.
+Capital needed: Down payment + furnishing ($5,000–$15,000)
+Revenue potential: $2,000–$6,000/month in strong Columbus locations
+
+SLIDE 5: Columbus-Specific Advantages for Each
+Wholesale: Aging housing stock + motivated sellers in transitional neighborhoods
+Flip: Franklinton, Linden, South Side — below-market buys with strong ARV upside
+Airbnb: Near Ohio State, Short North, convention center — year-round demand
+
+SLIDE 6: The One Thing All Three Have in Common
+You need LOCAL market knowledge. National data doesn't tell you which streets to buy on in 43204 vs. 43223. Relationships and experience do.
+
+SLIDE 7 (CTA): Which strategy fits you? DM me 'INVEST' — let's figure out your Columbus real estate play.`,
+  caption:`Wholesale. Flip. Airbnb. Which Columbus investment strategy is YOUR play?\n\nDM me INVEST — let's build your plan.\n\n#ColumbusInvestor #RealEstateInvesting #WholesaleRealEstate #FixAndFlip #AirbnbInvesting #ThePropertyGuy #ColumbusOhio`},
+];
+
+// Build sidebar
+const sidebar=document.getElementById('sidebar');
+const groups={};
+categories.forEach(c=>{if(!groups[c.group])groups[c.group]=[];groups[c.group].push(c);});
+Object.entries(groups).forEach(([gname,cats])=>{
+  const sec=document.createElement('div');sec.className='sidebar-section';
+  const lbl=document.createElement('div');lbl.className='sidebar-label';lbl.textContent=gname;sec.appendChild(lbl);
+  cats.forEach(c=>{
+    const count=scripts.filter(s=>s.cat===c.id).length;
+    const btn=document.createElement('button');
+    btn.className='sidebar-btn'+(c.id==='carousel'?' active':'');
+    btn.id='nav-'+c.id;
+    btn.innerHTML=c.label+'<span class="sidebar-count">'+count+'</span>';
+    btn.onclick=()=>showCat(c.id);
+    sec.appendChild(btn);
+  });
+  sidebar.appendChild(sec);
+});
+
+let activeCat='carousel';
+
+function showCat(id){
+  activeCat=id;
+  document.querySelectorAll('.sidebar-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('nav-'+id).classList.add('active');
+  renderMain();
+}
+
+function renderMain(){
+  const cat=categories.find(c=>c.id===activeCat);
+  const filtered=scripts.filter(s=>s.cat===activeCat);
+  const main=document.getElementById('main');
+  main.innerHTML=`<div class="cat-header"><div class="cat-title">${cat.label}</div><div class="cat-desc">${descs[cat.id]||''}</div></div><div id="cards"></div>`;
+  const cardsEl=document.getElementById('cards');
+  filtered.forEach(s=>{
+    const card=document.createElement('div');card.className='script-card';card.id='card-'+s.id;
+    const hasCaption=s.caption&&s.caption.trim().length>0;
+    card.innerHTML=`<div class="card-trigger" onclick="toggleCard('${s.id}')"><span class="type-pill ${s.pill}">${s.type}</span><span class="card-title-text">${s.title}</span><span class="chevron" id="chev-${s.id}">&#9660;</span></div>
+    <div class="card-body" id="body-${s.id}">
+      <div class="block"><div class="block-label">Hook / Opening</div><div class="hook-box">${s.hook}</div></div>
+      <div class="block"><div class="block-label">Full Script</div><div class="script-box">${s.body}</div><div class="copy-row"><button class="copy-btn" onclick="cp('${s.id}','script')">Copy script</button></div></div>
+      ${hasCaption?`<div class="block"><div class="block-label">Caption + Hashtags</div><div class="caption-box">${s.caption}</div><div class="copy-row"><button class="copy-btn" onclick="cp('${s.id}','caption')">Copy caption</button></div></div>`:''}
+    </div>`;
+    cardsEl.appendChild(card);
+  });
+}
+
+function toggleCard(id){
+  const body=document.getElementById('body-'+id);const chev=document.getElementById('chev-'+id);
+  const open=body.classList.contains('open');
+  document.querySelectorAll('.card-body.open').forEach(el=>el.classList.remove('open'));
+  document.querySelectorAll('.chevron.open').forEach(el=>el.classList.remove('open'));
+  if(!open){body.classList.add('open');chev.classList.add('open');}
+}
+
+function cp(id,type){
+  const s=scripts.find(x=>x.id===id);
+  const text=type==='caption'?s.caption:s.body;
+  navigator.clipboard.writeText(text||'').then(()=>{
+    const btns=document.querySelectorAll('#card-'+id+' .copy-btn');
+    const btn=type==='caption'?btns[btns.length-1]:btns[0];
+    if(btn){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(()=>{btn.textContent=type==='caption'?'Copy caption':'Copy script';btn.classList.remove('copied');},2000);}
+  });
+}
+
+renderMain();
+</script>
+</body>
+</html>
