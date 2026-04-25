@@ -2,768 +2,704 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Property Guy — Social Media Content System</title>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>The Property Guy — Content Calendar Months 2–4</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--gold:#C9A84C;--gold-light:#F0D9A0;--gold-bg:#FDF8EC;--dark:#0F0F0F;--dark2:#1A1A1A;--mid:#3A3A3A;--muted:#888;--light:#E8E8E8;--white:#FFFFFF;--radius:10px;--radius-lg:14px}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',sans-serif;background:#F5F3EF;color:var(--dark);min-height:100vh}
-.header{background:var(--dark);padding:28px 32px 24px;border-bottom:2px solid var(--gold)}
-.header-inner{max-width:1100px;margin:0 auto}
-.header h1{font-family:'Sora',sans-serif;font-size:22px;font-weight:700;color:#fff;letter-spacing:-.3px}
-.header h1 span{color:var(--gold)}
-.header p{font-size:13px;color:var(--muted);margin-top:4px}
-.header-meta{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap}
-.meta-chip{font-size:11px;padding:4px 10px;border-radius:20px;border:.5px solid #333;color:var(--muted)}
-.meta-chip span{color:var(--gold);font-weight:500}
-.layout{max-width:1100px;margin:0 auto;padding:28px 32px;display:flex;gap:24px;align-items:flex-start}
-.sidebar{width:224px;flex-shrink:0;background:#fff;border-radius:var(--radius-lg);border:1px solid #E2E2E2;overflow:hidden;position:sticky;top:20px}
-.sidebar-section{padding:10px 0;border-bottom:1px solid #F0F0F0}
-.sidebar-section:last-child{border-bottom:none}
-.sidebar-label{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);padding:6px 14px 4px}
-.sidebar-btn{display:flex;align-items:center;gap:8px;width:100%;padding:8px 14px;background:none;border:none;text-align:left;font-size:12.5px;color:#444;cursor:pointer;font-family:'Inter',sans-serif;transition:background .12s;border-left:3px solid transparent}
-.sidebar-btn:hover{background:#F8F8F8}
-.sidebar-btn.active{background:var(--gold-bg);color:var(--dark);font-weight:500;border-left-color:var(--gold)}
-.sidebar-count{margin-left:auto;font-size:10px;background:#F0F0F0;color:var(--muted);padding:1px 6px;border-radius:10px}
-.sidebar-btn.active .sidebar-count{background:var(--gold-light);color:#5A3800}
-.main{flex:1;min-width:0}
-.cat-header{margin-bottom:16px}
-.cat-title{font-family:'Sora',sans-serif;font-size:18px;font-weight:600;color:var(--dark)}
-.cat-desc{font-size:13px;color:var(--muted);margin-top:4px}
-.script-card{background:#fff;border:1px solid #E2E2E2;border-radius:var(--radius-lg);margin-bottom:12px;overflow:hidden;transition:border-color .15s}
-.script-card:hover{border-color:#C8C8C8}
-.card-trigger{display:flex;align-items:center;gap:10px;padding:14px 16px;cursor:pointer;user-select:none}
-.card-trigger:hover{background:#FAFAFA}
-.type-pill{font-size:10px;font-weight:600;padding:3px 9px;border-radius:20px;white-space:nowrap;flex-shrink:0}
-.pill-carousel{background:#E3F5EE;color:#0F4F3A}
-.pill-reel{background:#FDF0D8;color:#5A3800}
-.pill-avatar{background:#EEECFD;color:#2D1F6E}
-.card-title-text{font-size:13.5px;font-weight:500;color:var(--dark);flex:1}
-.chevron{font-size:10px;color:var(--muted);transition:transform .2s;margin-left:auto;flex-shrink:0}
-.chevron.open{transform:rotate(180deg)}
-.card-body{display:none;border-top:1px solid #F0F0F0;padding:16px}
-.card-body.open{display:block}
-.block{margin-bottom:14px}
-.block:last-child{margin-bottom:0}
-.block-label{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#AAA;margin-bottom:6px}
-.hook-box{background:var(--gold-bg);border:1px solid var(--gold-light);border-radius:var(--radius);padding:10px 14px;font-size:13.5px;font-weight:500;color:#5A3A00;line-height:1.6;margin-bottom:10px}
-.script-box{background:#F8F8F8;border:1px solid #EBEBEB;border-radius:var(--radius);padding:12px 14px;font-size:12.5px;line-height:1.8;color:#333;white-space:pre-wrap;font-family:'Inter',sans-serif}
-.caption-box{background:#F4F8FF;border:1px solid #D8E8FF;border-radius:var(--radius);padding:10px 14px;font-size:12.5px;line-height:1.7;color:#334;white-space:pre-wrap;font-style:italic}
-.copy-row{display:flex;gap:8px;margin-top:8px}
-.copy-btn{padding:6px 14px;font-size:11px;font-family:'Inter',sans-serif;background:#fff;border:1px solid #DDD;border-radius:6px;cursor:pointer;color:#555;transition:all .12s}
-.copy-btn:hover{background:#F5F5F5;border-color:#C0C0C0}
-.copy-btn.copied{color:#0F6E56;border-color:#0F6E56;background:#F0FBF7}
-@media(max-width:700px){.layout{flex-direction:column;padding:16px}.sidebar{width:100%;position:static}.header{padding:20px 16px}}
+body{font-family:'Inter',sans-serif;background:#F4F3EF;color:#111;min-height:100vh}
+.hdr{background:#0F0F0F;padding:22px 28px 18px;border-bottom:2px solid #C9A84C}
+.hdr h1{font-family:'Sora',sans-serif;font-size:19px;font-weight:700;color:#fff}
+.hdr h1 em{color:#C9A84C;font-style:normal}
+.hdr p{font-size:12px;color:#777;margin-top:3px}
+.chips{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.chip{font-size:10px;padding:3px 9px;border-radius:20px;border:.5px solid #333;color:#666}
+.chip b{color:#C9A84C}
+.wrap{max-width:1100px;margin:0 auto;padding:20px 28px;display:flex;gap:18px}
+.nav{width:195px;flex-shrink:0;background:#fff;border-radius:12px;border:1px solid #E2E2E2;overflow:hidden;position:sticky;top:14px;max-height:93vh;overflow-y:auto}
+.ng{border-bottom:1px solid #F0F0F0;padding:6px 0}
+.ng:last-child{border-bottom:none}
+.nl{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:#999;padding:5px 11px 2px}
+.nb{display:flex;align-items:center;width:100%;padding:7px 11px;background:none;border:none;text-align:left;font-size:11px;color:#444;cursor:pointer;font-family:'Inter',sans-serif;border-left:3px solid transparent}
+.nb:hover{background:#F8F8F8}
+.nb.on{background:#FDF8EC;color:#111;font-weight:500;border-left-color:#C9A84C}
+.nc{margin-left:auto;font-size:9px;background:#F0F0F0;color:#888;padding:1px 5px;border-radius:7px}
+.nb.on .nc{background:#F0D9A0;color:#5A3800}
+.content{flex:1;min-width:0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(105px,1fr));gap:7px;margin-bottom:12px}
+.st{background:#fff;border:1px solid #E8E8E8;border-radius:9px;padding:9px 11px}
+.stv{font-size:16px;font-weight:500}
+.stl{font-size:10px;color:#888;margin-top:1px}
+.mban{background:#0F0F0F;color:#C9A84C;font-family:'Sora',sans-serif;font-size:11px;font-weight:600;padding:5px 11px;border-radius:8px;margin-bottom:9px;display:inline-block}
+.whead{margin-bottom:11px}
+.wtitle{font-family:'Sora',sans-serif;font-size:15px;font-weight:600}
+.wfocus{font-size:11.5px;color:#777;margin-top:2px}
+.wtarget{display:inline-block;margin-top:5px;font-size:10.5px;font-weight:500;padding:2px 9px;border-radius:9px;background:#FDF8EC;color:#5A3800;border:1px solid #F0D9A0}
+.days{display:flex;flex-direction:column;gap:7px}
+.dcard{background:#fff;border:1px solid #E2E2E2;border-radius:12px;overflow:hidden}
+.dcard:hover{border-color:#C5C5C5}
+.dhdr{display:flex;align-items:center;gap:8px;padding:10px 13px;cursor:pointer;user-select:none}
+.dhdr:hover{background:#FAFAFA}
+.dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.dname{font-size:12px;font-weight:500;min-width:78px}
+.dtheme{font-size:11px;color:#888;flex:1}
+.dcnt{font-size:9px;padding:2px 6px;border-radius:7px;background:#F4F4F4;color:#888;white-space:nowrap}
+.chev{font-size:9px;color:#bbb;transition:transform .18s;margin-left:2px}
+.chev.op{transform:rotate(180deg)}
+.dbody{display:none;border-top:1px solid #F0F0F0}
+.dbody.op{display:block}
+.prow{padding:10px 13px;border-bottom:.5px solid #F8F8F8}
+.prow:last-child{border-bottom:none}
+.pmeta{display:flex;align-items:center;gap:6px;margin-bottom:4px;flex-wrap:wrap}
+.badge{font-size:9.5px;font-weight:600;padding:2px 7px;border-radius:6px}
+.borg{background:#E3F5EE;color:#085041}
+.bpaid{background:#FDF0D8;color:#633806}
+.fmtbadge{font-size:9.5px;padding:2px 7px;border-radius:6px;background:#F4F4F4;color:#555}
+.ptitle{font-size:12.5px;font-weight:500;margin-bottom:3px}
+.pcap{font-size:11.5px;line-height:1.7;color:#333;white-space:pre-wrap}
+.pcta{margin-top:4px;font-size:10.5px;color:#185FA5;font-weight:500;display:block}
+.cpbtn{margin-top:5px;padding:3px 11px;font-size:10px;font-family:'Inter',sans-serif;background:#fff;border:1px solid #DDD;border-radius:5px;cursor:pointer;color:#555}
+.cpbtn:hover{background:#F5F5F5}
+.cpbtn.ok{color:#0F6E56;border-color:#0F6E56;background:#F0FBF7}
+@media(max-width:680px){.wrap{flex-direction:column;padding:12px}.nav{width:100%;position:static;max-height:none}}
 </style>
 </head>
 <body>
-
-<div class="header">
-  <div class="header-inner">
-    <h1>The <span>Property Guy</span> — Social Media Content System</h1>
-    <p>Columbus, OH &nbsp;·&nbsp; 12 Years Experience &nbsp;·&nbsp; All Scripts, Captions &amp; Hashtags</p>
-    <div class="header-meta">
-      <div class="meta-chip"><span>22</span> Scripts</div>
-      <div class="meta-chip"><span>10</span> Categories</div>
-      <div class="meta-chip">Buyers &nbsp;·&nbsp; Sellers &nbsp;·&nbsp; Renters &nbsp;·&nbsp; Investors</div>
-      <div class="meta-chip">Columbus, OH Market</div>
-    </div>
+<div class="hdr">
+  <h1>The <em>Property Guy</em> — Content Calendar Months 2–4</h1>
+  <p>Columbus, OH · Weeks 5–16 · Daily organic + paid ad schedule · 500 → 50K follower growth</p>
+  <div class="chips">
+    <div class="chip"><b>84</b> Days</div>
+    <div class="chip"><b>160+</b> Posts</div>
+    <div class="chip"><b>12</b> Weeks</div>
+    <div class="chip">Month 2 · Month 3 · Month 4</div>
+    <div class="chip">Buyers · Sellers · Investors · Renters</div>
   </div>
 </div>
-
-<div class="layout">
-  <nav class="sidebar" id="sidebar"></nav>
-  <main class="main" id="main"></main>
+<div class="wrap">
+  <nav class="nav" id="nav"></nav>
+  <main class="content" id="content"></main>
 </div>
-
 <script>
-const categories=[
-  {id:"carousel",label:"Carousels",group:"Content Formats"},
-  {id:"avatar",label:"Avatar Reels",group:"Content Formats"},
-  {id:"onscreen",label:"On-Camera Reels",group:"Content Formats"},
-  {id:"buyer_negotiate",label:"Buyers: Negotiate",group:"Audience Scripts"},
-  {id:"ftb",label:"First-Time Buyers",group:"Audience Scripts"},
-  {id:"renter",label:"Renters: Buy vs Rent",group:"Audience Scripts"},
-  {id:"rent_vs_buy",label:"Rent vs. Buy Videos",group:"Audience Scripts"},
-  {id:"seller_warm",label:"Sellers: Warm Leads",group:"Audience Scripts"},
-  {id:"seller_attract",label:"Sellers: Attract",group:"Audience Scripts"},
-  {id:"investor",label:"Investors",group:"Audience Scripts"},
+var DATA = [
+  { mid:"m2", mlabel:"Month 2 (Wks 5–8)", mfocus:"Authority & Consistency — deepen niche content, grow engagement loops", mbudget:"$30–$60/day",
+    weeks:[
+      { wid:"w5", wlabel:"Week 5 — Authority Week", wfocus:"Position as the Columbus market expert. Data, proof, education.", wtarget:"1,500 → 3,000",
+        days:[
+          { name:"Monday", theme:"Flip of the Week", dot:"#C9A84C", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Flip reveal — Columbus Linden neighborhood",
+              cap:"This week's flip is in Linden — one of Columbus's most undervalued pockets.\n\nBought: $98K · Rehab: $41K · Listed: $198K\n\nLinden is on the move. Investors who got in 18 months ago are seeing $40K+ gains.\n\nComment FLIP — I'll send you my Linden neighborhood investment report.", cta:"Comment: FLIP" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"Investor ad — emerging neighborhood story",
+              cap:"Columbus investors: Franklinton went from overlooked to overperforming in 5 years.\n\nThe same pattern is happening RIGHT NOW in Linden.\n\nDon't wait until it's on the news.\n\n[FORM LINK] — Get my free Columbus emerging neighborhood investment guide.\n\nTargeting: Real estate investor interest, Columbus 25-mile radius, HHI $75K+", cta:"Form: Columbus investment guide download" }
+          ]},
+          { name:"Tuesday", theme:"TurnKey of the Week", dot:"#185FA5", posts:[
+            { time:"9 AM", type:"org", fmt:"Carousel", title:"TurnKey spotlight — Grove City 4/2 under $290K",
+              cap:"This week's TurnKey pick: Grove City.\n\n4 bed · 2 bath · $289,000\nNew roof (2023) · Updated kitchen · 2-car garage\n\nGrove City buyers — this neighborhood has a waitlist of qualified buyers for every listing.\n\nDM me TURNKEY and I'll get you in before the weekend.", cta:"DM: TURNKEY" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"FTHB ad — OFHA + move-in ready pairing",
+              cap:"First-time Columbus buyer? Here's the combo that works:\n\nOFHA down payment assistance (up to 5%) + a move-in ready home = the fastest path to ownership.\n\nNo renovation stress. No surprise costs. Just keys.\n\n[FORM LINK] — 60 seconds to find out what you qualify for today.\n\nTargeting: Columbus renters 22–40, income $38K–$80K", cta:"Form: FTHB qualifier" }
+          ]},
+          { name:"Wednesday", theme:"New Build of the Week", dot:"#0F6E56", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"New build walk — Dublin/Hilliard corridor $360K",
+              cap:"Walking through a brand new Columbus home in the Dublin/Hilliard corridor — $360,000.\n\nBuilder rate buydown available: saving buyers $380/month.\n\nOn a 30-year fixed, that's $136,800 in savings over the life of the loan.\n\nThis is why new construction is beating resale in this price range right now.\n\nComment NEWBUILD — I'll get you the full builder incentive sheet.", cta:"Comment: NEWBUILD" },
+            { time:"6 PM", type:"paid", fmt:"Reel Ad", title:"New build ad — rate buydown savings hook",
+              cap:"New Columbus construction secret: builders are paying to lower your rate.\n\nExample: $380K home · Builder buys down rate 1.5%\nMonthly savings: $380/month = $4,560/year\n\nThat's real money. Available right now.\n\n[FORM LINK] — Get my full Columbus new build community list + current incentives.\n\nTargeting: Move-up buyers 30–55, HHI $85K+, Columbus suburbs", cta:"Form: New build community list" }
+          ]},
+          { name:"Thursday", theme:"Berkshire Home of the Week", dot:"#993C1D", posts:[
+            { time:"9 AM", type:"org", fmt:"Carousel", title:"Berkshire feature — Westerville 4/3 with finished basement",
+              cap:"This week's Berkshire Hathaway feature just dropped.\n\nWesterville · 4 bed / 3 bath · $419,000\nFinished basement · 3-car garage · Cul-de-sac lot\n\nWesterville is one of Columbus's most consistent appreciation markets.\n\nSwipe for full photos. DM me BERKSHIRE — I'll set up your private tour today.", cta:"DM: BERKSHIRE" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"Seller ad — Columbus equity report by neighborhood",
+              cap:"Columbus homeowners — here's what your neighbors sold for:\n\nWesterville: avg $418K (+11% YOY)\nDublin: avg $487K (+9% YOY)\nGrove City: avg $287K (+14% YOY)\nGalloway: avg $261K (+12% YOY)\n\nYour equity is growing — but so is your next home's price.\n\n[FORM LINK] — Get your free personalized home value report.\n\nTargeting: Columbus homeowners 35–65, owned 3+ years", cta:"Form: Free home valuation" }
+          ]},
+          { name:"Friday", theme:"Investment Deal of the Week", dot:"#534AB7", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Deal of the week — South Side BRRRR strategy",
+              cap:"Deal breakdown: South Side Columbus — BRRRR strategy.\n\nBuy: $112K · Rehab: $38K · Rent: $1,650/month\nRefinance value: $185K · Cash pulled out: $47K\n\nThat $47K goes into deal #2. Then deal #3.\n\nThis is how Columbus investors build portfolios without saving up for years.\n\nComment DEAL — I'll walk you through the full BRRRR strategy.", cta:"Comment: DEAL" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"Investor ad — BRRRR strategy explainer",
+              cap:"Buy. Rehab. Rent. Refinance. Repeat.\n\nThe BRRRR strategy is how Columbus investors scale from 1 property to 10 — using the same capital over and over.\n\nColumbus is one of the best BRRRR markets in the Midwest right now.\n\n[FORM LINK] — Get my free Columbus BRRRR deal analysis template.\n\nTargeting: Landlords, rental property interest, Columbus 35-mile radius, 30–60", cta:"Form: BRRRR investor guide" }
+          ]},
+          { name:"Saturday", theme:"Viral Education Push", dot:"#888", posts:[
+            { time:"10 AM", type:"org", fmt:"Reel", title:"5 Columbus zip codes I'd buy in right now",
+              cap:"5 Columbus zip codes I'd put my own money in right now:\n\n43204 — Westgate: undervalued, improving fast\n43211 — Linden: highest upside per dollar\n43222 — Westland: affordable, strong rental demand\n43228 — Galloway: family market, steady appreciation\n43207 — South Columbus: STR + flip goldmine\n\nSave this. Share it. Follow for weekly Columbus market intel.\n\n#ColumbusRealEstate #ColumbusInvestor #ThePropertyGuy", cta:"Save + follow" },
+            { time:"5 PM", type:"paid", fmt:"Lead Ad", title:"Retarget — 7-day video viewers",
+              cap:"You've been watching Columbus real estate content. Are you ready to make a move?\n\nWhether you're buying, selling, or investing — I have 12 years of Columbus market knowledge.\n\n[FORM LINK] — Tell me where you are. Let's figure out your next step.\n\nTargeting: 7-day video viewers 50%+, all audiences", cta:"Form: General consultation" }
+          ]},
+          { name:"Sunday", theme:"Value Drop", dot:"#5DCAA5", posts:[
+            { time:"11 AM", type:"org", fmt:"Carousel", title:"Columbus market data Sunday drop",
+              cap:"Columbus real estate numbers this week:\n\nMedian sale price: [fill weekly]\nDays on market: [fill weekly]\nList-to-sale ratio: [fill weekly]\nHottest zip: [fill weekly]\n\nI post this every Sunday. Follow so you never miss the Columbus market pulse.\n\n#ColumbusRealEstate #MarketData #ThePropertyGuy", cta:"Follow hook" }
+          ]}
+        ]
+      },
+      { wid:"w6", wlabel:"Week 6 — Proof & Testimonial Week", wfocus:"Social proof, results, client wins — build credibility through evidence.", wtarget:"3,000 → 5,000",
+        days:[
+          { name:"Monday", theme:"Flip of the Week", dot:"#C9A84C", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Investor client win — first flip $38K profit",
+              cap:"My client came to me with zero flip experience.\n\n12 weeks later — $38,000 profit.\n\nHere's what we did:\n• Found the deal off-market through my network\n• Locked in a contractor before we closed\n• Priced the ARV conservatively — then beat it\n\nFirst deal. Life-changing result.\n\nComment FLIP if you want to start your Columbus investment journey.", cta:"Comment: FLIP" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"Investor testimonial-style ad",
+              cap:"My client made $38,000 on his first Columbus flip with zero prior experience.\n\nWe found the deal, managed the process, and sold — all with my guidance.\n\nThis is what 12 years of market knowledge does for people who are ready.\n\n[FORM LINK] — Ready to start? Let's talk about your first Columbus deal.\n\nTargeting: Real estate investment interest, side income seekers, Columbus 30–55", cta:"Form: Investor first deal consultation" }
+          ]},
+          { name:"Tuesday", theme:"TurnKey of the Week", dot:"#185FA5", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Buyer story — closed in 21 days on TurnKey Hilliard home",
+              cap:"My buyers were renting at $1,350/month.\n\nWe found a TurnKey 3/2 in Hilliard. Wrote the offer same day. Closed in 21 days.\n\nNew mortgage payment: $1,290/month.\n\nThey are now paying LESS than their rent — and building equity every single month.\n\nThis is real. This is Columbus.\n\nDM me TURNKEY — let's find yours.", cta:"DM: TURNKEY" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"Renter-to-buyer ad — payment comparison",
+              cap:"Columbus renters: what if your mortgage was cheaper than your rent?\n\nReal example:\nRent: $1,350/month → $0 equity\nMortgage (Hilliard 3/2): $1,290/month → building equity\n\nSame money. Completely different outcome.\n\n[FORM LINK] — Find out what YOUR payment would look like as a buyer.\n\nTargeting: Columbus renters, 22–42, income $40K–$85K", cta:"Form: Rent vs. buy calculator + consult" }
+          ]},
+          { name:"Wednesday", theme:"New Build of the Week", dot:"#0F6E56", posts:[
+            { time:"9 AM", type:"org", fmt:"Carousel", title:"New build — New Albany Intel corridor opportunity",
+              cap:"New build spotlight: New Albany — Intel corridor.\n\nWhy this matters for buyers:\n• Intel's $20B investment = 10,000+ jobs incoming\n• Home values in this corridor are projected to rise\n• New construction here = buying AHEAD of the curve\n\nThis is not hype. This is infrastructure-driven appreciation.\n\nComment NEWBUILD — I'll send you every new community in the Intel zone.", cta:"Comment: NEWBUILD" },
+            { time:"6 PM", type:"paid", fmt:"Reel Ad", title:"New build ad — Intel corridor opportunity",
+              cap:"Intel is bringing 10,000+ jobs to Columbus.\n\nNew Albany and Johnstown new construction is directly in that path.\n\nBuyers who get in now are buying at today's prices — before the demand surge hits.\n\n[FORM LINK] — Get my Intel corridor new build opportunity report.\n\nTargeting: New build interest, Columbus 28–55, HHI $90K+", cta:"Form: Intel corridor buyer report" }
+          ]},
+          { name:"Thursday", theme:"Berkshire Home of the Week", dot:"#993C1D", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Berkshire listing tour — Upper Arlington under $450K",
+              cap:"Rare. Upper Arlington. Under $450K.\n\n3 bed / 2 bath · 1,920 sq ft · $439,000\n\nUA hasn't had a listing at this price point in 6 months. This will not last.\n\nI have showing availability TODAY and TOMORROW.\n\nDM me BERKSHIRE — let's get you in before the weekend.", cta:"DM: BERKSHIRE — urgency" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"Seller proof ad — Upper Arlington sold over asking",
+              cap:"A home in Upper Arlington just sold for $23,000 over asking.\n\nStrategy: right price, 3D tour, targeted buyer pool, offer deadline set at day 5.\n\nThat $23K doesn't happen by accident. It happens with a plan.\n\n[FORM LINK] — Get a free valuation and my max-value selling strategy.\n\nTargeting: Columbus homeowners UA/Dublin/Westerville, owned 4+ years", cta:"Form: Seller max-value strategy" }
+          ]},
+          { name:"Friday", theme:"Investment Deal of the Week", dot:"#534AB7", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Airbnb deal — Short North adjacent $3,800/mo gross",
+              cap:"Short Term Rental breakdown: Short North adjacent, Columbus OH.\n\nPurchase: $245K · Furnish: $14K · Monthly gross: $3,800\nAnnual revenue: ~$45,600 · Expenses: ~$18K\nNet cash flow: ~$27,600/year\n\nThat's a 9.5% cap rate in one of Columbus's most in-demand neighborhoods.\n\nComment AIRBNB — I'll send you my Columbus STR zone map.", cta:"Comment: AIRBNB" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"Airbnb investor ad — Columbus STR numbers breakdown",
+              cap:"Columbus Airbnb math — the honest numbers:\n\nRight location: $2,800–$5,500/month gross revenue\nWrong location: $900/month and a frustrated host\n\nThe difference is knowing which Columbus zones are STR-permitted AND high-demand.\n\n[FORM LINK] — Get my Columbus Airbnb zone map + top property picks.\n\nTargeting: STR/Airbnb investor interest, HHI $90K+", cta:"Form: Columbus STR investor guide" }
+          ]},
+          { name:"Saturday", theme:"Engagement Day", dot:"#888", posts:[
+            { time:"10 AM", type:"org", fmt:"Story Poll", title:"Audience poll — what's your biggest real estate blocker?",
+              cap:"Story poll: What's your biggest blocker right now?\n\n[ ] Down payment — don't have enough saved\n[ ] Credit — not sure if I qualify\n[ ] Market — feels too competitive\n[ ] Timing — not sure when to move\n\nDM me your answer — I'll give you a real, honest response for YOUR situation.", cta:"Story DM engagement" },
+            { time:"5 PM", type:"paid", fmt:"Lead Ad", title:"Retarget — objection-handling ad",
+              cap:"The #1 thing stopping Columbus buyers: 'I don't think I can afford it.'\n\nHere's the truth: with OFHA assistance, current Columbus home prices, and a good strategy — you may be closer than you think.\n\nLet me show you the actual numbers for your situation.\n\n[FORM LINK] — Free. No obligation. Just information.\n\nTargeting: All warm audiences, 14-day window", cta:"Form: Affordability check" }
+          ]},
+          { name:"Sunday", theme:"Value + Viral", dot:"#5DCAA5", posts:[
+            { time:"11 AM", type:"org", fmt:"Reel", title:"3 things Columbus buyers wish they knew before starting",
+              cap:"3 things I wish Columbus buyers knew before they started:\n\n1. Pre-approval is not the same as pre-qualification. One gets you in the door. The other gets you ignored.\n\n2. The home you see on Zillow Monday has an offer by Tuesday. Speed is a strategy.\n\n3. Your agent's relationship with the listing agent matters as much as your offer price.\n\nSave this. Share it with someone about to make these mistakes.\n\n#ColumbusRealEstate #HomeBuyingTips #ThePropertyGuy", cta:"Save + share" }
+          ]}
+        ]
+      },
+      { wid:"w7", wlabel:"Week 7 — Spring Market Push", wfocus:"Spring market urgency — inventory rising, buyer competition peaks, seller window opens.", wtarget:"5,000 → 6,500",
+        days:[
+          { name:"Monday", theme:"Flip of the Week", dot:"#C9A84C", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Spring flip season — Columbus market timing",
+              cap:"Spring is the hottest flip season in Columbus.\n\nWhy? More buyers = higher ARV = faster sell time.\n\nA home that might sit 45 days in January sells in 11 days in April.\n\nThis is when flippers make their best margins.\n\nThis week's flip: [neighborhood] — bought January, selling now.\n\nComment FLIP to see the full before/after and numbers.", cta:"Comment: FLIP" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"Investor spring urgency ad",
+              cap:"Spring is when Columbus flips sell fastest and highest.\n\nIf you've been thinking about your first investment — the window to BUY is RIGHT NOW, before spring buyer competition peaks.\n\nThe deals that close in April and May were bought in February and March.\n\n[FORM LINK] — Let's find your Columbus investment property NOW.\n\nTargeting: Investor interest, net worth $200K+, Columbus, 28–58", cta:"Form: Spring investor deal finder" }
+          ]},
+          { name:"Tuesday", theme:"TurnKey of the Week", dot:"#185FA5", posts:[
+            { time:"9 AM", type:"org", fmt:"Carousel", title:"Spring TurnKey — move in by summer",
+              cap:"Want to be moved in before summer?\n\nYou need to be under contract by [date].\n\nThis week's TurnKey pick in [neighborhood] is priced to move — and ready for a fast close.\n\n[Beds/baths] · $[price] · [standout feature]\n\nSpring closings book fast. DM me TURNKEY today — not tomorrow.", cta:"DM: TURNKEY — spring urgency" },
+            { time:"6 PM", type:"paid", fmt:"Reel Ad", title:"Spring buyer urgency ad",
+              cap:"Columbus spring market reality check:\n\nMarch–May = highest buyer competition of the year.\nMore buyers. Same limited inventory. More offers on every good listing.\n\nIf you're not ready — you're going to keep losing.\n\n[FORM LINK] — Get pre-approved and strategy-ready before the rush peaks.\n\nTargeting: Active home searchers, Columbus renters 22–45", cta:"Form: Spring buyer prep call" }
+          ]},
+          { name:"Wednesday", theme:"New Build of the Week", dot:"#0F6E56", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Spring new build — summer move-in communities",
+              cap:"Columbus new build tip for spring buyers:\n\nIf you want to be in a new home by August — you need to sign a contract NOW.\n\nNew construction timelines are 4–6 months. Starting today puts you in by late summer.\n\nI have a list of Columbus communities with summer delivery slots still available.\n\nComment NEWBUILD — I'll send you the full list.", cta:"Comment: NEWBUILD" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"New build spring ad — beat the resale competition",
+              cap:"Spring strategy for Columbus buyers who keep losing on resale:\n\nBuy new construction instead.\n\n✔ No bidding wars\n✔ Builder pays your agent\n✔ Rate buydown incentives available\n✔ Move in on your schedule\n\n[FORM LINK] — I'll show you every Columbus new build in your budget.\n\nTargeting: Frustrated resale buyers, Columbus 28–55, HHI $80K+", cta:"Form: New build alternative for resale buyers" }
+          ]},
+          { name:"Thursday", theme:"Berkshire Home of the Week", dot:"#993C1D", posts:[
+            { time:"9 AM", type:"org", fmt:"Carousel", title:"Spring Berkshire listing — outdoor living feature",
+              cap:"Spring listing alert: Berkshire Hathaway feature of the week.\n\n[Address] · [beds/baths] · $[price]\n\nThis one is all about the outdoor space — [deck/pool/patio feature].\n\nSpring and summer buyers pay a premium for outdoor living. This home is priced for spring momentum.\n\nDM me BERKSHIRE — private showing available this week.", cta:"DM: BERKSHIRE" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"Spring seller ad — list now, peak market timing",
+              cap:"Columbus sellers: spring is your moment.\n\nMarch through June = highest buyer demand of the year.\nMore buyers = more offers = higher final price.\n\nHomes listed in spring consistently sell for MORE than the same home listed in fall.\n\n[FORM LINK] — Free valuation + spring listing strategy. Let's time this perfectly.\n\nTargeting: Columbus homeowners, spring purchase intent, 35–65", cta:"Form: Spring seller timing consultation" }
+          ]},
+          { name:"Friday", theme:"Investment Deal of the Week", dot:"#534AB7", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Spring deal — OSU college rental near campus",
+              cap:"Spring investment deal: OSU rental near campus.\n\nPurchase: $198K · Rehab: $22K\nRent ready: August (OSU lease cycle)\nProjected annual rent: $28,800 (3 students at $800/each)\n\nOSU rentals are the most reliable rental income in Columbus. The demand never stops.\n\nComment DEAL — I'll send you my full OSU rental investment breakdown.", cta:"Comment: DEAL" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"Investor spring ad — OSU rental income strategy",
+              cap:"Ohio State University = the most reliable rental market in Columbus.\n\n60,000+ students. Every August — leases start. Demand never drops.\n\nSmart investors buy near campus in spring, rehab over summer, lease in August.\n\n[FORM LINK] — Get my Columbus OSU rental investment strategy guide.\n\nTargeting: Rental property investors, OSU alumni, Columbus 28–55", cta:"Form: OSU rental investor guide" }
+          ]},
+          { name:"Saturday", theme:"Community Feature", dot:"#888", posts:[
+            { time:"10 AM", type:"org", fmt:"Reel", title:"Columbus neighborhood hidden gems — spring edition",
+              cap:"3 Columbus neighborhoods flying under the radar this spring:\n\n1. Clintonville — walkable, local restaurants, underpriced relative to Short North\n2. Bexley — top schools, urban feel, values holding strong\n3. Olde Towne East — historic homes, artist community, investment upside\n\nShare this with someone who thinks they can't afford Columbus.\n\n#ColumbusNeighborhoods #ColumbusOhio #ThePropertyGuy", cta:"Share + tag a friend" },
+            { time:"5 PM", type:"paid", fmt:"Lead Ad", title:"Spring general ad — broadest spring audience",
+              cap:"Columbus is moving this spring.\n\nBuyers are competing. Sellers are winning. Investors are positioning.\n\nWhichever side of the table you're on — now is the time to have a strategy.\n\n[FORM LINK] — 15 minutes with me could change your entire real estate timeline.\n\nTargeting: 1% lookalike of all form leads to date", cta:"Form: Spring strategy call" }
+          ]},
+          { name:"Sunday", theme:"Market Update", dot:"#5DCAA5", posts:[
+            { time:"11 AM", type:"org", fmt:"Carousel", title:"Spring Columbus market pulse — week in numbers",
+              cap:"Columbus spring market pulse:\n\nNew listings this week: [X]\nMedian price: $[X] (+[X]% YOY)\nAvg days on market: [X]\nHomes sold over asking: [X]%\n\nSpring is here. The numbers prove it.\n\nFollow @thepropertyguy — I track Columbus every single week.\n\n#ColumbusRealEstate #SpringMarket #ThePropertyGuy", cta:"Follow + save" }
+          ]}
+        ]
+      },
+      { wid:"w8", wlabel:"Week 8 — Scale & Milestone Week", wfocus:"Celebrate growth, push hardest-performing content, max retargeting to close Month 2 strong.", wtarget:"6,500 → 8,000",
+        days:[
+          { name:"Monday", theme:"Flip of the Week", dot:"#C9A84C", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Month 2 milestone flip — biggest return yet",
+              cap:"End of Month 2 flip breakdown — our biggest return yet.\n\nNeighborhood: [zone] · Bought: $[X] · Rehab: $[X] · Sold: $[X]\nProfit: $[X] in [X] months\n\nEvery flip teaches us something. This one: buy one block closer to the corridor and the ARV difference was $18K.\n\nThe details matter. That's why you need someone in the market daily.\n\nComment FLIP — next deal is already in the pipeline.", cta:"Comment: FLIP" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"Investor Month 2 scale ad — social proof + CTA",
+              cap:"Month 2 results from The Property Guy investor network:\n\n[X] flips closed · [X] rental doors added · [X] new investors onboarded\n\nColumbus is producing. Are you in the game yet?\n\n[FORM LINK] — Month 3 investor spots are open. Let's talk.\n\nTargeting: All investor retarget + lookalike expansion, Columbus", cta:"Form: Month 3 investor onboarding" }
+          ]},
+          { name:"Tuesday", theme:"TurnKey of the Week", dot:"#185FA5", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Month 2 buyer recap — TurnKey data by the numbers",
+              cap:"Month 2 buyer data from my Columbus clients:\n\nTurnKey buyers: Avg close time — 28 days. Avg competition — 3.2 offers.\nFixer buyers: Avg close time — 19 days. Avg competition — 1.4 offers.\n\nWant to close faster with less competition? Consider the fixer.\nWant zero renovation headache? TurnKey is your path.\n\nDM me TURNKEY — let's figure out which strategy fits you.", cta:"DM: TURNKEY" },
+            { time:"6 PM", type:"paid", fmt:"Reel Ad", title:"Buyer scale ad — Month 2 lookalike expansion",
+              cap:"Columbus homebuyers — my clients are winning in this market.\n\nClosed in 28 days on average. Offer accepted on the first try.\n\nIt's not luck. It's preparation, strategy, and an agent who knows every listing agent in Columbus.\n\n[FORM LINK] — Join the buyers who are winning.\n\nTargeting: 2% lookalike of all buyer form completions", cta:"Form: Winning buyer strategy session" }
+          ]},
+          { name:"Wednesday", theme:"New Build of the Week", dot:"#0F6E56", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Month 2 new build recap — top 3 Columbus communities",
+              cap:"My top 3 Columbus new build communities this month:\n\n1. [Community A] — Best value per sq ft, summer delivery\n2. [Community B] — Best location, Intel corridor upside\n3. [Community C] — Best builder incentives, rate buydown available\n\nNew construction is not one-size-fits-all. The right community depends on YOUR goals.\n\nComment NEWBUILD — tell me your budget and timeline. I'll match you.", cta:"Comment: NEWBUILD" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"New build closeout — urgency ad",
+              cap:"Columbus new build update: 2 communities I've been recommending are now 80% sold out.\n\nBuyers who waited are now competing for the last lots.\nBuyers who acted have locked in their price and rate buydown.\n\n[FORM LINK] — Don't miss the next community. Get on my new build alert list now.\n\nTargeting: New build interest, Columbus buyers 28–55, prior ad engagers", cta:"Form: New build priority alert list" }
+          ]},
+          { name:"Thursday", theme:"Berkshire Home of the Week", dot:"#993C1D", posts:[
+            { time:"9 AM", type:"org", fmt:"Carousel", title:"Berkshire Month 2 recap — listings that moved fast",
+              cap:"Month 2 Berkshire Hathaway highlight reel:\n\n• [Address 1] — Sold in 6 days, $19K over asking\n• [Address 2] — Sold in 9 days, at asking with no contingencies\n• [Address 3] — Still available — [details]\n\nThe pattern: priced right + marketed right = fast + strong.\n\nIf you're selling — this is the blueprint.\n\nDM me BERKSHIRE to see what this strategy looks like for your home.", cta:"DM: BERKSHIRE" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"Seller Month 2 scale ad — results proof",
+              cap:"Month 2 results for The Property Guy sellers:\n\nAvg days on market: [X]\nAvg sale-to-list ratio: [X]%\nHomes sold over asking: [X] out of [X]\n\nResults aren't random. They come from strategy.\n\n[FORM LINK] — Find out what your home is worth and what our strategy looks like for you.\n\nTargeting: Columbus homeowners, all retarget sellers + lookalike", cta:"Form: Seller results consultation" }
+          ]},
+          { name:"Friday", theme:"Investment Deal of the Week", dot:"#534AB7", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Month 2 investor recap — deals closed this month",
+              cap:"Month 2 Columbus investor deals closed in my network:\n\n[X] fix & flips — avg profit $[X]\n[X] rentals added — avg cash flow $[X]/month\n[X] wholesale assignments — avg fee $[X]\n\nThis is what a real Columbus investor pipeline looks like.\n\nAre you in it? You could be.\n\nComment DEAL — investor calendar slots for Month 3 are open.", cta:"Comment: DEAL" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"Investor Month 2 — all-strategy wrap-up ad",
+              cap:"Wholesale. Flip. BRRRR. Airbnb.\n\nAll 4 strategies are active and producing in Columbus right now.\n\nMonth 2 recap:\n✔ Fastest flip: 67 days, $34K profit\n✔ Best rental: 9.8% cap rate, South Side\n✔ Best STR: $4,200/month gross, near campus\n\n[FORM LINK] — Which strategy is right for you? Let's find out.\n\nTargeting: All investor audiences, broad Columbus retarget + lookalike scale", cta:"Form: Investor strategy match" }
+          ]},
+          { name:"Saturday", theme:"Milestone Celebration", dot:"#888", posts:[
+            { time:"10 AM", type:"org", fmt:"Reel", title:"Month 2 follower milestone — community shoutout",
+              cap:"We just hit [X] followers.\n\nTwo months ago this account had [starting count].\n\nThank you — every share, comment, and DM has built this community.\n\nMy promise for Month 3: more deals, more data, more Columbus market truth.\n\nIf someone you know is buying, selling, or investing in Columbus — send them here.\n\n#ThePropertyGuy #ColumbusRealEstate", cta:"Share + milestone CTA" },
+            { time:"5 PM", type:"paid", fmt:"Lead Ad", title:"Month 2 close-out — broadest audience push",
+              cap:"2 months. [X] followers. Hundreds of Columbus real estate conversations.\n\nThe Property Guy — Columbus's most active real estate page.\n\nBuyers. Sellers. Investors. Renters.\n\nWherever you are in your Columbus real estate journey — I can help.\n\n[FORM LINK] — Let's talk.\n\nTargeting: Widest Columbus audience — all ages 22–65, 30-mile radius", cta:"Form: General — all audiences" }
+          ]},
+          { name:"Sunday", theme:"Month 3 Preview", dot:"#5DCAA5", posts:[
+            { time:"11 AM", type:"org", fmt:"Carousel", title:"Month 3 preview — what's coming",
+              cap:"Month 3 preview on The Property Guy:\n\n• More flip breakdowns with full numbers\n• Columbus market forecast for summer\n• Investor network expansion — new deals weekly\n• First-time buyer wins we can't stop talking about\n• New build community drops\n\nMonth 2 taught us what YOU want most. Month 3 delivers more of it.\n\nFollow so you don't miss a post.\n\n#ThePropertyGuy #ColumbusRealEstate", cta:"Follow + preview hook" }
+          ]}
+        ]
+      }
+    ]
+  },
+  { mid:"m3", mlabel:"Month 3 (Wks 9–12)", mfocus:"Domination & Virality — aggressive growth, cross-platform, full lead machine running", mbudget:"$60–$100/day",
+    weeks:[
+      { wid:"w9", wlabel:"Week 9 — Columbus Market Expert Week", wfocus:"Own the Columbus market narrative — share data nobody else is posting.", wtarget:"8,000 → 12,000",
+        days:[
+          { name:"Monday", theme:"Flip of the Week", dot:"#C9A84C", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Columbus flip market report — summer forecast",
+              cap:"Columbus flip market forecast for summer:\n\nSpring ARVs are UP. Buyer demand is HIGH. Days on market are DOWN.\n\nFor flippers, this is the sell season — not the buy season.\n\nThe deals bought in Jan–March are hitting the market now. And they're flying.\n\nIf you want to BUY your next flip before values peak — the window is the next 30–45 days.\n\nComment FLIP — I have 2 off-market Columbus deals right now.", cta:"Comment: FLIP — off-market urgency" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"Summer flip acquisition window ad",
+              cap:"Columbus flippers: the next 45 days are your acquisition window.\n\nSpring buyers are driving ARVs up. Buy NOW. Sell into the summer peak.\n\nI have off-market opportunities in 43211, 43204, and 43207 right now.\n\n[FORM LINK] — Tell me your budget. I'll show you what's available.\n\nTargeting: Active real estate investors, Columbus, 30–60, prior deal engagers", cta:"Form: Off-market deal access" }
+          ]},
+          { name:"Tuesday", theme:"TurnKey of the Week", dot:"#185FA5", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"What $275K buys in 5 Columbus neighborhoods",
+              cap:"What $275,000 buys you in 5 Columbus neighborhoods:\n\nGrove City: 4/2, 1,600 sqft, garage ✓\nWhitehall: 3/2, 1,400 sqft, updated ✓\nGalloway: 3/2, 1,550 sqft, big lot ✓\nHilliard: 2/2 condo, low maintenance ✓\nWestland: 4/2, 1,700 sqft, investor upside ✓\n\nSame budget. Five completely different lifestyles.\n\nDM me TURNKEY and I'll narrow it down based on what matters to YOU.", cta:"DM: TURNKEY" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"Buyer neighborhood comparison ad — $275K",
+              cap:"Columbus buyers stuck between neighborhoods?\n\nHonest $275K comparison:\n• Best schools: Hilliard / Grove City\n• Best investment upside: Westland / Whitehall\n• Best lifestyle: Clintonville / Bexley (stretch)\n• Best value per sqft: Galloway / Reynoldsburg\n\n[FORM LINK] — Tell me your priorities. I'll match you to the right zip.\n\nTargeting: Active buyers, Columbus, HHI $55K–$95K, 25–48", cta:"Form: Neighborhood match consultation" }
+          ]},
+          { name:"Wednesday", theme:"New Build of the Week", dot:"#0F6E56", posts:[
+            { time:"9 AM", type:"org", fmt:"Carousel", title:"New build Q3 outlook — Columbus communities to watch",
+              cap:"Columbus new build Q3 outlook:\n\n• Ethan's Landing (Hilliard): Final phase releasing\n• Meadow Glen (New Albany): Intel corridor, 4 lots left\n• Shiloh Place (Grove City): Under $360K, summer delivery\n• Villas at Westerville: Low-maintenance, 55+, strong resale\n\nQ3 is when builders close out inventory. Deals happen in the final phases.\n\nComment NEWBUILD — I'll get you in front of the builder before it hits the public.", cta:"Comment: NEWBUILD — Q3 communities" },
+            { time:"6 PM", type:"paid", fmt:"Reel Ad", title:"New build final phase urgency ad",
+              cap:"Columbus new build alert: 3 communities I recommend are in FINAL PHASE.\n\nFinal phase = last chance at builder pricing + incentives.\n\nAfter these lots sell, the next phase comes at higher prices.\n\n[FORM LINK] — Get the list of final-phase Columbus new build communities.\n\nTargeting: New build interest, prior NEWBUILD engagers + lookalike", cta:"Form: Final phase new build alert list" }
+          ]},
+          { name:"Thursday", theme:"Berkshire Home of the Week", dot:"#993C1D", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Berkshire summer luxury listing spotlight",
+              cap:"Summer luxury drop: Berkshire Hathaway feature of the week.\n\n[Address] · [City] · [beds/baths] · $[price]\n\nHighlights: [pool / outdoor kitchen / finished lower level / 3-car]\n\nSummer buyers in the $400K–$600K range are active and motivated.\n\nPrivate showings available — DM me BERKSHIRE for full details.", cta:"DM: BERKSHIRE" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"Luxury seller ad — $400K+ Columbus summer window",
+              cap:"Columbus $400K+ sellers: your buyer pool is largest in summer.\n\nHigh-income buyers make their move May through August. School year drives decisions.\n\nIf your home is in Dublin, Upper Arlington, Westerville, or New Albany — now is your window.\n\n[FORM LINK] — Free luxury market valuation and summer listing strategy.\n\nTargeting: Columbus premium homeowners $500K+ home value, 40–65", cta:"Form: Luxury seller summer valuation" }
+          ]},
+          { name:"Friday", theme:"Investment Deal of the Week", dot:"#534AB7", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Columbus duplex cash flow breakdown",
+              cap:"Deal spotlight: Columbus duplex — cash flow machine.\n\nPurchase: $185K · Rehab (light): $18K\nUnit 1 rent: $950/month · Unit 2 rent: $975/month\nMonthly gross: $1,925 · Monthly expenses: $820\nNet cash flow: $1,105/month = $13,260/year\n\n6.2% cap rate. Both units occupied on signing.\n\nComment DEAL — I have 2 more Columbus duplexes in my pipeline.", cta:"Comment: DEAL — multiunit" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"Multiunit investor ad — Columbus duplex/triplex",
+              cap:"Columbus multifamily investing — the numbers that change minds:\n\nSingle family: 1 tenant, 1 vacancy risk\nDuplex: 2 units, vacancy risk cut in half\nTriplex: 3 units, near impossible to go negative if one is vacant\n\nColumbus duplexes and triplexes under $250K are still findable — but not for long.\n\n[FORM LINK] — Get my Columbus multifamily deal list.\n\nTargeting: Landlord interest, rental income, Columbus 30–60", cta:"Form: Columbus multifamily investor list" }
+          ]},
+          { name:"Saturday", theme:"Cross-Platform Push", dot:"#888", posts:[
+            { time:"10 AM", type:"org", fmt:"Reel", title:"12 years in Columbus real estate — lessons learned",
+              cap:"12 years in Columbus real estate has taught me:\n\n1. The market rewards preparation, not patience.\n2. Every neighborhood has a story. Learn it before you buy.\n3. The deal you don't make is sometimes more important than the one you do.\n4. Relationships close deals. Data wins negotiations.\n5. Columbus is still undervalued relative to its fundamentals.\n\nSave this. Share it with someone navigating Columbus real estate.\n\n#ColumbusRealEstate #RealEstateTips #ThePropertyGuy", cta:"Save + share — cross-platform" },
+            { time:"5 PM", type:"paid", fmt:"Lead Ad", title:"Authority positioning ad — 12 years credibility",
+              cap:"12 years. Columbus, OH. Berkshire Hathaway HomeServices.\n\nHundreds of buyers, sellers, and investors served in this market.\n\nI don't just sell homes — I understand Columbus at a level most agents never reach.\n\n[FORM LINK] — Whatever your real estate goal is — let's talk strategy.\n\nTargeting: All Columbus audiences, 22–65, real estate intent", cta:"Form: Strategy call" }
+          ]},
+          { name:"Sunday", theme:"Value Drop", dot:"#5DCAA5", posts:[
+            { time:"11 AM", type:"org", fmt:"Carousel", title:"Columbus real estate glossary — terms every buyer must know",
+              cap:"Columbus buyer vocabulary cheat sheet — save this:\n\nPre-Approval: Lender confirms your buying power. Required before offers.\nEMD: Earnest Money Deposit. Shows sellers you're serious.\nContingency: Condition that must be met for deal to close.\nARV: After Repair Value. What a home is worth post-renovation.\nEscalation Clause: Auto-beats competing offers up to your max.\nClear to Close: Lender says the loan is approved. Keys are next.\n\nShare this with a first-time buyer in your life.\n\n#ColumbusRealEstate #HomeBuyingTips #ThePropertyGuy", cta:"Save + share — education viral" }
+          ]}
+        ]
+      },
+      { wid:"w10", wlabel:"Week 10 — Engagement & Viral Week", wfocus:"Maximum engagement — polls, challenges, shareable content, DM automation harvest.", wtarget:"12,000 → 16,000",
+        days:[
+          { name:"Monday", theme:"Flip of the Week", dot:"#C9A84C", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Flip challenge — can you spot the $40K mistake?",
+              cap:"I'm going to show you a Columbus flip we almost got wrong.\n\nWatch this and see if you can spot where we almost lost $40,000.\n\n[describe the decision point — buying too close to a busy road, underestimating foundation repair, etc.]\n\nThe lesson saved us $40K. I'm sharing it so it saves you too.\n\nComment FLIP — and tell me what decision you think nearly cost us the deal.", cta:"Comment: FLIP — engagement challenge" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"Investor education ad — common flip mistake",
+              cap:"The most expensive Columbus flip mistake I see new investors make:\n\nThey fall in love with the property before they run the numbers.\n\nEmotions buy houses. Numbers make money. Know the difference.\n\n[FORM LINK] — Get my Columbus flip deal analyzer spreadsheet — free.\n\nTargeting: New investor interest, Columbus 28–55", cta:"Form: Free flip deal analyzer" }
+          ]},
+          { name:"Tuesday", theme:"TurnKey of the Week", dot:"#185FA5", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Rate my home search criteria — engagement reel",
+              cap:"A Columbus buyer shared their home search criteria with me. Let's rate it:\n\nBudget: $280K ✓\nBeds: 3+ ✓\nBaths: 2+ ✓\nGarage: required ✓\nSchool district: Hilliard or Dublin ← We need to talk\nTimeline: 'when the right one comes up' ← This will cost them deals\n\nThe criteria is solid. The timeline is the problem.\n\nDM me TURNKEY — let me help you refine your search so you actually WIN.", cta:"DM: TURNKEY" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"Buyer criteria ad — refine your search to win",
+              cap:"Columbus buyers who keep losing have one thing in common:\n\nTheir timeline is too vague.\n\nWinning buyers have:\n✔ Max budget that's pre-approved\n✔ 3 non-negotiables (not 10)\n✔ A timeline measured in weeks, not 'whenever'\n✔ An agent who knows what's coming before it lists\n\n[FORM LINK] — Let's refine your strategy.\n\nTargeting: Active buyers, Columbus, have looked but not purchased, 24–48", cta:"Form: Buyer criteria refinement call" }
+          ]},
+          { name:"Wednesday", theme:"New Build of the Week", dot:"#0F6E56", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"New build mistake series — don't go alone",
+              cap:"The #1 mistake Columbus new build buyers make:\n\nThey go to the model home alone and sign with the builder's rep.\n\nThe builder's rep is NOT your agent. They represent the builder's interests — not yours.\n\nYou are legally and financially unprotected without your own buyer's agent.\n\nAnd it costs you NOTHING to have your own representation — the builder pays.\n\nComment NEWBUILD before you tour any Columbus model home.", cta:"Comment: NEWBUILD — protection hook" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"New build protection ad — buyer representation",
+              cap:"Columbus new build buyers: you need your own agent.\n\nThe builder's sales rep works for the builder. Period.\n\nHaving your own buyer's agent:\n✔ Costs you $0\n✔ Gives you a negotiator on your side\n✔ Protects you in contract review\n✔ Ensures you get every available incentive\n\n[FORM LINK] — Let me be your Columbus new build advocate.\n\nTargeting: New construction searches, Columbus 28–55", cta:"Form: New build buyer representation" }
+          ]},
+          { name:"Thursday", theme:"Berkshire Home of the Week", dot:"#993C1D", posts:[
+            { time:"9 AM", type:"org", fmt:"Carousel", title:"Berkshire — what sold vs. what's still available",
+              cap:"Columbus market reality check:\n\nWhat sold this week:\n• [listing 1] — gone in [X] days, $[X] over asking\n• [listing 2] — multiple offers, $[X] final price\n\nWhat's still available:\n• This week's feature: [address, price, details]\n\nHere's what the difference tells you about Columbus pricing and positioning.\n\nDM me BERKSHIRE for the showing and the full neighborhood report.", cta:"DM: BERKSHIRE — market education" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"Seller education ad — why some Columbus homes sit",
+              cap:"Why do some Columbus homes sit 60+ days while others sell in 6?\n\nIt's almost never the home itself. It's always one of three things:\n\n1. Price — even $10K too high kills momentum\n2. Photos — 40% of buyers eliminate homes on the first image alone\n3. Strategy — no deadline, no urgency, no competition\n\n[FORM LINK] — Don't let your home be the one that sits. Get the strategy first.\n\nTargeting: Columbus homeowners who have viewed selling content", cta:"Form: Seller strategy consultation" }
+          ]},
+          { name:"Friday", theme:"Investment Deal of the Week", dot:"#534AB7", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Investor poll — which Columbus deal would you take?",
+              cap:"Investor challenge: 2 Columbus deals. You pick which one you'd take — I'll tell you which one I'd pick and why.\n\nDeal A: $118K purchase, $35K rehab, $195K ARV, 43211 zip\nDeal B: $165K purchase, $12K rehab, $210K ARV, 43235 zip\n\nComment A or B — and tell me why.\n\nI'll reply to every answer with my analysis.\n\n#ColumbusInvestor #FlipOrPass #ThePropertyGuy", cta:"Comment: A or B — engagement game" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"Investor deal analysis ad — the 70% rule",
+              cap:"How I evaluate every Columbus investment deal in 60 seconds:\n\nStep 1: ARV — what's it worth fixed up?\nStep 2: 70% Rule — purchase + rehab should be ≤70% of ARV\nStep 3: Neighborhood trajectory — improving or declining?\nStep 4: Contractor availability — can I execute on budget?\nStep 5: Exit strategy — flip, rent, or STR?\n\n[FORM LINK] — Get my full Columbus deal evaluation template — free.\n\nTargeting: Real estate investor education, Columbus 28–58", cta:"Form: Free Columbus deal evaluation template" }
+          ]},
+          { name:"Saturday", theme:"Maximum Viral Attempt", dot:"#888", posts:[
+            { time:"10 AM", type:"org", fmt:"Reel", title:"Guess the Columbus home price — viral game",
+              cap:"Game: Guess the price of this Columbus home.\n\n[Show exterior and interior in reel]\n\n3 bed / 2 bath · Columbus, OH\n\nComment what you think this home sold for.\n\nI'll post the real answer in the comments in 24 hours.\n\nMost guesses are $30–$50K off in either direction. The Columbus market will surprise you.\n\n#GuessThePrice #ColumbusRealEstate #ThePropertyGuy", cta:"Comment: Guess the price — maximum viral engagement" },
+            { time:"5 PM", type:"paid", fmt:"Lead Ad", title:"Retarget — anyone who engaged with guessing game",
+              cap:"You guessed the Columbus home price — now let me tell you what YOUR home is worth.\n\nColumbus real estate values have shifted more in the last 3 years than in the previous decade.\n\n[FORM LINK] — Free Columbus home valuation. Takes 24 hours.\n\nTargeting: Everyone who engaged with Saturday organic + general homeowner retarget", cta:"Form: Free home valuation" }
+          ]},
+          { name:"Sunday", theme:"Value + Education", dot:"#5DCAA5", posts:[
+            { time:"11 AM", type:"org", fmt:"Carousel", title:"Columbus closing costs explained — what buyers actually pay",
+              cap:"Columbus closing costs — what nobody explains clearly:\n\nLender fees: $1,800–$3,500\nTitle insurance: $900–$1,400\nAppraisal: $500–$700\nInspection: $350–$500\nPrepaid taxes/insurance: $2,000–$4,000\nTotal estimate: $5,500–$10,000+\n\nGood news: some of these can be negotiated or covered by seller concessions.\n\nKnowing these numbers BEFORE you start shopping changes your whole budget.\n\nDM me READY to walk through your full buying cost breakdown.\n\n#ColumbusRealEstate #ClosingCosts #HomeBuyingTips", cta:"DM: READY — education conversion" }
+          ]}
+        ]
+      },
+      { wid:"w11", wlabel:"Week 11 — Conversion Machine Week", wfocus:"Maximum lead capture — every post drives to a form. Retarget all warm audiences.", wtarget:"16,000 → 20,000",
+        days:[
+          { name:"Monday", theme:"Flip of the Week", dot:"#C9A84C", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Full P&L reveal on a just-closed Columbus flip",
+              cap:"Full P&L on a just-closed Columbus flip:\n\nPurchase price: $[X]\nRehab cost: $[X]\nHolding costs (4.5 months): $[X]\nSelling costs: $[X]\nSale price: $[X]\nNet profit: $[X]\n\nEvery single number. No fluff.\n\nThis is what real Columbus flipping looks like on paper.\n\nComment FLIP and I'll send you a blank version of this P&L sheet for your own deals.", cta:"Comment: FLIP — P&L freebie" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"Investor conversion ad — free deal sheet offer",
+              cap:"Want to know if a Columbus investment deal pencils out before you commit?\n\nI built a simple P&L sheet that tells you in 5 minutes.\n\nFill in the numbers. It shows your projected profit — or if the deal's a pass.\n\n[FORM LINK] — Get the free Columbus flip deal analyzer. Sent instantly.\n\nTargeting: Real estate investor intent, all warm investor audiences", cta:"Form: Free flip P&L deal sheet" }
+          ]},
+          { name:"Tuesday", theme:"TurnKey of the Week", dot:"#185FA5", posts:[
+            { time:"9 AM", type:"org", fmt:"Carousel", title:"TurnKey of the week — full buyer cost breakdown included",
+              cap:"This week's TurnKey pick — PLUS the full cost breakdown buyers never see:\n\nAddress: [X] · [beds/baths] · $[price]\n\nEstimated monthly payment:\nPrincipal + interest: $[X]\nProperty taxes: $[X]\nInsurance: $[X]\nTotal PITI: $[X]/month\n\nOFHA down payment assistance available: $[X]\nActual cash to close: $[X]\n\nDM me TURNKEY — let's run these numbers for YOUR situation.", cta:"DM: TURNKEY — full transparency" },
+            { time:"6 PM", type:"paid", fmt:"Reel Ad", title:"FTHB conversion ad — real cost breakdown hook",
+              cap:"Columbus first-time buyers: here's what it actually costs to buy a $260K home.\n\nDown payment (3.5% FHA): $9,100\nWith OFHA 5% assistance: $0 out of pocket for down payment\nClosing costs: $6,800\nSeller concession (negotiated): -$4,000\nActual cash needed: ~$2,800–$4,000\n\nYou can buy a Columbus home for less than a security deposit + first month's rent.\n\n[FORM LINK] — Find out YOUR exact numbers.\n\nTargeting: Columbus renters, FTHB intent, 22–42, income $38K+", cta:"Form: FTHB real cost calculator + consult" }
+          ]},
+          { name:"Wednesday", theme:"New Build of the Week", dot:"#0F6E56", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"New build deal — builder concession reveal",
+              cap:"Columbus new build deal reveal — and the builder concession that made it work.\n\nCommunity: [X] · Price: $[X]\nBuilder concession: $15,000 in free upgrades + 1-year rate buydown\n\nHere's what most buyers don't know:\n\nBuilders PREFER to give upgrades over price reductions — it doesn't reset comp values for other lots.\n\nThere's always room to negotiate if you know how.\n\nComment NEWBUILD — I'll show you exactly how to negotiate with Columbus builders.", cta:"Comment: NEWBUILD — negotiation reveal" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"New build negotiation ad — builder concession strategy",
+              cap:"Columbus new construction secret: builders have room to give.\n\nThey won't cut the price — but they WILL give:\n✔ Free upgrade packages ($10K–$25K value)\n✔ Closing cost contributions\n✔ Rate buydowns (save $200–$400/month)\n✔ Extended rate locks\n\nKnowing this before you walk in changes everything.\n\n[FORM LINK] — Let me negotiate with Columbus builders on your behalf.\n\nTargeting: New build interest, Columbus HHI $80K+", cta:"Form: New build negotiation representation" }
+          ]},
+          { name:"Thursday", theme:"Berkshire Home of the Week", dot:"#993C1D", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Berkshire feature — neighborhood micro-analysis",
+              cap:"This week's Berkshire Hathaway home — and why the street matters as much as the house.\n\n[Address] · [beds/baths] · $[price]\n\nMicro-market analysis:\n• 5-year appreciation in this sub-neighborhood: [X]%\n• Average DOM for this zip: [X] days\n• List-to-sale ratio this month: [X]%\n• Why I like this specific block: [reason]\n\nDM me BERKSHIRE for the showing and the full neighborhood report.", cta:"DM: BERKSHIRE — market depth" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"Seller micro-market ad — block-level value",
+              cap:"Columbus sellers: your home's value isn't just determined by your zip code.\n\nIt's your specific block, school district line, walkability, distance to development.\n\nI analyze all of it. And it changes what your home is worth by $15K–$40K.\n\n[FORM LINK] — Get a micro-market home valuation — not just a Zillow estimate.\n\nTargeting: Columbus homeowners, 35–65, all neighborhoods", cta:"Form: Micro-market seller valuation" }
+          ]},
+          { name:"Friday", theme:"Investment Deal of the Week", dot:"#534AB7", posts:[
+            { time:"9 AM", type:"org", fmt:"Carousel", title:"Investor deal comparison — flip vs. BRRRR vs. STR",
+              cap:"Same $175K Columbus property. Three exit strategies. Three different outcomes.\n\nFlip: $175K buy · $40K rehab · $265K ARV · Profit: $34K (one-time)\nBRRRR: $175K buy · $40K rehab · $265K refi · Cashout: $42K · Cash flow: $420/month\nSTR: $175K buy · $45K furnish · $3,200/month gross · Net: $1,600/month\n\nWhich exit strategy wins depends on YOUR goals.\n\nComment DEAL — tell me your goal and I'll tell you which strategy fits.", cta:"Comment: DEAL — exit strategy match" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"Investor exit strategy comparison ad",
+              cap:"Columbus real estate: same deal, three outcomes.\n\nFlip = fastest return, single payday\nBRRRR = recycle capital, build portfolio\nSTR = highest monthly income, most management\n\nThere is no universally 'best' strategy — only the best for YOUR situation.\n\n[FORM LINK] — Let's identify which Columbus exit strategy fits your goals.\n\nTargeting: All investor audiences, real estate strategy interest, 28–58", cta:"Form: Investor exit strategy consultation" }
+          ]},
+          { name:"Saturday", theme:"Community + Referral Push", dot:"#888", posts:[
+            { time:"10 AM", type:"org", fmt:"Reel", title:"Tag a friend who needs to stop renting in Columbus",
+              cap:"Tag someone in Columbus who:\n\n— Has been renting 3+ years\n— Says they 'can't afford to buy'\n— Doesn't know about OFHA assistance\n— Keeps talking about buying but hasn't started\n\nI will personally DM every person tagged with a free buyer readiness assessment.\n\nNo pressure. No sales pitch. Just real information about what's actually possible.\n\n#ColumbusRealEstate #StopRenting #ThePropertyGuy", cta:"Tag a friend — referral engine" },
+            { time:"5 PM", type:"paid", fmt:"Lead Ad", title:"Referral expansion ad",
+              cap:"Someone who cares about you might have tagged you here.\n\nThey want you to know: buying a home in Columbus might be more possible than you think.\n\nOhio has down payment assistance. Mortgage payments can be less than rent. I've helped hundreds of Columbus renters make the move.\n\n[FORM LINK] — Find out if YOU qualify. Free. No pressure.\n\nTargeting: Friends of people who engaged + FTHB audiences", cta:"Form: First-time buyer readiness assessment" }
+          ]},
+          { name:"Sunday", theme:"Market Intel Drop", dot:"#5DCAA5", posts:[
+            { time:"11 AM", type:"org", fmt:"Carousel", title:"Columbus summer real estate forecast",
+              cap:"My Columbus real estate forecast for the rest of summer:\n\nPrices: Holding strong. No correction in sight for entry-level inventory.\nInventory: Still below historical average. Seller's market continues.\nRates: Volatile. Lock when you find the right home — not when rates are 'perfect.'\nHot segments: Multifamily, new construction, STR in core Columbus.\nCooling: Luxury $700K+ has more days on market — more negotiating room there.\n\nSave this. Make decisions based on data, not headlines.\n\n#ColumbusRealEstate #MarketForecast #ThePropertyGuy", cta:"Save + follow — market intel authority" }
+          ]}
+        ]
+      },
+      { wid:"w12", wlabel:"Week 12 — Month 3 Finale", wfocus:"Close out Month 3 strong — milestone content, lead machine at full capacity.", wtarget:"20,000 → 25,000",
+        days:[
+          { name:"Monday", theme:"Flip of the Week", dot:"#C9A84C", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Month 3 flip recap — 3 deals, 3 outcomes, 3 lessons",
+              cap:"Month 3 Columbus flip wrap-up — 3 deals, 3 lessons:\n\nDeal 1: $34K profit — bought the neighborhood right\nDeal 2: $41K profit — contractor relationship was everything\nDeal 3: $28K profit — ARV was conservative, came in above\n\nTotal: $103,000 in Columbus flip profit across my investor network this month.\n\nComment FLIP — Month 4 investor slots are open now.", cta:"Comment: FLIP — Month 4 CTA" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"Month 3 investor recap ad — results proof",
+              cap:"Month 3: $103,000 in Columbus flip profit across my investor network.\n\nNot one person on that list had done a flip before working with me.\n\nThe Columbus market is producing. 12 years of relationships and knowledge is the edge.\n\n[FORM LINK] — Month 4 investor onboarding is open. Limited spots.\n\nTargeting: All investor retarget + biggest lookalike expansion yet", cta:"Form: Month 4 investor onboarding" }
+          ]},
+          { name:"Tuesday", theme:"TurnKey of the Week", dot:"#185FA5", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Month 3 buyer wins — 3 Columbus closings",
+              cap:"Month 3 buyer wins — real Columbus closings:\n\nBuyer 1: First-time buyer, used OFHA, closed on 3/2 in Grove City — $267K\nBuyer 2: Move-up buyer, sold and bought in 35 days, upgraded to Westerville 4/3\nBuyer 3: New build in New Albany, locked in builder rate buydown\n\nEvery one came to me not knowing where to start.\nEvery one now has keys.\n\nDM me TURNKEY — let's make you the next closing story.", cta:"DM: TURNKEY — social proof" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"Month 3 buyer social proof ad",
+              cap:"3 Columbus closings in Month 3:\n\n✔ Buyer 1: OFHA assistance covered the down payment entirely\n✔ Buyer 2: Sold first, bought next — timed both sides perfectly\n✔ Buyer 3: New build avoided the bidding war entirely\n\nStrategy wins. Not luck.\n\n[FORM LINK] — Let's build YOUR Columbus home buying strategy.\n\nTargeting: All buyer audiences, Columbus, 22–55, full retarget + lookalike scale", cta:"Form: Buyer strategy session" }
+          ]},
+          { name:"Wednesday", theme:"New Build of the Week", dot:"#0F6E56", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Month 3 new build review — which communities delivered",
+              cap:"Month 3 new build review — communities that delivered for my buyers:\n\n[Community A]: On time, all incentives honored — A+\n[Community B]: Slight delay but rate lock held — B+\n[Community C]: Upgrade pricing was aggressive — negotiated $12K off — A-\n\nNot all Columbus builders are equal. Experience navigating them matters.\n\nComment NEWBUILD — I'll match you to the right Columbus builder for your timeline.", cta:"Comment: NEWBUILD — builder match" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"New build Month 3 — final Q3 inventory push",
+              cap:"End of summer Columbus new build update:\n\nSeveral communities I've been recommending are now 90%+ sold.\n\nQ4 new builds will price in the appreciation that happened in Q2 and Q3.\n\nThe buyers locking in now are buying at today's prices.\n\n[FORM LINK] — Don't pay Q4 prices for a Q3 community. Get in now.\n\nTargeting: All new build audiences, Columbus suburbs 28–55", cta:"Form: Lock in Q3 new build pricing" }
+          ]},
+          { name:"Thursday", theme:"Berkshire Home of the Week", dot:"#993C1D", posts:[
+            { time:"9 AM", type:"org", fmt:"Carousel", title:"Berkshire Month 3 recap — top seller results",
+              cap:"Month 3 Berkshire Hathaway seller results:\n\nHomes listed: [X]\nAvg days on market: [X]\nAvg sale-to-list: [X]%\nSold over asking: [X] out of [X]\n\nBest result this month: [address] — $[X] over asking in [X] days.\n\nThis is what happens when the right pricing meets the right marketing.\n\nDM me BERKSHIRE — your home could be our next best result.", cta:"DM: BERKSHIRE — seller conversion" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"Seller Month 3 close-out — Q4 list decision",
+              cap:"Columbus sellers thinking about listing in Q4 — let's have an honest conversation.\n\nQ4 buyer pool shrinks. Days on market increase. Competition from other sellers drops.\n\nThat's a trade-off — not necessarily bad, but you need to know it going in.\n\n[FORM LINK] — Free Q4 listing consultation. Let's plan your timing together.\n\nTargeting: Columbus homeowners, 35–65, all seller retarget", cta:"Form: Q4 seller timing consultation" }
+          ]},
+          { name:"Friday", theme:"Investment Deal of the Week", dot:"#534AB7", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Best Columbus investment deal in Month 3",
+              cap:"The best Columbus investment deal I saw in Month 3:\n\nZip: 43211 · Purchase: $[X] · Rehab: $[X]\nStrategy: BRRRR → STR hybrid\nMonth 6 projection: $1,980/month net cash flow\n\nThis is the deal that changes a financial trajectory.\n\nAnd deals like it are still out there — if you know where to look.\n\nComment DEAL — let's find your version of this for Month 4.", cta:"Comment: DEAL — Month 4 preview" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"Month 3 investor wrap — Month 4 momentum ad",
+              cap:"Month 3 Columbus investor network results:\n\n[X] deals closed · $[X] total profit generated\n[X] new rental doors · Avg cash flow: $[X]/month\n\nMonth 4 is where portfolio builders separate from dabblers.\n\n[FORM LINK] — If you're serious about Columbus real estate investing — Month 4 is your time.\n\nTargeting: Broadest investor audience + all warm retarget, Columbus 28–60", cta:"Form: Month 4 investor application" }
+          ]},
+          { name:"Saturday", theme:"Growth Milestone", dot:"#888", posts:[
+            { time:"10 AM", type:"org", fmt:"Reel", title:"Month 3 milestone — community thank you",
+              cap:"3 months. [X] followers. Hundreds of Columbus conversations.\n\nWhen I started this page — I had [starting count] followers and one goal: share everything I know about Columbus real estate.\n\nNow this community is [X] strong.\n\nMonth 4 is going to be the biggest yet.\n\nShare this with one person in Columbus who needs to know what's possible in this market.\n\n#ThePropertyGuy #ColumbusRealEstate", cta:"Share + milestone momentum" },
+            { time:"5 PM", type:"paid", fmt:"Lead Ad", title:"Month 3 finale — maximum reach expansion",
+              cap:"3 months of Columbus real estate content.\n\n[X] followers who trust The Property Guy.\n\nBuyers. Sellers. Investors. Renters.\n\nWherever you are in your Columbus real estate journey — I can help.\n\n[FORM LINK] — Let's talk.\n\nTargeting: Widest possible Columbus audience, all interests, 22–65", cta:"Form: All audiences — Month 4 welcome" }
+          ]},
+          { name:"Sunday", theme:"Month 4 Preview", dot:"#5DCAA5", posts:[
+            { time:"11 AM", type:"org", fmt:"Carousel", title:"Month 4 content preview — what's coming",
+              cap:"Month 4 on The Property Guy:\n\nBIGGER deals. More investor network results.\nFall market strategy for buyers and sellers.\nNew series launching every day of the week.\nLive Q&A sessions — ask me anything.\nFirst-time buyer 30-day challenge.\n\nFollow now. Turn on notifications. Month 4 starts Monday.\n\nDrop your Columbus real estate question in the comments — I read every single one.\n\n#ThePropertyGuy #ColumbusRealEstate #Month4", cta:"Follow + notification CTA" }
+          ]}
+        ]
+      }
+    ]
+  },
+  { mid:"m4", mlabel:"Month 4 (Wks 13–16)", mfocus:"Market Leadership — own Columbus real estate on social, scale to 50K", mbudget:"$100–$150/day",
+    weeks:[
+      { wid:"w13", wlabel:"Week 13 — Fall Market Pivot Week", wfocus:"Shift messaging to fall market — new urgency angles for every audience.", wtarget:"25,000 → 32,000",
+        days:[
+          { name:"Monday", theme:"Flip of the Week", dot:"#C9A84C", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Fall flip strategy — why fall buys pay spring dividends",
+              cap:"Columbus fall flip strategy — why the best flippers are buying RIGHT NOW.\n\nHere's the counterintuitive play: buy your flip in fall, sell in spring.\n\nFall = less buyer competition for distressed properties = lower purchase price\nSpring = highest buyer demand = highest ARV\n\nInvestors making the most money in Columbus are playing the seasonal spread.\n\nComment FLIP — I'm identifying fall buy opportunities now.", cta:"Comment: FLIP — fall strategy" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"Fall investor positioning ad — seasonal arbitrage",
+              cap:"Smart Columbus investors buy in fall. Sell in spring.\n\nFewer buyers competing = lower acquisition costs.\nHighest spring demand = maximum ARV.\n\nThe seasonal spread is real. And it's available right now.\n\n[FORM LINK] — Let's identify your fall Columbus investment opportunity.\n\nTargeting: Investor interest, Columbus 30–60, all warm investor retarget", cta:"Form: Fall investment opportunity finder" }
+          ]},
+          { name:"Tuesday", theme:"TurnKey of the Week", dot:"#185FA5", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Buy now — be home for the holidays",
+              cap:"Columbus buyers — here's a fall angle nobody talks about:\n\nIf you start your home search in September, close in October, move in November...\n\n...you are home for the holidays.\n\nIn YOUR home. Not your landlord's.\n\nFall inventory in Columbus is lower — but so is buyer competition. Offers are cleaner. Closings are faster.\n\nDM me TURNKEY — let's get you home by Thanksgiving.", cta:"DM: TURNKEY — holiday urgency" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"Fall buyer ad — home for the holidays",
+              cap:"Columbus buyers: fall is your opportunity.\n\nSpring had 6–8 offers on every home.\nFall often means 2–3 offers — or yours alone.\n\nSame homes. Lower competition. Faster closes.\n\nAnd if you move in October or November — you're home for the holidays.\n\n[FORM LINK] — Fall buyer strategy session.\n\nTargeting: Columbus buyers, all buyer retarget + fall timing interest, 24–55", cta:"Form: Fall buyer strategy session" }
+          ]},
+          { name:"Wednesday", theme:"New Build of the Week", dot:"#0F6E56", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Fall new build deals — builder year-end incentives",
+              cap:"Fall Columbus new build alert: builders are closing out the year.\n\nWhat that means for buyers:\n\nBuilders have year-end sales goals. The closer to December, the more motivated they are to close deals.\n\nFall and early winter = best builder negotiating leverage of the year.\n\nRate buydowns. Upgrade packages. Closing cost contributions. All negotiable right now.\n\nComment NEWBUILD — I'll get you into year-end builder negotiations.", cta:"Comment: NEWBUILD — year-end leverage" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"New build year-end incentive ad",
+              cap:"Columbus new build buyers: builders want to hit their year-end numbers.\n\nRate buydowns saving $300–$500/month\nFree upgrade packages $10K–$20K value\nClosing cost contributions\n\nThis window closes December 31. After that, pricing resets.\n\n[FORM LINK] — Get my Columbus builder year-end incentive guide.\n\nTargeting: New build interest, Columbus buyers HHI $80K+", cta:"Form: Year-end builder incentive guide" }
+          ]},
+          { name:"Thursday", theme:"Berkshire Home of the Week", dot:"#993C1D", posts:[
+            { time:"9 AM", type:"org", fmt:"Carousel", title:"Berkshire fall feature — Q4 listing spotlight",
+              cap:"Fall Berkshire Hathaway feature — priced for the motivated fall buyer.\n\n[Address] · [beds/baths] · $[price]\n\nSeller is motivated. Timeline is flexible. Fall listings like this often have more room than spring listings.\n\nThe competition isn't gone — but it's reduced.\n\nDM me BERKSHIRE — I'll negotiate hard on your behalf.", cta:"DM: BERKSHIRE — fall negotiating power" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"Fall seller ad — list before Q4 inventory drops",
+              cap:"Columbus sellers considering Q4 — here's the real talk.\n\nInventory drops in fall. Less competition from other sellers.\nBuyer pool shrinks — but motivated buyers don't stop buying.\n\nThe sellers who WIN in fall price strategically and market aggressively.\n\n[FORM LINK] — Get my fall seller strategy. Free valuation included.\n\nTargeting: Columbus homeowners, fall selling intent, 35–65", cta:"Form: Fall seller strategy + valuation" }
+          ]},
+          { name:"Friday", theme:"Investment Deal of the Week", dot:"#534AB7", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Fall deal — buy now, rehab in winter, sell in spring",
+              cap:"The best Columbus investment play for fall/winter:\n\nBuy now. Rehab through winter. List in spring.\n\nWhy winter rehab works:\n• Contractors are more available (less summer project competition)\n• Material prices soften slightly\n• You're ready the moment spring buyer demand spikes\n\nThis week's deal is positioned perfectly for this strategy.\n\nComment DEAL — let's run the full analysis together.", cta:"Comment: DEAL — seasonal strategy" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"Fall-winter investor timing ad",
+              cap:"Columbus investors: winter is when you prepare. Spring is when you profit.\n\nBuy in fall/winter:\n✔ Less competition from retail buyers\n✔ Motivated sellers before year-end\n✔ Contractors available for your rehab\n\nSell in spring:\n✔ Highest buyer demand\n✔ Maximum ARV\n✔ Fastest close times of the year\n\n[FORM LINK] — Let's find your Columbus fall buy opportunity.\n\nTargeting: All investor audiences, fall purchase intent, Columbus 28–60", cta:"Form: Fall investment opportunity consultation" }
+          ]},
+          { name:"Saturday", theme:"Fall Community Content", dot:"#888", posts:[
+            { time:"10 AM", type:"org", fmt:"Reel", title:"Fall Columbus neighborhood guide — where to buy this season",
+              cap:"My fall Columbus neighborhood guide — where I'd buy right now:\n\nFor families: Westerville (schools + value + stability)\nFor investors: Linden + South Side (max upside, low acquisition)\nFor young professionals: Clintonville + Short North adjacent\nFor move-up buyers: Dublin south of 161\nFor new builds: New Albany Intel corridor\n\nSave this. Share it. Every Columbus buyer needs this right now.\n\n#ColumbusRealEstate #FallMarket #ThePropertyGuy", cta:"Save + share — fall guide" },
+            { time:"5 PM", type:"paid", fmt:"Lead Ad", title:"Fall broad audience expansion",
+              cap:"Columbus — fall is the hidden gem of real estate seasons.\n\nLess competition. Motivated sellers. Year-end builder deals.\n\nThe buyers who move in fall are the ones who stop losing to spring crowds.\n\n[FORM LINK] — Let's talk about your fall Columbus real estate strategy.\n\nTargeting: Broadest fall audience, Columbus 22–65, all real estate intent", cta:"Form: Fall strategy — all audiences" }
+          ]},
+          { name:"Sunday", theme:"Fall Market Update", dot:"#5DCAA5", posts:[
+            { time:"11 AM", type:"org", fmt:"Carousel", title:"Columbus market shift — summer to fall",
+              cap:"Columbus market shift: summer → fall.\n\nWhat changed:\n• Inventory: [up/down X%] from summer peak\n• Days on market: [up/down] — [context]\n• Buyer competition: fewer multiple offer situations\n• Price movement: [holding/softening/rising] in [segment]\n\nWhat stayed the same:\n• Demand still outpacing supply in entry-level\n• New builds still have incentives\n• Investors are still finding deals\n\nFall is different — not worse. Know the difference.\n\n#ColumbusRealEstate #FallMarket #MarketUpdate", cta:"Follow + save — seasonal intel" }
+          ]}
+        ]
+      },
+      { wid:"w14", wlabel:"Week 14 — Video Series Launch Week", wfocus:"Launch 5 daily series — max educational virality, subscriber acquisition, authority positioning.", wtarget:"32,000 → 38,000",
+        days:[
+          { name:"Monday", theme:"Flip of the Week", dot:"#C9A84C", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Series launch — Columbus Flip Files Episode 1",
+              cap:"Introducing: The Columbus Flip Files.\n\nEvery Monday — a real Columbus deal. Real numbers. Real decisions. Real outcome.\n\nNo filters. No cherry-picked wins. Sometimes we almost got it wrong. I'll tell you that too.\n\nEpisode 1: [neighborhood] flip — the decision that almost cost us $22K.\n\nFollow to catch every episode. Comment FLIP FILES to get added to my list.", cta:"Comment: FLIP FILES — series launch" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"Flip Files series launch ad",
+              cap:"New series: The Columbus Flip Files.\n\nReal deals. Real numbers. No fluff.\n\nIf you're thinking about investing in Columbus real estate — this is the education you can't get anywhere else.\n\nFollow @thepropertyguy and catch every episode.\n\n[FORM LINK] — Want deal access? Join my Columbus investor network.\n\nTargeting: Real estate education interest, new investor, Columbus 25–55", cta:"Form: Investor network + series subscriber" }
+          ]},
+          { name:"Tuesday", theme:"TurnKey of the Week", dot:"#185FA5", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Columbus Buyer Diaries — Episode 1",
+              cap:"New series: Columbus Buyer Diaries.\n\nEvery Tuesday — a real Columbus buyer story. From first call to keys in hand.\n\nEpisode 1: Marcus and Tia — renting at $1,400/month for 4 years.\nThey thought they couldn't afford to buy. OFHA changed everything.\n\n28 days from our first call to closing.\nNew mortgage: $1,310/month.\n\nFollow for a new buyer story every Tuesday. DM me DIARY to share yours.", cta:"DM: DIARY — series + social proof" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"Buyer Diaries series ad — emotional FTHB conversion",
+              cap:"Real Columbus buyer story:\n\nMarcus and Tia — renters for 4 years at $1,400/month.\n\nThey came to me convinced they couldn't qualify.\nOFHA covered their down payment.\n28 days later — they owned their home.\nNew payment: $1,310/month.\n\nThe equity they're building now is life-changing.\n\n[FORM LINK] — Is YOUR story the next Columbus Buyer Diary?\n\nTargeting: Columbus renters, FTHB intent, emotional resonance audience, 22–45", cta:"Form: Start your buyer story today" }
+          ]},
+          { name:"Wednesday", theme:"New Build of the Week", dot:"#0F6E56", posts:[
+            { time:"9 AM", type:"org", fmt:"Carousel", title:"Build It Right — Columbus new construction Episode 1",
+              cap:"New series: Build It Right — Columbus new construction explained.\n\nEpisode 1: Why new construction is NOT what most buyers think.\n\nMyth 1: 'It's more expensive than resale.' Not always true after incentives.\nMyth 2: 'The builder is on my side.' They're not. Get your own agent.\nMyth 3: 'I can't negotiate on new builds.' You absolutely can — just not on price.\n\nFollow for a new episode every Wednesday. Comment BUILDIT to get my full new build buyer guide.", cta:"Comment: BUILDIT — series launch" },
+            { time:"6 PM", type:"paid", fmt:"Reel Ad", title:"New build series ad — education to lead conversion",
+              cap:"Did you know: the builder's sales rep is NOT your agent?\n\nThey work for the builder. You need someone working for YOU.\n\nNew series: Build It Right — Columbus new construction explained.\n\nAnd it costs you $0 to have buyer representation on a new build.\n\n[FORM LINK] — Let me be your Columbus new build advocate.\n\nTargeting: New construction searches, Columbus buyers", cta:"Form: New build buyer representation" }
+          ]},
+          { name:"Thursday", theme:"Berkshire Home of the Week", dot:"#993C1D", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"List It Right — Columbus seller series Episode 1",
+              cap:"New series: List It Right — Columbus home selling explained.\n\nEpisode 1: The most expensive mistake Columbus sellers make.\n\nThey price too high 'to leave room to negotiate.'\n\nWhat actually happens:\n• Buyers skip the showing\n• Home sits 30+ days\n• Price drop signals desperation\n• Final price is LOWER than if priced right from day 1\n\nPricing right creates competition. Competition creates premium.\n\nDM me LISTIT to get started.", cta:"DM: LISTIT — series launch + seller lead" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"List It Right series ad — seller education to lead",
+              cap:"Columbus sellers: overpricing your home is the most expensive mistake you can make.\n\nHomes priced right in Columbus sell faster AND for more money.\n\nThis isn't opinion. It's data from every Columbus sale this year.\n\n[FORM LINK] — Get your free home valuation and my pricing strategy breakdown.\n\nTargeting: Columbus homeowners, seller intent, 35–65, all seller retarget", cta:"Form: Free valuation + pricing strategy" }
+          ]},
+          { name:"Friday", theme:"Investment Deal of the Week", dot:"#534AB7", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Columbus Investor School — Episode 1: The 70% Rule",
+              cap:"New series: Columbus Investor School.\n\nEvery Friday — one real estate investing concept with Columbus-specific context.\n\nEpisode 1: The 70% Rule.\n\nFormula: MAO = ARV × 0.70 − Rehab Costs\n\nExample: ARV $210K × 0.70 = $147K − $45K rehab = $102K max offer\n\nIf the seller won't go below $115K — pass. The numbers don't lie.\n\nComment SCHOOL — Episode 2 drops next Friday.", cta:"Comment: SCHOOL — series launch" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"Investor School series ad — education lead funnel",
+              cap:"Columbus Investor School — real estate investing explained.\n\nNo fluff. No hype. Just the formulas and Columbus-specific knowledge that actually makes money.\n\nEvery Friday at 9 AM on The Property Guy.\n\nAnd if you want to apply what you're learning to a real Columbus deal — I'm right here.\n\n[FORM LINK] — Join my Columbus investor network.\n\nTargeting: Real estate education interest, Columbus 25–58", cta:"Form: Columbus investor network application" }
+          ]},
+          { name:"Saturday", theme:"Series Promo + Viral", dot:"#888", posts:[
+            { time:"10 AM", type:"org", fmt:"Reel", title:"5 new series — here's what you'll learn",
+              cap:"5 new series launching on The Property Guy:\n\nMonday: Columbus Flip Files — real deals, real numbers\nTuesday: Columbus Buyer Diaries — renter to owner stories\nWednesday: Build It Right — new construction truth\nThursday: List It Right — seller strategy explained\nFriday: Columbus Investor School — investing frameworks\n\nThis page is becoming the #1 Columbus real estate education resource.\n\nFollow. Turn on notifications. Tell one person who needs this.\n\n#ColumbusRealEstate #ThePropertyGuy", cta:"Follow + notification — series momentum" },
+            { time:"5 PM", type:"paid", fmt:"Lead Ad", title:"Series launch expansion ad — new follower acquisition",
+              cap:"The most valuable Columbus real estate content just got even better.\n\n5 series. 5 days a week. All free.\n\nFlip deals. Buyer stories. New build truth. Seller strategy. Investor school.\n\nFollow @thepropertyguy — and if you're ready to make your move:\n\n[FORM LINK] — Let's talk about your Columbus real estate strategy.\n\nTargeting: Broadest content/education audience, Columbus + Ohio, 22–65", cta:"Form: Real estate consultation — series audience" }
+          ]},
+          { name:"Sunday", theme:"Week in Review", dot:"#5DCAA5", posts:[
+            { time:"11 AM", type:"org", fmt:"Carousel", title:"Week 14 in review — market data + series episode recap",
+              cap:"Week 14 recap on The Property Guy:\n\nMarket data:\n• Median Columbus price: $[X]\n• Days on market: [X]\n• Most active zip: [X]\n\nSeries highlights this week:\n• Flip Files Ep 1: [key lesson]\n• Buyer Diaries Ep 1: Marcus + Tia's story\n• Investor School Ep 1: The 70% Rule\n\nMissed an episode? Check the feed.\n\nSee you Monday for Episode 2 of every series.\n\n#ThePropertyGuy #ColumbusRealEstate", cta:"Follow + save — weekly recap hook" }
+          ]}
+        ]
+      },
+      { wid:"w15", wlabel:"Week 15 — Community & Referral Engine Week", wfocus:"Activate your audience as ambassadors — referral loops, tag-a-friend campaigns, DM flows.", wtarget:"38,000 → 44,000",
+        days:[
+          { name:"Monday", theme:"Flip of the Week", dot:"#C9A84C", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Flip Files Ep 5 — the deal that almost broke even",
+              cap:"Columbus Flip Files Episode 5 — the deal that almost broke even.\n\nThis one hurt. Every mistake:\n\n1. Underestimated foundation repair by $9,000\n2. Got emotionally attached to the neighborhood\n3. Held too long waiting for the 'perfect buyer'\n\nFinal profit: $6,200. On a $40K rehab investment.\n\nThe lesson saved me $40,000 on the next deal.\n\nComment FLIP FILES — which mistake do you think hurt us most?", cta:"Comment: FLIP FILES — engagement lesson" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"Investor mistake-based ad — educational authority",
+              cap:"The Columbus flip deal that almost broke even.\n\nFoundation surprise. Emotional attachment. Held too long.\n\nProfit: $6,200 on a $40K rehab.\n\nEvery mistake I've made — I've systematized away. My investor clients don't repeat them.\n\n[FORM LINK] — Learn from 12 years of Columbus market experience. Free consultation.\n\nTargeting: All investor retarget, education interest, Columbus 28–58", cta:"Form: Investor education consultation" }
+          ]},
+          { name:"Tuesday", theme:"TurnKey of the Week", dot:"#185FA5", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Buyer Diaries Ep 5 — the couple that almost gave up",
+              cap:"Columbus Buyer Diaries Episode 5 — the couple that almost gave up.\n\nThey had lost 4 homes in 3 months. Different buyers every time.\n\nWhen they came to me, they were ready to just 'keep renting.'\n\nWe changed the strategy. Not the budget — the APPROACH.\n\n3 weeks later, they were under contract. Closed in 24 days.\n\nThey live there now.\n\nDM me DIARY — I want to hear your story too.", cta:"DM: DIARY — emotional buyer story" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"Frustrated buyer re-engagement ad",
+              cap:"Lost 3+ Columbus homes to other buyers?\n\nYou're not unlucky. Your strategy needs adjusting.\n\nI've turned frustrated Columbus buyers into successful homeowners by changing one thing:\n\nNot their budget — their approach.\n\n[FORM LINK] — Strategy reset consultation. Free. No judgment.\n\nTargeting: Columbus buyers who have been searching 90+ days", cta:"Form: Buyer strategy reset" }
+          ]},
+          { name:"Wednesday", theme:"New Build of the Week", dot:"#0F6E56", posts:[
+            { time:"9 AM", type:"org", fmt:"Carousel", title:"Build It Right Ep 5 — the upgrade conversation",
+              cap:"Build It Right Episode 5: The upgrade conversation.\n\nEvery Columbus builder has a design center. And every design center is a profit center.\n\nBuilder upgrades are marked up 200–400% above contractor prices.\n\nMy rule for new build clients:\n✔ Take structural upgrades (moving walls, adding windows)\n✗ Skip cosmetic upgrades (flooring, backsplash, counters)\n\nYou can hire your own contractor after closing for half the price.\n\nComment BUILDIT — I'll send you my Columbus upgrade strategy guide.", cta:"Comment: BUILDIT — upgrade guide" },
+            { time:"6 PM", type:"paid", fmt:"Reel Ad", title:"New build upgrade strategy ad — money-saving hook",
+              cap:"Columbus new build buyers: save $15,000–$30,000 at the design center.\n\nHere's how:\n\nTake structural upgrades. Skip cosmetic ones.\nChoose base finishes + upgrade after closing with your own contractor.\n\nBuilders mark up cosmetic upgrades 200–400%. Contractors don't.\n\n[FORM LINK] — Get my Columbus new build upgrade strategy guide — free.\n\nTargeting: New build buyers, Columbus HHI $80K+", cta:"Form: Free new build upgrade guide" }
+          ]},
+          { name:"Thursday", theme:"Berkshire Home of the Week", dot:"#993C1D", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"List It Right Ep 5 — the staging ROI conversation",
+              cap:"List It Right Episode 5: The staging conversation.\n\nThe most controversial thing I tell Columbus sellers:\n\nYou should spend $2,000–$5,000 on staging before you list.\n\nHere's why it's not controversial at all:\n\nStaged homes in Columbus sell for 6–10% more on average.\nOn a $300K home — that's $18,000–$30,000.\n\nSpend $3,000 to make $18,000. That's a 6x return.\n\nDM me LISTIT — I'll walk you through exactly what staging looks like for your home.", cta:"DM: LISTIT — staging consultation" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"Seller staging ROI ad",
+              cap:"Columbus sellers: staging your home returns 600%.\n\n$3,000 investment → $18,000+ in additional sale price.\n\nStaged Columbus homes also sell 67% faster than non-staged homes.\n\nFaster sale + higher price = staged always wins.\n\n[FORM LINK] — Get my Columbus home staging consultation and free valuation.\n\nTargeting: Columbus homeowners, pre-list research, 35–65", cta:"Form: Home staging + valuation consultation" }
+          ]},
+          { name:"Friday", theme:"Investment Deal of the Week", dot:"#534AB7", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Investor School Ep 5 — the cap rate deep dive",
+              cap:"Columbus Investor School Episode 5: Cap Rate — what it actually tells you.\n\nCap Rate = Net Operating Income ÷ Purchase Price\n\nColumbus benchmarks:\n6%+ cap rate: Strong return\n8%+ cap rate: Excellent (look for the catch)\n4% or below: Appreciation play, not cash flow\n\nExample: $1,105 NOI/month × 12 = $13,260/yr ÷ $185K = 7.2% cap rate ✓\n\nComment SCHOOL — next week: calculating cash-on-cash return.", cta:"Comment: SCHOOL — cap rate discussion" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"Investor school — cap rate education ad",
+              cap:"The number every Columbus investor needs before making an offer:\n\nCap Rate = Net Operating Income ÷ Purchase Price\n\nColumbus target: 6–9% depending on strategy\n\nBelow 5%? You're banking on appreciation, not cash flow.\nAbove 9%? Something's off — dig deeper.\n\n[FORM LINK] — Get my Columbus investment property analysis checklist.\n\nTargeting: Real estate investor education, Columbus 28–58", cta:"Form: Free Columbus investment analysis checklist" }
+          ]},
+          { name:"Saturday", theme:"Referral Engine Day", dot:"#888", posts:[
+            { time:"10 AM", type:"org", fmt:"Reel", title:"Columbus real estate referral challenge",
+              cap:"The Property Guy referral challenge:\n\nTag someone in Columbus who:\n→ Is paying more than $1,200/month in rent\n→ Has been 'thinking about buying' for over a year\n→ Doesn't know about OFHA assistance\n→ Wants to invest but doesn't know where to start\n\nI will personally DM every single person tagged with a free resource for their situation.\n\nNo pressure. No sales pitch. Just real information.\n\n#ColumbusRealEstate #ThePropertyGuy", cta:"Tag a friend — maximum referral activation" },
+            { time:"5 PM", type:"paid", fmt:"Lead Ad", title:"Referral audience expansion ad",
+              cap:"Someone in Columbus tagged you here because they want you to win.\n\nAnd I'm going to help.\n\nWhether you're renting and ready to buy, a homeowner with equity, or curious about investing — I have 12 years of market knowledge and I share it freely.\n\n[FORM LINK] — Tell me where you are. I'll tell you what's possible.\n\nTargeting: Friends of people who engaged + lookalike of all leads", cta:"Form: Free Columbus real estate assessment" }
+          ]},
+          { name:"Sunday", theme:"Gratitude + FAQ", dot:"#5DCAA5", posts:[
+            { time:"11 AM", type:"org", fmt:"Carousel", title:"Most asked Columbus real estate questions — answered",
+              cap:"The most asked Columbus real estate questions this month — answered:\n\nQ: Is Columbus still a good place to buy in 2025?\nA: Yes. Fundamentals are strong: job growth, Intel corridor, OSU stability.\n\nQ: How do I know if I qualify for OFHA?\nA: Credit 640+, income within county limits, primary residence. DM me OFHA for details.\n\nQ: Is it better to buy or keep renting in Columbus?\nA: If you're planning 3+ years and have 640+ credit — the math almost always favors buying.\n\nQ: Where are Columbus investors finding deals?\nA: 43211, 43204, 43207, 43222 — and through relationships, not Zillow.\n\nDM me any question I didn't answer.\n\n#ColumbusRealEstate #FAQ #ThePropertyGuy", cta:"DM: Questions — engagement + conversion" }
+          ]}
+        ]
+      },
+      { wid:"w16", wlabel:"Week 16 — Final Push to 50K", wfocus:"Maximum paid scale, viral finish, milestone celebration, Season 2 preview.", wtarget:"44,000 → 50,000",
+        days:[
+          { name:"Monday", theme:"Flip of the Week", dot:"#C9A84C", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Flip Files Season Finale — biggest deal of 4 months",
+              cap:"Columbus Flip Files — Season Finale.\n\nThe biggest deal of the last 4 months:\n\nZip: [X] · Purchase: $[X] · Rehab: $[X] · Sold: $[X]\nProfit: $[X] — our highest return in 4 months.\n\nHere's what made this one different: [the specific decision or insight]\n\nSeason 2 of Columbus Flip Files starts next Monday.\n\nComment FLIP FILES — and tell me what you want covered in Season 2.", cta:"Comment: FLIP FILES S2 — community input" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"4-month investor results recap ad — maximum social proof",
+              cap:"4 months. Columbus investor network results:\n\n[X] flips closed · Total profit: $[X]\n[X] rental properties added · Monthly cash flow: $[X]\n[X] first-time investors onboarded\n\nThis is what 12 years in Columbus real estate looks like in motion.\n\n[FORM LINK] — Month 5 investor network is open. Ready to be in these numbers?\n\nTargeting: Maximum investor audience — all retarget + widest lookalike expansion", cta:"Form: Month 5 investor network" }
+          ]},
+          { name:"Tuesday", theme:"TurnKey of the Week", dot:"#185FA5", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Buyer Diaries Season Finale — 4 months, 12 Columbus closings",
+              cap:"Columbus Buyer Diaries — Season Finale.\n\n4 months. 12 buyer stories. 12 closings.\n\nFirst-time buyers who used OFHA.\nMove-up buyers who timed both transactions.\nRemote workers relocating to Columbus.\nInvestors who also bought primary homes.\n\nEvery story is different. Every one ends with keys.\n\nSeason 2 starts Tuesday. DM me DIARY if you want your story told.", cta:"DM: DIARY S2 — season finale" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"4-month buyer results — maximum social proof ad",
+              cap:"4 months. 12 Columbus buyer closings in my client network.\n\nFirst-time buyers. Move-up buyers. Investors. Relocators.\n\nEvery one came to me not knowing where to start.\nEvery one now has a home.\n\n[FORM LINK] — Are you next? Let's make your Columbus closing happen.\n\nTargeting: All buyer audiences — maximum retarget + biggest lookalike expansion", cta:"Form: Your Columbus closing" }
+          ]},
+          { name:"Wednesday", theme:"New Build of the Week", dot:"#0F6E56", posts:[
+            { time:"9 AM", type:"org", fmt:"Carousel", title:"Build It Right Season Finale — 4-month new build recap",
+              cap:"Build It Right Season Finale — what 4 months of Columbus new construction coverage taught us:\n\n1. Builder incentives are real — but you must ask\n2. Representation is critical — builder reps work for the builder\n3. Intel corridor appreciation is not fully priced in yet — early buyers win\n4. Rate buydowns can save $30,000–$50,000 over 5 years\n5. Final phase inventory is always the best negotiating position\n\nSeason 2 starts Wednesday. Comment BUILDIT S2 for the next chapter.", cta:"Comment: BUILDIT S2 — season renewal" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"New build season finale — maximum buyer urgency",
+              cap:"4 months of Columbus new construction coverage — final message:\n\nThe communities with the best incentives are almost gone.\nThe Intel corridor window is still open — but closing.\nYear-end builder motivation peaks in the next 60 days.\n\nThis is the most leverage Columbus new build buyers will have until next fall.\n\n[FORM LINK] — Last call for year-end Columbus new build opportunities.\n\nTargeting: All new build audiences — max scale, Columbus buyers 28–55", cta:"Form: Year-end new build — final window" }
+          ]},
+          { name:"Thursday", theme:"Berkshire Home of the Week", dot:"#993C1D", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"List It Right Season Finale — the seller strategy that won every time",
+              cap:"List It Right Season Finale — the seller strategy that won every time:\n\nNot the most expensive home. Not the biggest marketing budget.\n\nThe strategy that worked:\n\nPriced right on day 1 + offer deadline on day 5 + pre-qualified buyers only + my network of ready buyers informed before it listed.\n\nEvery seller who followed this exact strategy sold at or above asking.\n\nDM me LISTIT — Season 2 starts Thursday. And if you want to sell — let's talk.", cta:"DM: LISTIT S2 — seller conversion" },
+            { time:"6 PM", type:"paid", fmt:"Video Ad", title:"Seller 4-month results finale ad",
+              cap:"4 months of Columbus seller strategy — final numbers:\n\n[X] homes listed · [X] sold over asking\nAvg days on market: [X] · Avg sale-to-list: [X]%\n\nThe sellers who followed the strategy won. Every time.\n\n[FORM LINK] — Get my Columbus seller strategy. Free valuation + plan.\n\nTargeting: All seller audiences — maximum retarget + final expansion", cta:"Form: Seller strategy — final push" }
+          ]},
+          { name:"Friday", theme:"Investment Deal of the Week", dot:"#534AB7", posts:[
+            { time:"9 AM", type:"org", fmt:"Reel", title:"Investor School Season Finale — 5 lessons that made my investors money",
+              cap:"Columbus Investor School Season Finale — 5 lessons that made my investors money:\n\n1. The 70% Rule protects you every time. Don't ignore it.\n2. Buy the neighborhood, not just the house.\n3. Your contractor relationship is worth as much as your deal source.\n4. Columbus appreciation follows infrastructure spending — Intel is next.\n5. The deal you pass on can teach you as much as the one you take.\n\nSeason 2 starts Friday. Comment SCHOOL S2 — what do you want covered next?", cta:"Comment: SCHOOL S2 — community input" },
+            { time:"6 PM", type:"paid", fmt:"Carousel Ad", title:"Investor School Season 2 teaser ad",
+              cap:"Columbus Investor School — Season 2 is coming.\n\n4 months. 16 episodes. Hundreds of investors educated.\n\nSeason 2 goes deeper: BRRRR mastery, multiunit analysis, STR permitting deep dive, portfolio building.\n\nAll free. Every Friday. On The Property Guy.\n\n[FORM LINK] — Ready to put the education into action? Join my Columbus investor network.\n\nTargeting: All investor education audiences, Columbus, maximum scale", cta:"Form: Investor network + Season 2 subscriber" }
+          ]},
+          { name:"Saturday", theme:"50K Final Push", dot:"#C9A84C", posts:[
+            { time:"10 AM", type:"org", fmt:"Reel", title:"The 50K push — share this with Columbus",
+              cap:"We are [X] followers away from 50,000.\n\nThis community started with one mission: give Columbus the real estate information it deserves.\n\nNo fluff. No hype. Just the market truth — for buyers, sellers, investors, and renters.\n\nIf this page has helped you — share this reel with one person in Columbus who needs it.\n\nAnd if you've been following along and haven't made your move yet — the time is now.\n\n[FORM LINK] in bio.\n\n#ThePropertyGuy #ColumbusRealEstate #50K", cta:"Share + form link — 50K community push" },
+            { time:"5 PM", type:"paid", fmt:"Lead Ad", title:"50K milestone expansion ad — maximum reach",
+              cap:"The Property Guy is the #1 Columbus real estate page on social media.\n\n[X] followers and growing — because Columbus deserves honest, expert real estate content.\n\nBuyers. Sellers. Investors. Renters.\n\nWhatever your next Columbus real estate move is — I'm here to help you make it the right one.\n\n[FORM LINK] — Let's talk.\n\nTargeting: Absolute maximum Columbus audience — all ages 22–65, 40-mile radius", cta:"Form: All audiences — 50K milestone push" }
+          ]},
+          { name:"Sunday", theme:"50K Celebration + Season 2 Vision", dot:"#5DCAA5", posts:[
+            { time:"11 AM", type:"org", fmt:"Reel", title:"50K celebration — and the vision for what comes next",
+              cap:"50,000 followers.\n\n4 months ago: [starting number].\n\nWhat built this community:\n• Consistency — posted every single day\n• Truth — no hype, just the Columbus market reality\n• Service — every DM answered, every question addressed\n• Value — free education, real deals, real stories\n\nWhat comes next:\n• Monthly live Q&A sessions\n• Columbus investor meetups\n• The Property Guy podcast — Columbus real estate\n• Private buyer and investor community group\n\nThis is just the beginning. Thank you, Columbus.\n\n#ThePropertyGuy #ColumbusRealEstate #50K", cta:"Ultimate share + follow — legacy content" }
+          ]}
+        ]
+      }
+    ]
+  }
 ];
 
-const descs={
-  carousel:"Swipe-format posts for Instagram & Facebook. Each slide builds toward a CTA.",
-  avatar:"AI avatar or voiceover reels. No face on camera required.",
-  onscreen:"You on camera. Authentic, high-trust content that builds your brand.",
-  buyer_negotiate:"Targeted at buyers navigating Columbus's competitive, low-inventory market.",
-  ftb:"First-time buyer education — OFHA, credit, pre-approval, and what to expect.",
-  renter:"Pro-buying messaging for Columbus renters. Make the case to stop renting and start owning.",
-  rent_vs_buy:"Side-by-side comparison content. The math that converts fence-sitters into buyers.",
-  seller_warm:"For sellers already in your pipeline. Content that pushes them to list.",
-  seller_attract:"Cold seller outreach. Content that surfaces homeowners who haven't listed yet.",
-  investor:"Fix & flip, wholesale, and Airbnb strategies for the Columbus investor market.",
-};
-
-const scripts=[
-  {id:"c1",cat:"carousel",pill:"pill-carousel",type:"Carousel",title:"5 Mistakes Columbus Buyers Make in a Hot Market",
-  hook:`SLIDE 1 HOOK: "You're losing homes before you even make an offer. Here's why 👇"`,
-  body:`SLIDE 1 (Cover): "5 Mistakes Columbus Buyers Are Making Right Now — And How to Stop Losing Homes"
-
-SLIDE 2: Mistake #1 — Getting Pre-Qualified Instead of Pre-Approved
-Pre-qual is a guess. Pre-approval is a commitment. In a low-inventory Columbus market, sellers don't wait. Show up with a full pre-approval letter or don't show up at all.
-
-SLIDE 3: Mistake #2 — Asking for Too Many Concessions
-This isn't 2018. Asking the seller to pay your closing costs, fix everything on the inspection report, AND throw in the refrigerator? You'll lose the deal every time.
-
-SLIDE 4: Mistake #3 — Waiting to "See What Else Comes Up"
-Good homes in Columbus under $350K go in 48–72 hours. If you need to "think about it," someone else is already signing the contract.
-
-SLIDE 5: Mistake #4 — Low-Balling the Offer
-Offering $15K under list price to "leave room to negotiate" just insults the seller. Come in strong or come in second.
-
-SLIDE 6: Mistake #5 — Not Having an Experienced Agent
-You need someone who knows Columbus zip codes, has relationships with listing agents, and can get you in first. That's what 12 years in this market gets you.
-
-SLIDE 7 (CTA): Stop losing homes. I help Columbus buyers WIN in competitive markets. DM me "READY" and let's get you moving.`,
-  caption:`5 mistakes Columbus buyers are making RIGHT NOW — save this before your next showing 💛\n\n12 years in this market. I know what works.\n\nDM me "READY" if you're serious about buying in Columbus.\n\n#ColumbusRealEstate #ColumbusHomes #FirstTimeHomeBuyer #BuyersAgent #OhioRealEstate #ThePropertyGuy #ColumbusOhio`},
-
-  {id:"c2",cat:"carousel",pill:"pill-carousel",type:"Carousel",title:"What OFHA Can Do For You: Ohio First-Time Buyer Assistance",
-  hook:`SLIDE 1 HOOK: "Ohio will literally help you buy your first home. Most people have NO idea. 👇"`,
-  body:`SLIDE 1 (Cover): "Free Money for Your First Home? Ohio's OFHA Program — What You Need to Know"
-
-SLIDE 2: What is OFHA?
-The Ohio Housing Finance Agency (OFHA) helps first-time buyers get into homes with down payment assistance, reduced interest rates, and grants. Yes — actual grant money you don't pay back.
-
-SLIDE 3: Who Qualifies?
-✔ First-time buyer OR haven't owned a home in 3+ years
-✔ Income limits apply by county (Columbus area: check OFHA site)
-✔ Must use the home as primary residence
-✔ Minimum credit score: typically 640+
-
-SLIDE 4: What's Available?
-• Your Choice! Down Payment Assistance — 2.5% or 5% of purchase price
-• Ohio Heroes — extra benefits for teachers, nurses, first responders, vets
-• Grants for Grads — reduced rate for recent Ohio college grads
-
-SLIDE 5: Steps to Secure OFHA Assistance
-1. Connect with an OFHA-approved lender
-2. Complete a HUD-approved homebuyer education course
-3. Get pre-approved using the OFHA program
-4. Find your home (this is where I come in)
-5. Close and move in!
-
-SLIDE 6: The Truth Nobody Tells You
-OFHA assistance runs out. It's first-come, first-served each year. Waiting costs you real money.
-
-SLIDE 7 (CTA): Ready to see if you qualify? DM me "OFHA" and I'll connect you with the right lender TODAY.`,
-  caption:`Ohio is literally handing out money for your first home — most buyers don't even know this exists.\n\nSave this post. Share it with someone who's renting and ready to buy.\n\nDM me "OFHA" — I'll walk you through every step.\n\n#OFHA #OhioHousingFinance #FirstTimeHomeBuyer #ColumbusOhio #DownPaymentAssistance #OhioRealEstate #ThePropertyGuy`},
-
-  {id:"c3",cat:"carousel",pill:"pill-carousel",type:"Carousel",title:"Investor's Guide: Wholesale, Fix & Flip, Airbnb in Columbus",
-  hook:`SLIDE 1 HOOK: "Columbus is one of the TOP real estate investment markets in the country. Here's how to play it. 👇"`,
-  body:`SLIDE 1 (Cover): "3 Ways Smart Investors Are Making Money in Columbus Real Estate Right Now"
-
-SLIDE 2: Strategy 1 — Wholesale (Flip the Contract, Not the House)
-Find distressed properties, get them under contract below market value, and assign the contract to another investor for a fee. No renovations. No holding costs. Pure deal-making. Columbus has a steady stream of distressed inventory if you know where to look.
-
-SLIDE 3: Strategy 2 — Fix & Flip
-Columbus is a flipper's market. Target the 43204, 43223, 43211 zip codes for value-add opportunities. ARV (after repair value) matters more than purchase price. Run your numbers tight: purchase + rehab + holding costs + selling costs must leave 20%+ profit.
-
-SLIDE 4: Strategy 3 — Airbnb/Short-Term Rental
-Columbus hosts 50+ events per year — Ohio State games, conventions, concerts. Short-term rental demand is MASSIVE. The Short North, German Village, and near-campus properties cash flow heavily when done right.
-
-SLIDE 5: What Every Investor Needs Before They Start
-✔ Proof of funds or hard money lined up
-✔ A contractor you trust
-✔ A realistic ARV analysis
-✔ An agent who actually invests (or has deep investor relationships)
-
-SLIDE 6: Why Columbus?
-• Below national average home prices
-• Strong rental demand from Ohio State
-• Growing corporate relocation market (Intel, Amazon)
-• Consistent appreciation over the last decade
-
-SLIDE 7 (CTA): I work with investors at every level — from first deal to portfolio builders. DM me "INVEST" and let's talk numbers.`,
-  caption:`Columbus real estate investors are quietly building wealth while everyone else is waiting.\n\nWholesale. Fix & Flip. Airbnb. The playbook is right here.\n\nDM me "INVEST" — 12 years of Columbus market knowledge at your service.\n\n#ColumbusInvestor #RealEstateInvesting #FixAndFlip #AirbnbInvesting #ColumbusOhio #WholesaleRealEstate #ThePropertyGuy`},
-
-  {id:"av1",cat:"avatar",pill:"pill-avatar",type:"Avatar Reel",title:"Why Columbus Buyers Are Losing Homes",
-  hook:`HOOK TEXT (on screen, first 2 seconds): "Why Columbus buyers keep losing to other offers"`,
-  body:`[AVATAR speaks directly to camera — conversational, fast-paced]
-
-"If you're trying to buy a home in Columbus right now and you keep losing to other offers — I need you to hear this.
-
-The market is tight. Inventory is LOW. And sellers have options.
-
-Here's what's beating you: someone else came in cleaner, faster, and more committed than you.
-
-That means — pre-approved, not pre-qualified. Escalation clause ready. Minimal contingencies. And a strong offer price the day the home hits the market.
-
-I've been doing this for 12 years in Columbus. I know the listing agents. I know the neighborhoods. And I know how to get my buyers to the front of the line.
-
-Stop losing. Start winning.
-
-Comment 'READY' below and let's get you into a home."`,
-  caption:`If this is you — you NEED a strategy, not just a search app.\n\nDM me or comment READY below.\n\n#ColumbusRealEstate #BuyersAgent #ColumbusOhio #HomeBuying #ThePropertyGuy #OhioRealEstate`},
-
-  {id:"av2",cat:"avatar",pill:"pill-avatar",type:"Avatar Reel",title:"Renter → Homeowner With OFHA",
-  hook:`HOOK TEXT: "Ohio will pay part of your down payment. You just have to qualify."`,
-  body:`[AVATAR — upbeat, empowering tone]
-
-"Let me tell you something nobody's telling renters in Columbus.
-
-Ohio has a program — OFHA — where you can get up to 5% of your home's purchase price in DOWN PAYMENT ASSISTANCE.
-
-On a $250,000 home? That's $12,500 toward your down payment. That might cover ALL of it.
-
-There are also programs for teachers, nurses, veterans, first responders — and even one specifically for recent Ohio college grads.
-
-You don't need to have been saving for years. You just need to know this exists and take the first step.
-
-I work with first-time buyers in Columbus every single day. I know the lenders, I know the programs, and I know how to get you from renting to owning — faster than you think.
-
-Drop 'OFHA' in the comments and I'll send you everything you need to get started."`,
-  caption:`Ohio literally has money waiting for first-time buyers. Most people never claim it.\n\nDrop OFHA in the comments — I'll DM you the details.\n\n#FirstTimeHomeBuyer #OFHA #ColumbusOhio #OhioRealEstate #DownPaymentAssistance #ThePropertyGuy`},
-
-  {id:"av3",cat:"avatar",pill:"pill-avatar",type:"Avatar Reel",title:"Why Columbus Investors Love This Market",
-  hook:`HOOK TEXT: "Columbus is producing more millionaires through real estate than almost any Midwest city."`,
-  body:`[AVATAR — confident, data-driven energy]
-
-"I'm going to tell you why smart money keeps flowing into Columbus real estate.
-
-One: affordability. You can still find properties under $150K here that cash flow.
-
-Two: demand. Ohio State alone creates a rental market that doesn't stop. Add in the Intel campus expansion, Amazon distribution, and an influx of remote workers — and you have sustained rental demand for years.
-
-Three: appreciation. Columbus home values have appreciated consistently over the past decade — even through the national slowdowns.
-
-Whether you're looking to wholesale your first deal, flip a property in Linden or the South Side, or set up an Airbnb near the Short North for Ohio State game weekends — I can show you where the money is.
-
-I've been investing and selling in this market for 12 years. I know the pockets. I know the numbers.
-
-Comment 'NUMBERS' below and I'll run a free market analysis on any Columbus zip code you're eyeing."`,
-  caption:`Columbus investors already know. Now you do too.\n\nComment NUMBERS below — I'll pull the data on any Columbus zip code.\n\n#ColumbusInvestor #RealEstateInvesting #ColumbusOhio #CashFlow #Airbnb #FixAndFlip #ThePropertyGuy`},
-
-  {id:"oc1",cat:"onscreen",pill:"pill-reel",type:"On-Camera Reel",title:"\"I Have 12 Years of Stories\" — Social Proof Reel",
-  hook:`HOOK: "In 12 years, I've seen buyers lose their dream home because of ONE mistake."`,
-  body:`[YOU on camera — stand in front of a Columbus home, car, or office. Casual but confident.]
-
-"In 12 years I've seen buyers lose their dream home because of one mistake.
-
-They waited.
-
-They wanted to sleep on it. Talk to their parents. See one more house.
-
-And someone else — who was ready — signed the contract that night.
-
-Columbus is not a 'wait and see' market right now. Homes are moving in 24 to 72 hours. If you're not prepared to move fast, you're going to keep watching from the sidelines.
-
-Here's what being prepared looks like: pre-approval letter in hand, wish list narrowed down, and an agent who picks up the phone.
-
-[point at camera]
-
-I pick up the phone. I've been doing this for 12 years. And I get my buyers into homes.
-
-Drop 'CALL ME' in the comments and let's talk."`,
-  caption:`12 years. Hundreds of Columbus families. One rule: be ready to move.\n\nDrop CALL ME below or DM me directly.\n\n#ColumbusRealEstate #BuyersAgent #ThePropertyGuy #ColumbusOhio #HomeBuying #OhioRealEstate`},
-
-  {id:"oc2",cat:"onscreen",pill:"pill-reel",type:"On-Camera Reel",title:"Seller Testimonial-Style Reel — $28K Over Asking",
-  hook:`HOOK: "I just sold a home in Columbus for $28,000 over asking. Here's exactly what we did."`,
-  body:`[YOU on camera — walk and talk style, or standing in front of a SOLD sign]
-
-"I just sold a home in Columbus for $28,000 over asking price.
-
-And no — the market didn't just hand us that. We earned it.
-
-Here's what we did differently:
-
-We priced it right — not high, right. Pricing too high actually kills your final number.
-
-We staged it. First impressions on Zillow are everything. We made sure every photo earned a showing.
-
-We created competition. Multiple showings in the first 48 hours. Deadline for offers. Multiple buyers competing for one home.
-
-And we negotiated every single term — not just the price.
-
-That's what 12 years of selling in Columbus looks like.
-
-If you're thinking about selling your home this year, DM me the word 'SELL' and I'll show you exactly what your home could sell for — and what it takes to maximize it."`,
-  caption:`$28K over asking. This is what a real strategy looks like.\n\nThinking about selling? DM me SELL below.\n\n#ColumbusRealEstate #HomeSelling #ThePropertyGuy #JustSold #ColumbusOhio #ListingAgent #SoldOverAsking`},
-
-  {id:"oc3",cat:"onscreen",pill:"pill-reel",type:"On-Camera Reel",title:"\"Here's What Nobody Tells You\" — Investor Reel",
-  hook:`HOOK: "Here's what nobody tells you about buying investment property in Columbus."`,
-  body:`[YOU on camera — serious, direct, maybe walking through a neighborhood]
-
-"Here's what nobody tells you about buying investment property in Columbus.
-
-The best deals are never on Zillow.
-
-They're in the relationships. They're in the off-market conversations. They're in knowing which wholesalers have properties before they hit any platform.
-
-I've built those relationships over 12 years. And I share them with my investor clients.
-
-I've helped investors buy and reposition properties in Franklinton before it was trendy. In Weinland Park before the coffee shops moved in. On the South Side before people realized what was happening there.
-
-The window is still open — but it's closing.
-
-If you're an investor looking at Columbus — whether this is your first deal or you're building a portfolio — you need someone who knows the market from the inside.
-
-Comment 'DEAL' below. Let's find your next opportunity."`,
-  caption:`The best Columbus deals are NOT on Zillow. They're in the network.\n\nComment DEAL below — let's talk.\n\n#ColumbusInvestor #OffMarket #RealEstateInvesting #ThePropertyGuy #ColumbusOhio #InvestmentProperty`},
-
-  {id:"bn1",cat:"buyer_negotiate",pill:"pill-reel",type:"On-Camera Reel",title:"How to Negotiate in a Sellers Market",
-  hook:`HOOK: "Stop negotiating like it's 2015. Here's how to win in today's Columbus market."`,
-  body:`[YOU on camera or avatar, confident and clear]
-
-"If you're still trying to negotiate like there's a buyer's market — you are going to lose every single time.
-
-Here's the new negotiation playbook for Columbus:
-
-Number one: come in at or above asking. I know that stings. But in most Columbus price ranges right now, list price IS the floor.
-
-Number two: shorten your inspection period. 10 days is standard. If you can do 7 and stay informed — that makes your offer stand out.
-
-Number three: escalation clause. If you love the home, have your agent write an escalation clause — you automatically beat competing offers up to your max.
-
-Number four: flexible closing. Find out what the seller NEEDS. Sometimes they need 60 days. Sometimes they need 21. Match their timeline and you win.
-
-Number five: don't nickel-and-dime after inspection. Ask only for health and safety items. Asking for paint touch-ups in a multiple-offer situation is a deal-killer.
-
-The buyers winning in Columbus right now aren't luckier than you. They're smarter.
-
-DM me 'STRATEGY' and let's build YOUR offer strategy."`,
-  caption:`The Columbus market doesn't negotiate — it selects. Here's how to get selected.\n\nDM me STRATEGY below.\n\n#ColumbusRealEstate #BuyersAgent #HomeNegotiation #ColumbusOhio #ThePropertyGuy #CompetitiveMarket`},
-
-  {id:"bn2",cat:"buyer_negotiate",pill:"pill-carousel",type:"Carousel",title:"The Winning Offer Checklist",
-  hook:`SLIDE 1: "Want to write an offer that actually wins in Columbus? Use this checklist."`,
-  body:`SLIDE 1 (Cover): "The Columbus Winning Offer Checklist — Save This Before You Make Your Next Offer"
-
-SLIDE 2: ✅ Full Pre-Approval Letter Attached
-Not pre-qual. Full pre-approval from a local Columbus lender (local lenders = more trust from listing agents).
-
-SLIDE 3: ✅ Offer Price Is Competitive
-Research comps. In a hot Columbus market, at list or above is often necessary. Know your number.
-
-SLIDE 4: ✅ Escalation Clause Included
-Automatically beats competing offers up to your max. This alone has won homes for my buyers.
-
-SLIDE 5: ✅ Inspection Period Is Tight
-7–10 days max. Keep it short and don't ask for cosmetic repairs.
-
-SLIDE 6: ✅ Closing Timeline Matches Seller's Needs
-Ask the listing agent what the seller wants. Match it. Simple edge that most buyers ignore.
-
-SLIDE 7: ✅ Personal Letter (Sometimes)
-A heartfelt buyer letter isn't always appropriate — but in the right situation, it's the tiebreaker.
-
-SLIDE 8 (CTA): Want me to review your offer strategy before you submit? DM me 'OFFER' — let's make sure you win.`,
-  caption:`Save this checklist before your next offer — these details are why my buyers WIN.\n\nDM me OFFER below.\n\n#ColumbusRealEstate #WinningOffer #BuyersAgent #ThePropertyGuy #ColumbusOhio`},
-
-  {id:"ftb1",cat:"ftb",pill:"pill-reel",type:"On-Camera Reel",title:"What Do You Need Before You Start Looking?",
-  hook:`HOOK: "Most first-time buyers start in the wrong place. Here's where to actually start."`,
-  body:`[On-camera or avatar — warm, helpful tone]
-
-"If you're a first-time homebuyer and your first step was opening Zillow — you started in the wrong place.
-
-Here's where you actually start:
-
-Step one: know your credit score. Go to annualcreditreport.com — free, no gimmicks. You need at minimum a 580 for FHA loans, 640+ for most programs including OFHA.
-
-Step two: document your income. Two years of W-2s, recent pay stubs, bank statements going back 60 days. Lenders are going to ask for all of this.
-
-Step three: get pre-approved — not pre-qualified. Call a local Columbus lender and get the actual pre-approval letter. This tells you your real budget.
-
-Step four: figure out your non-negotiables. Neighborhood? School district? Commute time? Minimum bedrooms? Know what you NEED vs. what you WANT.
-
-Step five: call an agent. BEFORE you visit open houses. Before you tour anything. A good buyer's agent costs you nothing — the seller pays that commission.
-
-And if you're in Columbus? I'm right here.
-
-Comment 'FIRST' below and I'll send you my free first-time buyer guide."`,
-  caption:`Don't start on Zillow. Start HERE.\n\nComment FIRST below and I'll send you my free Columbus first-time buyer guide.\n\n#FirstTimeHomeBuyer #ColumbusOhio #HomeBuyingTips #OFHA #OhioRealEstate #ThePropertyGuy`},
-
-  {id:"ftb2",cat:"ftb",pill:"pill-carousel",type:"Carousel",title:"OFHA Step-by-Step: Securing Ohio Down Payment Assistance",
-  hook:`SLIDE 1: "Ohio first-time buyers: here are the exact steps to get down payment assistance."`,
-  body:`SLIDE 1 (Cover): "How to Secure OFHA Down Payment Assistance in Ohio — Step by Step"
-
-SLIDE 2: Step 1 — Check Your Eligibility
-• First-time buyer (or no homeownership in last 3 years)
-• Meet income limits for Franklin County
-• Plan to use home as primary residence
-• Minimum credit score: 640 (for most OFHA programs)
-
-SLIDE 3: Step 2 — Complete Homebuyer Education
-OFHA requires a HUD-approved homebuyer education course.
-• Available online at eHome America or Framework
-• Takes about 6–8 hours
-• Costs around $75 — often reimbursable
-
-SLIDE 4: Step 3 — Connect With an OFHA-Approved Lender
-Not all lenders offer OFHA programs. You MUST use an approved lender. Ask for the "Your Choice! Down Payment Assistance" product. Get your pre-approval letter.
-
-SLIDE 5: Step 4 — Choose Your DPA Option
-• 2.5% DPA: Forgivable after 7 years
-• 5% DPA: Same forgiveness rules — larger help, same commitment
-• On a $250K home: that's $6,250–$12,500 in assistance
-
-SLIDE 6: Step 5 — Find Your Home
-This is where your agent (me) comes in. We search homes that fit your pre-approved amount, schedule showings, and write the winning offer.
-
-SLIDE 7: Step 6 — Close & Move In
-OFHA funds are disbursed at closing. You show up on closing day, sign, and get your keys.
-
-SLIDE 8 (CTA): Ready to start? DM me 'OFHA' — I'll connect you with a trusted Columbus lender today.`,
-  caption:`Ohio first-time buyers: save this. This is the exact roadmap to using OFHA assistance.\n\nDM me OFHA below and let's get you started TODAY.\n\n#OFHA #OhioRealEstate #FirstTimeHomeBuyer #ColumbusOhio #DownPaymentAssistance #ThePropertyGuy`},
-
-  {id:"renter1",cat:"renter",pill:"pill-reel",type:"On-Camera Reel",title:"Why Buying in Columbus Beats Renting — Reel",
-  hook:`HOOK: "Columbus renters — every month you wait is another month of equity you're giving away. Here's the truth."`,
-  body:`[On-camera — direct, energized. This is a PRO-BUYING message for renters.]
-
-"Columbus renters — I need you to hear this.
-
-Every single month you pay rent, you are building someone else's wealth. Not yours. Theirs.
-
-And here's the part that should really get your attention:
-
-Columbus home values have gone up consistently for the last decade. That appreciation? The homeowner keeps it. You keep nothing.
-
-But here's what's changed: buying in Columbus is more accessible than ever for renters.
-
-Ohio's OFHA program gives you up to 5% of your purchase price in down payment assistance. On a $240,000 home — that's $12,000 you don't have to save on your own.
-
-Your mortgage payment on that home? It could be comparable to or LESS than what you're paying in rent right now.
-
-The difference is: one of those payments builds equity. One of them builds nothing.
-
-If you've been renting in Columbus for more than a year and you haven't at least had the conversation about buying — you owe it to yourself to find out what's possible.
-
-DM me 'BUY' and let's talk about what buying in Columbus actually looks like for your situation."`,
-  caption:`Columbus renters: this one's for you. Every month you rent is a month you're not building equity.\n\nDM me BUY — let's find out what's actually possible for your situation.\n\n#ColumbusRealEstate #BuyDontRent #ColumbusOhio #StopRenting #ThePropertyGuy #FirstTimeHomeBuyer #BuildWealth`},
-
-  {id:"renter2",cat:"renter",pill:"pill-carousel",type:"Carousel",title:"5 Reasons Buying Beats Renting in Columbus OH",
-  hook:`SLIDE 1 HOOK: "If you're renting in Columbus right now, your landlord is thanking you every month. Here's why you should stop."`,
-  body:`SLIDE 1 (Cover): "5 Reasons Buying a Home in Columbus Beats Renting — And Why NOW Is the Time to Make the Move"
-
-SLIDE 2: Reason #1 — Your Mortgage Builds Wealth. Your Rent Builds Theirs.
-Every rent check you write disappears. Every mortgage payment you make builds equity in an asset you own. Columbus homeowners who bought 5 years ago have gained an average of $60,000–$100,000 in equity. Renters gained zero.
-
-SLIDE 3: Reason #2 — Columbus Home Values Keep Going Up
-Columbus has seen consistent appreciation year after year — even through national slowdowns. A home you buy today at $250,000 could realistically be worth $310,000–$330,000 in 5 years. Your rent goes up too — but that money never comes back to you.
-
-SLIDE 4: Reason #3 — Your Payment Gets Fixed. Your Rent Never Does.
-With a 30-year fixed mortgage, your principal and interest payment stays the same for 30 years. Columbus average rents have increased 20–30% over the last 5 years. Locking in a payment now protects you from rising rental costs forever.
-
-SLIDE 5: Reason #4 — Ohio Has Programs That Make It Easier Than You Think
-Through OFHA, first-time buyers can get up to 5% of their purchase price in down payment assistance. On a $250K Columbus home — that's $12,500 you don't have to save. Most renters don't even know this exists.
-
-SLIDE 6: Reason #5 — A Columbus Mortgage Can Cost LESS Than Your Rent
-A 3 bed / 2 bath home in Columbus under $250,000 carries a monthly mortgage often comparable to — or even less than — what renters pay for the same size apartment. Except now you own it.
-
-SLIDE 7 (CTA): Stop paying your landlord's mortgage. Start building your own wealth.
-DM me "BUY" and I'll show you exactly what it takes to get into a Columbus home — on your current budget.`,
-  caption:`If you're renting in Columbus right now — save this. Share it with a friend still on the fence.\n\nEvery month you wait is another month of equity you're handing to someone else.\n\nDM me BUY — let's talk about what it actually takes to own in Columbus.\n\n#ColumbusRealEstate #BuyDontRent #ColumbusOhio #StopRenting #ThePropertyGuy #OFHA #OhioRealEstate #BuildWealth #ColumbusHomes`},
-
-  {id:"rvb1",cat:"rent_vs_buy",pill:"pill-reel",type:"On-Camera Reel",title:"Rent vs. Buy Reel: The Columbus Numbers",
-  hook:`HOOK: "You're paying $1,300/month in rent. Do you know what that's buying you? Nothing."`,
-  body:`[High energy, direct — this one is meant to sting a little and inspire action]
-
-"You're paying $1,300 a month in rent.
-
-In 5 years, that's $78,000.
-
-You know what you own after paying that? Zero. Nothing. You own zero equity.
-
-Now let's look at buying.
-
-A $230,000 home in Columbus — which absolutely exists right now — at today's rates, your mortgage payment is roughly in that same range.
-
-But here's the difference: every single month, you're building equity. Columbus homes have appreciated an average of 6–8% per year. Your $230K home could be worth $290K–$310K in 5 years.
-
-You go from renting — and building zero — to owning an asset that grows while you sleep.
-
-Now I'm not saying everyone should buy right this second. But if you're in Columbus and you've been renting for more than 2 years — we need to have a conversation.
-
-Because there may be programs — OFHA, FHA, down payment assistance — that can get you into a home for less than your first and last month's rent.
-
-Comment 'MATH' below. Let me run the real numbers for your situation."`,
-  caption:`$78,000 in rent over 5 years → $0 in equity. Let's change that math.\n\nComment MATH — I'll run YOUR numbers.\n\n#RentVsBuy #ColumbusOhio #StopRenting #ColumbusRealEstate #ThePropertyGuy #BuildWealth`},
-
-  {id:"rvb2",cat:"rent_vs_buy",pill:"pill-carousel",type:"Carousel",title:"Rent vs. Buy Carousel: The 5-Year Columbus Comparison",
-  hook:`SLIDE 1: "What happens to your money if you rent for 5 years vs. buy? This will change how you think."`,
-  body:`SLIDE 1 (Cover): "Renting vs. Buying in Columbus — What Happens to Your Money Over 5 Years?"
-
-SLIDE 2: If You Rent for 5 Years
-Monthly rent: $1,300 avg.
-Total paid: $78,000
-Equity built: $0
-At end of 5 years: You still need to find a place to live.
-
-SLIDE 3: If You Buy in Columbus Today
-Home price: $240,000 (realistic Columbus entry-level)
-Down payment with OFHA: As low as $6,000–$8,000
-Monthly mortgage (PITI): ~$1,500–$1,650
-
-SLIDE 4: After 5 Years of Ownership
-Equity paid down: ~$12,000–$15,000
-Columbus appreciation (est. 6%/yr): +$70,000+ in home value
-Total equity position: $80,000–$90,000
-
-SLIDE 5: The Real Comparison
-Renter: $78K paid out, $0 back
-Buyer: $90K+ in asset value, plus the home you live in
-The gap is real. And it grows every year you wait.
-
-SLIDE 6: What Stops Most Columbus Renters?
-"I don't have a big down payment." — OFHA gives you up to 5%
-"My credit isn't great." — 6–12 months can change your options
-"I don't know where to start." — That's literally what I do.
-
-SLIDE 7 (CTA): The best time to buy was 5 years ago. The second best time is now. DM me 'NUMBERS' — let's run YOUR situation.`,
-  caption:`5 years of renting vs. 5 years of owning in Columbus. The numbers don't lie.\n\nSave this. Share it with someone who's been on the fence.\n\nDM me NUMBERS below.\n\n#RentVsBuy #ColumbusOhio #BuildEquity #ThePropertyGuy #StopRenting #ColumbusRealEstate`},
-
-  {id:"sw1",cat:"seller_warm",pill:"pill-reel",type:"On-Camera Reel",title:"Warm Seller Lead Reel: The Market Is In Your Favor",
-  hook:`HOOK: "If you bought your Columbus home before 2022, you're sitting on more equity than you think."`,
-  body:`[Direct to camera — confident, no hype, just facts]
-
-"If you bought a home in Columbus before 2022, I need you to hear this.
-
-The average Columbus homeowner who purchased 5+ years ago has gained $60,000 to $100,000 in equity — or more depending on your neighborhood.
-
-That's real money. Sitting in your walls. Waiting to move.
-
-Maybe you've been thinking about upgrading. More space. Better school district. A different neighborhood.
-
-Or maybe you're thinking about downsizing — the kids are grown, the house is too big, and you want simplicity.
-
-Either way — the market is in YOUR favor right now. Low inventory means sellers are getting top dollar. Multiple offers. Fast closes. Sometimes waived contingencies.
-
-This is not a market to sit on the sidelines.
-
-I do free home valuations for Columbus homeowners. No pressure. Just the data.
-
-DM me 'MY HOME' and I'll send you a full valuation — what your home is worth today and what we could realistically net you at closing."`,
-  caption:`Columbus homeowners: do you actually know what your home is worth TODAY?\n\nDM me MY HOME — I'll send you a free valuation.\n\n#ColumbusRealEstate #HomeEquity #SellingYourHome #ColumbusOhio #ThePropertyGuy #HomeSeller`},
-
-  {id:"sw2",cat:"seller_warm",pill:"pill-carousel",type:"Carousel",title:"What to Expect When You Sell Your Columbus Home",
-  hook:`SLIDE 1: "Thinking about selling your Columbus home? Here's exactly what the process looks like."`,
-  body:`SLIDE 1 (Cover): "What to Expect When You Sell Your Columbus Home — No Surprises, Just a Plan"
-
-SLIDE 2: Step 1 — Get Your Free Home Valuation
-We analyze recent comparable sales in your specific Columbus neighborhood. I give you a real number — not inflated to get the listing, not low to sell fast. The right number.
-
-SLIDE 3: Step 2 — Prep & Stage (Without Spending a Fortune)
-The #1 ROI items: fresh paint, declutter, professional photos. I handle the photography. Small investment, massive impact on what buyers see online first.
-
-SLIDE 4: Step 3 — Strategic Pricing & Launch
-We don't just list — we launch. The first 7 days on the market drive everything. Pricing right creates urgency. We target multiple offers in the first weekend.
-
-SLIDE 5: Step 4 — Review Offers Together
-I walk you through every offer. Price, terms, contingencies, buyer strength. We negotiate the best deal — not just the highest number, but the best overall package.
-
-SLIDE 6: Step 5 — Under Contract to Closing
-Inspection negotiation, appraisal management, title, lender coordination. I handle the moving parts so you don't have to.
-
-SLIDE 7: What Can You Expect to Net?
-After agent commissions, closing costs, and any concessions — most Columbus sellers are walking away with strong equity checks. Exact numbers depend on your home and loan balance.
-
-SLIDE 8 (CTA): Want to see YOUR numbers? DM me 'SELL' — I'll have a full valuation in your hands within 24 hours.`,
-  caption:`Thinking about selling? Here's what the process actually looks like — no surprises.\n\nDM me SELL below and I'll run your free valuation within 24 hours.\n\n#ColumbusRealEstate #SellingYourHome #ListingAgent #ThePropertyGuy #ColumbusOhio #HomeSeller`},
-
-  {id:"sa1",cat:"seller_attract",pill:"pill-reel",type:"On-Camera Reel",title:"Attract Sellers: Your Neighbors Are Getting Rich",
-  hook:`HOOK: "Your neighbors just sold for $40K over what you think your home is worth. Want to know why?"`,
-  body:`[Walk-and-talk style — show a Columbus neighborhood, a SOLD sign visible if possible]
-
-"Let me show you something interesting.
-
-[pan to sold sign]
-
-This home right here — your neighbor's home — just sold for over asking price.
-
-You know what that means for YOU?
-
-It means comparable sales in this neighborhood just went up. It means if you're thinking about selling, your home — right now, today — is worth more than it was 12 months ago.
-
-And here's the thing about the Columbus market: we have very low inventory. That means every new listing that's priced and marketed correctly gets serious buyer attention immediately.
-
-I'm talking multiple showings in the first 48 hours. Multiple offers. Buyers waiving contingencies to compete.
-
-This is the seller's market you've been waiting for.
-
-I specialize in this Columbus market. 12 years. I know what your home is worth. I know how to market it. And I know how to get you the absolute maximum.
-
-If you're even 10% curious about what your home could sell for right now — DM me 'MY VALUE.' No commitment. Just information."`,
-  caption:`Your neighbors are cashing out. Are you paying attention?\n\nDM me MY VALUE — I'll tell you exactly what YOUR home is worth right now.\n\n#ColumbusRealEstate #SellerMarket #HomeValue #ThePropertyGuy #ColumbusOhio #SellYourHome`},
-
-  {id:"sa2",cat:"seller_attract",pill:"pill-carousel",type:"Carousel",title:"4 Signs Now Is the Time to List Your Columbus Home",
-  hook:`SLIDE 1: "4 signs it's time to sell your Columbus home — even if you weren't planning to."`,
-  body:`SLIDE 1 (Cover): "4 Signs Now Is The Right Time to Sell Your Columbus Home"
-
-SLIDE 2: Sign #1 — You Have Significant Equity
-If you've owned your Columbus home for 3+ years, you've likely gained $40,000–$100,000+ in equity due to appreciation. That's a down payment on your next chapter — or a check you can take anywhere.
-
-SLIDE 3: Sign #2 — Your Home No Longer Fits Your Life
-Growing family. Empty nest. New job location. Life changes, and your home should change with it. The money is here to make that move NOW.
-
-SLIDE 4: Sign #3 — Buyer Demand Exceeds Supply
-Columbus has historically low inventory in most price ranges. When demand exceeds supply, sellers win. Multiple offers. Over asking prices. Fast closes. That's today's reality.
-
-SLIDE 5: Sign #4 — You've Been "Thinking About It" For a While
-Thinking about selling for 6+ months? That's your gut telling you something. The market isn't going to wait forever. At some point, interest rates, buyer demand, or life circumstances change.
-
-SLIDE 6: What Holding Back Costs You
-Every month you delay, the market shifts. Interest rates affect what buyers can afford. Your opportunity window is open — but markets cycle.
-
-SLIDE 7 (CTA): Curious? Let's find out what you could walk away with. DM me 'MY VALUE' — free, fast, and no pressure.`,
-  caption:`If any of these signs hit close to home — your gut is right.\n\nDM me MY VALUE below. Let's see what you could walk away with.\n\n#SellingYourHome #ColumbusRealEstate #HomeEquity #ThePropertyGuy #ColumbusOhio #ListYourHome`},
-
-  {id:"inv1",cat:"investor",pill:"pill-reel",type:"On-Camera Reel",title:"Fix & Flip Columbus Playbook",
-  hook:`HOOK: "A Columbus flip done right can return $30,000–$60,000 in 4–6 months. Here's the formula."`,
-  body:`[On-camera — show a property or use B-roll of Columbus neighborhoods]
-
-"Let me break down a Columbus fix-and-flip deal so you can see exactly how the numbers work.
-
-Purchase price: $120,000 — distressed property in a strong Columbus resale neighborhood.
-
-Rehab budget: $45,000 — cosmetic to moderate work. Kitchens, baths, flooring, paint, curb appeal.
-
-Holding costs — 5 months of financing, utilities, taxes, insurance: roughly $8,000.
-
-Selling costs — agent fees, closing: approximately $14,000 on a $220K sale.
-
-After Repair Value: $225,000.
-
-Your gross profit: approximately $38,000–$42,000 on a 5-month project.
-
-Now — can you improve those numbers? Yes. Faster rehab. Lower purchase price. Stronger ARV neighborhood.
-
-Can you blow up those numbers? Also yes. Bad contractor. Surprise structural issues. Overpriced purchase.
-
-This is why you need systems, relationships, and someone who knows which Columbus zip codes have the rehab depth to support your ARV.
-
-I've worked with flippers at every level in this market. Comment 'FLIP' and let's talk about your first — or next — Columbus deal."`,
-  caption:`Columbus flip math, broken down simply — save this before your next deal.\n\nComment FLIP or DM me. Let's talk numbers.\n\n#FixAndFlip #ColumbusInvestor #RealEstateInvesting #ThePropertyGuy #ColumbusOhio #FlipThatHouse`},
-
-  {id:"inv2",cat:"investor",pill:"pill-reel",type:"On-Camera Reel",title:"Airbnb Columbus Game Plan",
-  hook:`HOOK: "Columbus Airbnb hosts near Ohio State are grossing $3,000–$5,000 per month. Here's the play."`,
-  body:`[On camera — energetic, data-driven]
-
-"Ohio State University has over 60,000 students and hosts over 100,000 fans for home football games.
-
-The Short North is one of the top entertainment districts in the Midwest.
-
-Columbus hosts major conventions at the Greater Columbus Convention Center year-round.
-
-Are you starting to see the short-term rental opportunity here?
-
-Let me paint a picture: a 3-bed, 2-bath property near campus. Modest STR setup. During Ohio State football season alone, you can gross $4,000–$6,000 in a single weekend.
-
-For the rest of the year, steady demand from Ohio State visitors, convention attendees, and business travelers keeps occupancy strong.
-
-Now — you need to understand Columbus STR regulations. Permits are required. There are zone restrictions. This is not a 'buy it and list it tomorrow' market. You need to do it right.
-
-That's where I come in. I know which Columbus properties are in STR-permissible zones. I know what works and what doesn't.
-
-Comment 'AIRBNB' and let's talk about building your Columbus short-term rental strategy."`,
-  caption:`Columbus Airbnb money is REAL — but you have to know where to play.\n\nComment AIRBNB — I'll tell you which Columbus zones work and which don't.\n\n#AirbnbInvesting #ColumbusAirbnb #ShortTermRental #ColumbusOhio #OhioState #ThePropertyGuy #STRInvesting`},
-
-  {id:"inv3",cat:"investor",pill:"pill-carousel",type:"Carousel",title:"Wholesale vs. Flip vs. Airbnb — Which Is Right For You?",
-  hook:`SLIDE 1: "3 ways to make money in Columbus real estate. Which one fits your situation?"`,
-  body:`SLIDE 1 (Cover): "Wholesale vs. Fix & Flip vs. Airbnb — Columbus Investor's Decision Guide"
-
-SLIDE 2: Wholesaling — Best For: Getting Started With No Cash
-What it is: Find distressed properties, get under contract below market value, assign the contract to a buyer for a fee.
-Capital needed: Minimal (EMD of $500–$2,000 + marketing)
-Timeline: 2–8 weeks per deal
-Profit per deal: $5,000–$25,000 assignment fees
-
-SLIDE 3: Fix & Flip — Best For: Builders & Project Managers
-What it is: Buy distressed, renovate, resell at market value.
-Capital needed: Significant (purchase + rehab, or hard money)
-Timeline: 3–9 months per project
-Profit potential: $25,000–$80,000+ per deal
-
-SLIDE 4: Airbnb/STR — Best For: Long-Term Cash Flow Builders
-What it is: Buy in high-demand area, furnish, list on Airbnb/VRBO.
-Capital needed: Down payment + furnishing ($5,000–$15,000)
-Revenue potential: $2,000–$6,000/month in strong Columbus locations
-
-SLIDE 5: Columbus-Specific Advantages for Each
-Wholesale: Aging housing stock + motivated sellers in transitional neighborhoods
-Flip: Franklinton, Linden, South Side — below-market buys with strong ARV upside
-Airbnb: Near Ohio State, Short North, convention center — year-round demand
-
-SLIDE 6: The One Thing All Three Have in Common
-You need LOCAL market knowledge. National data doesn't tell you which streets to buy on in 43204 vs. 43223. Relationships and experience do.
-
-SLIDE 7 (CTA): Which strategy fits you? DM me 'INVEST' — let's figure out your Columbus real estate play.`,
-  caption:`Wholesale. Flip. Airbnb. Which Columbus investment strategy is YOUR play?\n\nDM me INVEST — let's build your plan.\n\n#ColumbusInvestor #RealEstateInvesting #WholesaleRealEstate #FixAndFlip #AirbnbInvesting #ThePropertyGuy #ColumbusOhio`},
-];
-
-// Build sidebar
-const sidebar=document.getElementById('sidebar');
-const groups={};
-categories.forEach(c=>{if(!groups[c.group])groups[c.group]=[];groups[c.group].push(c);});
-Object.entries(groups).forEach(([gname,cats])=>{
-  const sec=document.createElement('div');sec.className='sidebar-section';
-  const lbl=document.createElement('div');lbl.className='sidebar-label';lbl.textContent=gname;sec.appendChild(lbl);
-  cats.forEach(c=>{
-    const count=scripts.filter(s=>s.cat===c.id).length;
-    const btn=document.createElement('button');
-    btn.className='sidebar-btn'+(c.id==='carousel'?' active':'');
-    btn.id='nav-'+c.id;
-    btn.innerHTML=c.label+'<span class="sidebar-count">'+count+'</span>';
-    btn.onclick=()=>showCat(c.id);
-    sec.appendChild(btn);
-  });
-  sidebar.appendChild(sec);
-});
-
-let activeCat='carousel';
-
-function showCat(id){
-  activeCat=id;
-  document.querySelectorAll('.sidebar-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById('nav-'+id).classList.add('active');
-  renderMain();
-}
-
-function renderMain(){
-  const cat=categories.find(c=>c.id===activeCat);
-  const filtered=scripts.filter(s=>s.cat===activeCat);
-  const main=document.getElementById('main');
-  main.innerHTML=`<div class="cat-header"><div class="cat-title">${cat.label}</div><div class="cat-desc">${descs[cat.id]||''}</div></div><div id="cards"></div>`;
-  const cardsEl=document.getElementById('cards');
-  filtered.forEach(s=>{
-    const card=document.createElement('div');card.className='script-card';card.id='card-'+s.id;
-    const hasCaption=s.caption&&s.caption.trim().length>0;
-    card.innerHTML=`<div class="card-trigger" onclick="toggleCard('${s.id}')"><span class="type-pill ${s.pill}">${s.type}</span><span class="card-title-text">${s.title}</span><span class="chevron" id="chev-${s.id}">&#9660;</span></div>
-    <div class="card-body" id="body-${s.id}">
-      <div class="block"><div class="block-label">Hook / Opening</div><div class="hook-box">${s.hook}</div></div>
-      <div class="block"><div class="block-label">Full Script</div><div class="script-box">${s.body}</div><div class="copy-row"><button class="copy-btn" onclick="cp('${s.id}','script')">Copy script</button></div></div>
-      ${hasCaption?`<div class="block"><div class="block-label">Caption + Hashtags</div><div class="caption-box">${s.caption}</div><div class="copy-row"><button class="copy-btn" onclick="cp('${s.id}','caption')">Copy caption</button></div></div>`:''}
-    </div>`;
-    cardsEl.appendChild(card);
+var aMid = "m2", aWid = "w5";
+
+function buildNav(){
+  var nav = document.getElementById('nav');
+  nav.innerHTML = '';
+  DATA.forEach(function(mo){
+    var g = document.createElement('div'); g.className='ng';
+    var l = document.createElement('div'); l.className='nl'; l.textContent=mo.mlabel; g.appendChild(l);
+    mo.weeks.forEach(function(wk){
+      var cnt = wk.days.reduce(function(a,d){return a+d.posts.length;},0);
+      var b = document.createElement('button'); b.className='nb'+(wk.wid===aWid?' on':'');
+      b.id='nb-'+wk.wid;
+      b.innerHTML=wk.wlabel.split('—')[0]+'<span class="nc">'+cnt+'p</span>';
+      b.onclick=(function(m,w){return function(){aMid=m.mid;aWid=w.wid;buildNav();render();};})(mo,wk);
+      g.appendChild(b);
+    });
+    nav.appendChild(g);
   });
 }
 
-function toggleCard(id){
-  const body=document.getElementById('body-'+id);const chev=document.getElementById('chev-'+id);
-  const open=body.classList.contains('open');
-  document.querySelectorAll('.card-body.open').forEach(el=>el.classList.remove('open'));
-  document.querySelectorAll('.chevron.open').forEach(el=>el.classList.remove('open'));
-  if(!open){body.classList.add('open');chev.classList.add('open');}
-}
-
-function cp(id,type){
-  const s=scripts.find(x=>x.id===id);
-  const text=type==='caption'?s.caption:s.body;
-  navigator.clipboard.writeText(text||'').then(()=>{
-    const btns=document.querySelectorAll('#card-'+id+' .copy-btn');
-    const btn=type==='caption'?btns[btns.length-1]:btns[0];
-    if(btn){btn.textContent='Copied!';btn.classList.add('copied');setTimeout(()=>{btn.textContent=type==='caption'?'Copy caption':'Copy script';btn.classList.remove('copied');},2000);}
+function render(){
+  var mo=DATA.find(function(m){return m.mid===aMid;});
+  var wk=mo.weeks.find(function(w){return w.wid===aWid;});
+  var totalPosts=wk.days.reduce(function(a,d){return a+d.posts.length;},0);
+  var paidDays=wk.days.filter(function(d){return d.posts.some(function(p){return p.type==='paid';});}).length;
+  var stats=[
+    {v:totalPosts+'',l:'Posts this week'},
+    {v:paidDays+'d',l:'Days with paid ads'},
+    {v:mo.mbudget,l:'Ad budget range'},
+    {v:wk.wtarget,l:'Follower target'}
+  ];
+  var c=document.getElementById('content');
+  c.innerHTML='<div class="stats">'+stats.map(function(s){return '<div class="st"><div class="stv">'+s.v+'</div><div class="stl">'+s.l+'</div></div>';}).join('')+'</div>'
+    +'<div class="mban">'+mo.mlabel+' &nbsp;·&nbsp; '+mo.mfocus+'</div>'
+    +'<div class="whead"><div class="wtitle">'+wk.wlabel+'</div><div class="wfocus">'+wk.wfocus+'</div><span class="wtarget">Target: '+wk.wtarget+'</span></div>'
+    +'<div class="days" id="days"></div>';
+  var dl=document.getElementById('days');
+  wk.days.forEach(function(day){
+    var dc=document.createElement('div'); dc.className='dcard';
+    var ph=day.posts.map(function(p){
+      var bc=p.type==='paid'?'bpaid':'borg';
+      var bl=p.type==='paid'?'Paid Ad':'Organic';
+      return '<div class="prow"><div class="pmeta"><span class="badge '+bc+'">'+p.time+' — '+bl+'</span><span class="fmtbadge">'+p.fmt+'</span></div>'
+        +'<div class="ptitle">'+p.title+'</div>'
+        +'<div class="pcap">'+p.cap+'</div>'
+        +'<span class="pcta">CTA: '+p.cta+'</span>'
+        +'<button class="cpbtn" onclick="cp(this,\''+encodeURIComponent(p.cap)+'\')">Copy caption</button>'
+        +'</div>';
+    }).join('');
+    dc.innerHTML='<div class="dhdr" onclick="tog(this)">'
+      +'<span class="dot" style="background:'+day.dot+'"></span>'
+      +'<span class="dname">'+day.name+'</span>'
+      +'<span class="dtheme">'+day.theme+'</span>'
+      +'<span class="dcnt">'+day.posts.length+' post'+(day.posts.length>1?'s':'')+'</span>'
+      +'<span class="chev">&#9660;</span>'
+      +'</div><div class="dbody">'+ph+'</div>';
+    dl.appendChild(dc);
   });
 }
 
-renderMain();
+function tog(h){
+  var b=h.nextElementSibling,cv=h.querySelector('.chev');
+  var op=b.classList.contains('op');
+  document.querySelectorAll('.dbody.op').forEach(function(e){e.classList.remove('op');});
+  document.querySelectorAll('.chev.op').forEach(function(e){e.classList.remove('op');});
+  if(!op){b.classList.add('op');cv.classList.add('op');}
+}
+
+function cp(btn,enc){
+  navigator.clipboard.writeText(decodeURIComponent(enc)).then(function(){
+    btn.textContent='Copied!';btn.classList.add('ok');
+    setTimeout(function(){btn.textContent='Copy caption';btn.classList.remove('ok');},2000);
+  });
+}
+
+buildNav(); render();
 </script>
 </body>
 </html>
